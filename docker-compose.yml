@@ -1,0 +1,23 @@
+version: "3.1"
+services:
+  django:
+    build: .
+    env_file:
+      - .docker-compose_django.env
+    volumes: 
+      - .:/home/django/dlcs-staff-ui
+    ports: 
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: gvenzl/oracle-xe:18
+    env_file:
+      - .docker-compose_db.env
+    volumes:
+      - ora_data:/opt/oracle/oradata
+    # Also allow host to access running database
+    ports: 
+      - "1521:1521"
+volumes:
+  ora_data:
