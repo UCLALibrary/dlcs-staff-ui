@@ -105,7 +105,7 @@ $ docker-compose exec django bash
 # Either source a file with these variables, or directly set them via the command line,
 # using appropriate values.
 # If using a file, keep it out of the git repo by including "secret" or "password" in the filename.
-DJANGO_DB_DSN=remote_database_domain:1521/remote_service_name
+DJANGO_DB_DSN=remote_database_domain:1521/remote_oracle_service_name
 DJANGO_DB_USER=remote_username
 DJANGO_DB_PASS=remote_password
 
@@ -140,7 +140,7 @@ Once the ssh tunnel is established, follow the same steps as in the `Via allowed
 requires a different DSN for database connection (remote user and password are the same with both methods):
 ```
 # host.docker.internal is a "magic" docker domain which allows docker to connect to host network resources
-DJANGO_DB_DSN=host.docker.internal:1599/remote_service_name
+DJANGO_DB_DSN=host.docker.internal:1599/remote_oracle_service_name
 DJANGO_DB_USER=remote_username
 DJANGO_DB_PASS=remote_password
 ```
