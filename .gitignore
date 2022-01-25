@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+### UCLA project local additions ###
+# Secret / password files
+*secret*
+*password*
+

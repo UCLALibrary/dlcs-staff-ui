@@ -10,14 +10,21 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    extra_hosts:
+      # For access to remote database via ssh tunnel on host
+      - "host.docker.internal:host-gateway"
+      # For access to remote database directly, assuming host is on ITS allowed IP list
+      - "dba-lib-odb-q01.it.ucla.edu:164.67.132.78"
+      - "dba-lib-odb-p01.it.ucla.edu:164.67.132.79"
   db:
     image: gvenzl/oracle-xe:18
     env_file:
       - .docker-compose_db.env
     volumes:
       - ora_data:/opt/oracle/oradata
-    # Also allow host to access running database
+    # Also allow host to access container database on port 1555
+    # (chosen to avoid conflict with other database connections)
     ports: 
-      - "1521:1521"
+      - "1555:1521"
 volumes:
   ora_data:
