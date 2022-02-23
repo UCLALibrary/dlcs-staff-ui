@@ -4,8 +4,8 @@ from django.db import models
 
 class DlObjects(models.Model):
     objectid_pk = models.IntegerField(primary_key=True)
-    projectid_fk = models.ForeignKey('Projects', models.DO_NOTHING, db_column='projectid_fk')
-    object_typeid_fk = models.ForeignKey('DlObjectTypes', models.DO_NOTHING, db_column='object_typeid_fk')
+    projectid_fk = models.ForeignKey('Projects', models.CASCADE, db_column='projectid_fk')
+    object_typeid_fk = models.ForeignKey('DlObjectTypes', models.CASCADE, db_column='object_typeid_fk')
     object_label = models.CharField(max_length=200, blank=True, null=True)
     object_level = models.IntegerField()
 
@@ -53,10 +53,10 @@ class Projects(models.Model):
 
 class ProjectItems(models.Model):
     divid_pk = models.IntegerField(primary_key=True)
-    objectid_fk = models.ForeignKey('DlObjects', models.DO_NOTHING, db_column='objectid_fk')
+    objectid_fk = models.ForeignKey('DlObjects', models.CASCADE, db_column='objectid_fk')
     create_date = models.DateField()
     last_edit_date = models.DateField()
-    projectid_fk = models.ForeignKey(Projects, models.DO_NOTHING, db_column='projectid_fk')
+    projectid_fk = models.ForeignKey(Projects, models.CASCADE, db_column='projectid_fk')
     item_ark = models.CharField(unique=True, max_length=500)
     sent_to_dpr_flag = models.CharField(max_length=3, blank=True, null=True)
     parent_divid = models.IntegerField(blank=True, null=True)
@@ -65,7 +65,7 @@ class ProjectItems(models.Model):
     old_divid = models.CharField(max_length=100, blank=True, null=True)
     old_parent_divid = models.CharField(max_length=100, blank=True, null=True)
     node_title = models.CharField(max_length=1000, blank=True, null=True)
-    statusid_fk = models.ForeignKey('QaStatus', models.DO_NOTHING, db_column='statusid_fk', blank=True, null=True)
+    statusid_fk = models.ForeignKey('QaStatus', models.CASCADE, db_column='statusid_fk', blank=True, null=True)
     created_by = models.CharField(max_length=30, blank=True, null=True)
     modified_by = models.CharField(max_length=30, blank=True, null=True)
     approved_by = models.CharField(max_length=30, blank=True, null=True)

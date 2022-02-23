@@ -97,9 +97,9 @@ class Migration(migrations.Migration):
                 ('created_by', models.CharField(blank=True, max_length=30, null=True)),
                 ('modified_by', models.CharField(blank=True, max_length=30, null=True)),
                 ('approved_by', models.CharField(blank=True, max_length=30, null=True)),
-                ('objectid_fk', models.ForeignKey(db_column='objectid_fk', on_delete=django.db.models.deletion.DO_NOTHING, to='oral_history.dlobjects')),
-                ('projectid_fk', models.ForeignKey(db_column='projectid_fk', on_delete=django.db.models.deletion.DO_NOTHING, to='oral_history.projects')),
-                ('statusid_fk', models.ForeignKey(blank=True, db_column='statusid_fk', null=True, on_delete=django.db.models.deletion.DO_NOTHING, to='oral_history.qastatus')),
+                ('objectid_fk', models.ForeignKey(db_column='objectid_fk', on_delete=django.db.models.deletion.CASCADE, to='oral_history.dlobjects')),
+                ('projectid_fk', models.ForeignKey(db_column='projectid_fk', on_delete=django.db.models.deletion.CASCADE, to='oral_history.projects')),
+                ('statusid_fk', models.ForeignKey(blank=True, db_column='statusid_fk', null=True, on_delete=django.db.models.deletion.CASCADE, to='oral_history.qastatus')),
             ],
             options={
                 'db_table': 'project_items',
@@ -109,11 +109,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='dlobjects',
             name='object_typeid_fk',
-            field=models.ForeignKey(db_column='object_typeid_fk', on_delete=django.db.models.deletion.DO_NOTHING, to='oral_history.dlobjecttypes'),
+            field=models.ForeignKey(db_column='object_typeid_fk', on_delete=django.db.models.deletion.CASCADE, to='oral_history.dlobjecttypes'),
         ),
         migrations.AddField(
             model_name='dlobjects',
             name='projectid_fk',
-            field=models.ForeignKey(db_column='projectid_fk', on_delete=django.db.models.deletion.DO_NOTHING, to='oral_history.projects'),
+            field=models.ForeignKey(db_column='projectid_fk', on_delete=django.db.models.deletion.CASCADE, to='oral_history.projects'),
         ),
     ]
