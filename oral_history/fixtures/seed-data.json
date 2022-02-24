@@ -1,0 +1,542 @@
+[
+  {
+    "model": "oral_history.qastatus",
+    "pk": 1,
+    "fields": {
+      "status": "In progress",
+      "description": "the record is being actively catalog."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 2,
+    "fields": {
+      "status": "Completed",
+      "description": "the resource and the metadata record are complete and ready to be part of the collection."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 3,
+    "fields": {
+      "status": "Pending",
+      "description": "either the resource or the metadata have issues such that a decision needs to be made about whether the resource or metadata should be in the collection."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 4,
+    "fields": {
+      "status": "Derived",
+      "description": "New record created by deriving it from an existing record."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 5,
+    "fields": {
+      "status": "Imported",
+      "description": "the record was created through programmatic means."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 6,
+    "fields": {
+      "status": "Needs QA",
+      "description": "the resource needs to have metadata quality assurance performed."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 7,
+    "fields": {
+      "status": "Needs Review",
+      "description": "the resource (not metadata) is awaiting or is undergoing a review process."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 8,
+    "fields": {
+      "status": "Record proofed; needs metadata review ",
+      "description": "record ready for review by CMC staff"
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 9,
+    "fields": {
+      "status": "Needs expert metadata review ",
+      "description": "initial review by CMC staff completed; needs further work by language/subject expert"
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 10,
+    "fields": {
+      "status": "Completed with minimal metadata",
+      "description": "the resource and the metadata record are complete and ready to be part of the collection."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 11,
+    "fields": {
+      "status": "Sealed",
+      "description": "Anything with this status should not be published to the web."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 12,
+    "fields": {
+      "status": "Migrated",
+      "description": "the record has been migrated to Islandora."
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 1,
+    "fields": {
+      "object_type": "Collection"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 2,
+    "fields": {
+      "object_type": "Book"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 3,
+    "fields": {
+      "object_type": "Image Group"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 4,
+    "fields": {
+      "object_type": "Chapter"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 5,
+    "fields": {
+      "object_type": "Page Group"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 6,
+    "fields": {
+      "object_type": "Manuscript Group"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 7,
+    "fields": {
+      "object_type": "Audio Group"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 8,
+    "fields": {
+      "object_type": "Volume"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 9,
+    "fields": {
+      "object_type": "Series"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 10,
+    "fields": {
+      "object_type": "Manuscript"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 11,
+    "fields": {
+      "object_type": "Image"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 12,
+    "fields": {
+      "object_type": "Page"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 13,
+    "fields": {
+      "object_type": "Audio"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 14,
+    "fields": {
+      "object_type": "Work"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 15,
+    "fields": {
+      "object_type": "Video"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 16,
+    "fields": {
+      "object_type": "Website"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 17,
+    "fields": {
+      "object_type": "Issue"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 18,
+    "fields": {
+      "object_type": "Source"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 19,
+    "fields": {
+      "object_type": "Interview"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 20,
+    "fields": {
+      "object_type": "Song"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 21,
+    "fields": {
+      "object_type": "Sheetmusic"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 22,
+    "fields": {
+      "object_type": "Performance"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 23,
+    "fields": {
+      "object_type": "Titlepage"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 28,
+    "fields": {
+      "object_type": "SheetMusic"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 29,
+    "fields": {
+      "object_type": "TitlePage"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 30,
+    "fields": {
+      "object_type": "Fragment"
+    }
+  },
+  {
+    "model": "oral_history.dlobjecttypes",
+    "pk": 64,
+    "fields": {
+      "object_type": "Periodical"
+    }
+  },
+  {
+    "model": "oral_history.projects",
+    "pk": 80,
+    "fields": {
+      "project_title": "UCLA Center for Oral History Research Interview Collection",
+      "project_manager": "Jane Collings",
+      "department": "DLP",
+      "working_dir": "\\\\ad\\Dlib\\Projects\\General\\Oral History\\UCLA Oral History Research Center\\",
+      "webapp_dir": "",
+      "image_masters_dir": "\\\\ad\\Dlib\\Masters\\dlmasters\\oralhistory\\masters\\",
+      "image_submasters_dir": "",
+      "audio_masters_dir": "\\\\ad\\Dlib\\Masters\\dlmasters\\oralhistory\\audio\\masters\\",
+      "audio_submasters_dir": "\\\\ad\\Dlib\\dlcontent-prod\\oralhistory\\",
+      "video_masters_dir": "",
+      "video_submasters_dir": "",
+      "text_masters_dir": "\\\\ad\\Dlib\\Masters\\dlmasters\\oralhistory\\text\\masters\\",
+      "text_submasters_dir": "",
+      "setup_flag": "yes",
+      "auto_publish_flag": "yes",
+      "lob_masters_dir": "\\\\ad\\Dlib\\Masters\\dlmasters\\oralhistory\\pdf\\masters\\",
+      "lob_submasters_dir": "",
+      "dpr_access_groupid": "ORALHISTORY01",
+      "webapp_name": "oralhistory",
+      "thumbnail_dir": "\\\\ad\\Dlib\\dlcontent-prod\\oralhistory\\nails\\",
+      "item_ordering_flag": "yes",
+      "website_masters_dir": "",
+      "oai_flag": "yes"
+    }
+  },
+  {
+    "model": "oral_history.dlobjects",
+    "pk": 236,
+    "fields": {
+      "projectid_fk": 80,
+      "object_typeid_fk": 1,
+      "object_label": "Collection",
+      "object_level": 1
+    }
+  },
+  {
+    "model": "oral_history.dlobjects",
+    "pk": 237,
+    "fields": {
+      "projectid_fk": 80,
+      "object_typeid_fk": 9,
+      "object_label": "Series",
+      "object_level": 2
+    }
+  },
+  {
+    "model": "oral_history.dlobjects",
+    "pk": 238,
+    "fields": {
+      "projectid_fk": 80,
+      "object_typeid_fk": 19,
+      "object_label": "Interview",
+      "object_level": 3
+    }
+  },
+  {
+    "model": "oral_history.dlobjects",
+    "pk": 239,
+    "fields": {
+      "projectid_fk": 80,
+      "object_typeid_fk": 13,
+      "object_label": "Audio",
+      "object_level": 4
+    }
+  },
+  {
+    "model": "oral_history.dlobjects",
+    "pk": 931,
+    "fields": {
+      "projectid_fk": 80,
+      "object_typeid_fk": 13,
+      "object_label": "Video",
+      "object_level": 4
+    }
+  },
+  {
+    "model": "oral_history.projectitems",
+    "pk": 29504,
+    "fields": {
+      "objectid_fk": 236,
+      "create_date": "2008-01-31",
+      "last_edit_date": "2009-06-01",
+      "projectid_fk": 80,
+      "item_ark": "21198/zz0008zh0f",
+      "sent_to_dpr_flag": "no",
+      "parent_divid": 0,
+      "item_sequence": null,
+      "desc_clob": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<record>\r\n  <metadata>\r\n    <dc>\r\n      <identifier>21198/zz0008zh0f</identifier>\r\n      <altIdentifier>\r\n        <local>300OH</local>\r\n      </altIdentifier>\r\n      <title>Oral History Collection</title>\r\n      <publisher>\r\n        <publisherName>UCLA Library, Center for Oral History Research</publisherName>\r\n      </publisher>\r\n      <type>\r\n        <typeOfResource>text</typeOfResource>\r\n        <typeOfResource>sound recording</typeOfResource>\r\n      </type>\r\n      <language>eng</language>\r\n      <rights>\r\n        <rightsHolderName>Regents of the University of California, UCLA Library.</rightsHolderName>\r\n      </rights>\r\n    </dc>\r\n  </metadata>\r\n</record>\r\n\r\n",
+      "old_divid": "300OH",
+      "old_parent_divid": "",
+      "node_title": "Oral History Collection",
+      "statusid_fk": 2,
+      "created_by": "Data Migration",
+      "modified_by": "Stephen Davison",
+      "approved_by": ""
+    }
+  },
+  {
+    "model": "oral_history.projectitems",
+    "pk": 30572,
+    "fields": {
+      "objectid_fk": 237,
+      "create_date": "2008-02-05",
+      "last_edit_date": "2008-10-16",
+      "projectid_fk": 80,
+      "item_ark": "21198/zz00093sk9",
+      "sent_to_dpr_flag": "no",
+      "parent_divid": 29504,
+      "item_sequence": null,
+      "desc_clob": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<record>\r\n  <metadata>\r\n    <dc>\r\n      <identifier>21198/zz00093sk9</identifier>\r\n      <title>Z: Orphan Interviews after 1999</title>\r\n    </dc>\r\n  </metadata>\r\n</record>\r\n\r\n",
+      "old_divid": "",
+      "old_parent_divid": "",
+      "node_title": "Z: Orphan Interviews after 1999",
+      "statusid_fk": 2,
+      "created_by": "oralhistory data entry",
+      "modified_by": "Sheila",
+      "approved_by": ""
+    }
+  },
+  {
+    "model": "oral_history.projectitems",
+    "pk": 2944697,
+    "fields": {
+      "objectid_fk": 238,
+      "create_date": "2013-01-09",
+      "last_edit_date": "2021-04-22",
+      "projectid_fk": 80,
+      "item_ark": "21198/zz002dx6qx",
+      "sent_to_dpr_flag": "no",
+      "parent_divid": 30572,
+      "item_sequence": 2,
+      "desc_clob": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<record>\r\n  <metadata>\r\n    <dc>\r\n      <identifier>21198/zz002dx6qx</identifier>\r\n      <title>Interview of Anthony Seeger</title>\r\n      <name>\r\n        <interviewer>Cline, Alex</interviewer>\r\n        <interviewee>Seeger, Anthony</interviewee>\r\n      </name>\r\n      <subject>\r\n        <level1>Arts, Literature, Music, and Film</level1>\r\n        <level1>UCLA and University of California History</level1>\r\n        <level2>UCLA Faculty</level2>\r\n        <level2>Music</level2>\r\n      </subject>\r\n      <description>\r\n        <place>Sessions one to four: Seeger’s office in the Department of Ethnomusicology at Schoenberg Music Building, UCLA; Session five: Temporary office space in the Department of Ethnomusicology at Schoenberg Music Building, UCLA.</place>\r\n        <personpresent>Seeger and Cline.</personpresent>\r\n        <biographicalNote>UCLA distinguished professor of ethnomusicology. Director of Smithsonian Folkways Recordings.</biographicalNote>\r\n        <processinterview>The transcript is a verbatim transcription of the recording. It was transcribed by a professional transcribing agency using a list of proper names and specialized terminology supplied by the interviewer. Seeger was then given an opportunity to review the transcript and make corrections and additions. Those corrections were entered into the text without further editing or review on the part of the Center for Oral History Research staff.</processinterview>\r\n        <interviewerhistory>The interview was conducted by Alex Cline, interviewer and series coordinator for music, UCLA Library’s Center for Oral History Research; jazz musician.&#xD;\r\n&#xD;\r\nCline prepared for the interviews by researching and reviewing the wealth of materials available on Seeger, his work, and his family, including those provided by Seeger himself, by researching subject areas relevant to Seeger’s diverse career, and by reviewing Seeger’s book Why Suyá Sing.</interviewerhistory>\r\n        <supportingdocuments>Records relating to the interview are located in the office of the UCLA Library's Center for Oral History Research.</supportingdocuments>\r\n        <biographicalNote>UCLA distinguished professor of ethnomusicology. Director of Smithsonian Folkways Recordings.</biographicalNote>\r\n      </description>\r\n      <type>\r\n        <typeOfResource>text</typeOfResource>\r\n      </type>\r\n      <format>8 hrs.</format>\r\n      <language>eng</language>\r\n      <coverage>1945-2012</coverage>\r\n      <rights>\r\n        <rightsHolderName>Regents of the University of California, UCLA Library.</rightsHolderName>\r\n      </rights>\r\n    </dc>\r\n  </metadata>\r\n</record>\r\n\r\n",
+      "old_divid": "",
+      "old_parent_divid": "",
+      "node_title": "Interview of Anthony Seeger",
+      "statusid_fk": 2,
+      "created_by": "Eric Chuk",
+      "modified_by": "Teresa Barnett ",
+      "approved_by": ""
+    }
+  },
+  {
+    "model": "oral_history.projectitems",
+    "pk": 2944698,
+    "fields": {
+      "objectid_fk": 239,
+      "create_date": "2013-01-09",
+      "last_edit_date": "2015-04-23",
+      "projectid_fk": 80,
+      "item_ark": "21198/zz002dx6rf",
+      "sent_to_dpr_flag": "no",
+      "parent_divid": 2944697,
+      "item_sequence": 1,
+      "desc_clob": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<record>\r\n  <metadata>\r\n    <dc>\r\n      <identifier>21198/zz002dx6rf</identifier>\r\n      <title>SESSION 1 (2/2/2012)</title>\r\n      <description>\r\n        <tableOfContents>Father John Seeger’s background as a member of the illustrious musical Seeger family—How working at a summer camp helped young John Seeger transition from business to education as his career—Anthony Seeger is born and spends his earliest years in the Greenwich Village area of New York City—Mother’s family background—Prominent role the Communist Party played among progressive Americans and artists concerned about justice and equal rights beginning in the 1930s—Housekeepers help take care of young Seeger while both his parents worked as schoolteachers—Seeger and his future wife Judith Seeger’s paths cross as infants—The family’s small apartment in Greenwich Village—The Seegers relocate for one year to a building uptown on Park Avenue above Alger Hiss’s apartment—They move again to Eighty-ninth Street, closer to the Dalton School, where Seeger’s parents taught and where he went to school—Time Seeger spent on weekends exploring New York City and beyond with his father—His parents purchase a summer camp in Vermont, where they developed and practiced their educational philosophy during summers—Records Seeger used to listen to as a youngster, including those by Woody Guthrie and his uncle Pete Seeger—Tension in his family during the McCarthy era in the 1950s—His family purchases a television set to watch the trial of Senator McCarthy—Music Seeger heard at home as a small child—His early experiences playing musical instruments—Early recordings on Folkways Records and Stinson Records that proved hugely influential to Seeger—Learning the family’s musical repertoire—Family life after his sister, Kate Seeger, was born when he was ten years old—School experience at the Dalton School—His parents’ teaching at the school—The student body at Dalton—Early portent of Seeger’s interest in ethnomusicology while at Dalton—People in Seeger’s neighborhood—After eighth grade, he relocates to the Putney School, a boarding school in Vermont—His parents build him a cabin in Vermont—His sister’s school—How his parents’ careers in education ultimately ended—General lack of rebellion against the Seeger family culture among the Seeger family’s members—His positive boarding school experience—The Unitarian background of his family and its effect on Seeger.</tableOfContents>\r\n      </description>\r\n    </dc>\r\n  </metadata>\r\n</record>\r\n\r\n",
+      "old_divid": "",
+      "old_parent_divid": "",
+      "node_title": "SESSION 1 (2/2/2012)",
+      "statusid_fk": 2,
+      "created_by": "Eric Chuk",
+      "modified_by": "Teresa Barnett ",
+      "approved_by": ""
+    }
+  },
+  {
+    "model": "oral_history.projectitems",
+    "pk": 2944699,
+    "fields": {
+      "objectid_fk": 239,
+      "create_date": "2013-01-09",
+      "last_edit_date": "2015-04-23",
+      "projectid_fk": 80,
+      "item_ark": "21198/zz002dx6sz",
+      "sent_to_dpr_flag": "no",
+      "parent_divid": 2944697,
+      "item_sequence": 2,
+      "desc_clob": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<record>\r\n  <metadata>\r\n    <dc>\r\n      <identifier>21198/zz002dx6sz</identifier>\r\n      <title>SESSION 2 (3/1/2012)</title>\r\n      <description>\r\n        <tableOfContents>Musical activities and entertainment while at Putney—The students at Putney—Academic demands at Putney—Infrequency with which Seeger visited his family while at Putney—He applies to a number of universities and is accepted by Harvard University—How his family was able to afford to send Seeger to Harvard—Ease with which Seeger adjusted to life at Harvard—A class in anthropology offers him some needed direction, leading him to major in social relations—After their second year at Harvard, he and roommate Jonathan Lash decide to take a year off and drive to Alaska—Notification from the draft board sends Seeger back to Harvard with renewed dedication to academics—Folklore studies with Albert Lord—Impact of John F. and Robert F. Kennedy and Martin Luther King Jr. assassinations on him—His lack of interest in popular music during the 1960s—He becomes engaged to Judith Austin during his junior year at Harvard—Reasons Seeger avoided Harvard’s music department while he was a student there—Studies with David Maybury-Lewis—He engages in a project analyzing world myths via computer—Seeger and Austin marry at the Seeger family camp in Vermont—The Seegers go to Cornell University for their graduate studies—Private seminars at the home of anthropology professor Victor Turner—After Seeger’s first year at Cornell, his professors Victor Turner and Terrence Turner relocate to the University of Chicago, and the Seegers move there as well—Heightened political activity and accompanying paranoia while in Chicago, beginning in 1968—Seeger’s stable and committed life during the confusion and turmoil of the late sixties—Origin and requirements of Seeger’s anthropological fellowship to study the Suyá people in the Amazon jungle of Brazil—Academic preparation for his work in the field—He receives his fellowship, both Seegers go to Brazil, and they are then endlessly stalled by the Brazilian government—By making a number of personal connections, the Seegers are finally granted permission to enter the field in June of 1971—The questions regarding music and social structure that informed Seeger’s research in the field—Physical demands of the fieldwork Seeger chose to do and steps he took to prepare for them—The Seegers choose to wait to have children until they have finished their Ph.D.'s—Advantage the Seegers had sharing the challenge of living in the field together.</tableOfContents>\r\n      </description>\r\n    </dc>\r\n  </metadata>\r\n</record>\r\n\r\n",
+      "old_divid": "",
+      "old_parent_divid": "",
+      "node_title": "SESSION 2 (3/1/2012)",
+      "statusid_fk": 2,
+      "created_by": "Eric Chuk",
+      "modified_by": "Teresa Barnett ",
+      "approved_by": ""
+    }
+  },
+  {
+    "model": "oral_history.projectitems",
+    "pk": 2944700,
+    "fields": {
+      "objectid_fk": 239,
+      "create_date": "2013-01-09",
+      "last_edit_date": "2015-04-23",
+      "projectid_fk": 80,
+      "item_ark": "21198/zz002dx6tg",
+      "sent_to_dpr_flag": "no",
+      "parent_divid": 2944697,
+      "item_sequence": 3,
+      "desc_clob": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<record>\r\n  <metadata>\r\n    <dc>\r\n      <identifier>21198/zz002dx6tg</identifier>\r\n      <title>SESSION 3 (3/6/2012)</title>\r\n      <description>\r\n        <tableOfContents>History of early contact with the Suyá tribe and its eventual interaction with modern Brazilians—Items the Seegers chose to bring into the field with them—Their journey into the field—The Seegers exchange musical performances with the indigenous people in the Amazon jungle along the way—Arrival at the Suyá village—Obtaining food becomes their first challenge—Accommodations, climate, and practical living conditions with the Suyá—Seeger’s first venture out of the field after being there for three months—His work becomes more productive once he returns to the field—Sickness while in the field—Sharing of food and resources among the Suyá villagers—Judy Seeger’s experience living among the Suyá—Degree to which Seeger participated in the Suyá’s culture and lifestyle while he lived with them—Conditions under which the Suyá agreed to allow the Seegers to live among them—The Seegers’ day-to-day activities in the village—The challenges experienced when they re-entered the modern world for the first time after time spent in the field—Seeger’s constant fieldwork activities—He accepts an opportunity to teach for three months at the Federal University of Rio de Janeiro at the National Museum with Roberto Da Matta—He receives a fellowship to write his dissertation, which he does in three months’ time back in Vermont—His dissertation defense at the University of Chicago—Begins a tenure-track teaching position in anthropology at Pomona College—In 1975 he accepts an offer to teach a graduate course in social anthropology at the National Museum in Brazil—The Seegers have their two daughters in Brazil—They take their young daughter Elisa into the Suyá village when she is two years old—The Seegers host one of the Suyá at their home in Rio de Janeiro—They later return to the Suyá village with both their young daughters—Seeger returns to the U.S. to study ethnomusicology at Indiana University, where he is ultimately offered a job teaching anthropology—Culture shock upon moving to Bloomington, Indiana—The Suyá reach out to Seeger to help them with land invasion issues back in Brazil—The Seegers return to the village in 1994, finding a tense situation awaiting them—Data from Seeger’s earlier research proves the Suyá’s land claim, helping them win their case—Value of looking at the very long view of field research and its inherent changes over time—The life-changing impact of the return to the Suyá village on the Seegers’ then-teenage daughters—The Seeger daughters’ language skills.</tableOfContents>\r\n      </description>\r\n    </dc>\r\n  </metadata>\r\n</record>\r\n\r\n",
+      "old_divid": "",
+      "old_parent_divid": "",
+      "node_title": "SESSION 3 (3/6/2012)",
+      "statusid_fk": 2,
+      "created_by": "Eric Chuk",
+      "modified_by": "Teresa Barnett ",
+      "approved_by": ""
+    }
+  },
+  {
+    "model": "oral_history.projectitems",
+    "pk": 2944701,
+    "fields": {
+      "objectid_fk": 239,
+      "create_date": "2013-01-09",
+      "last_edit_date": "2013-10-28",
+      "projectid_fk": 80,
+      "item_ark": "21198/zz002dx6v0",
+      "sent_to_dpr_flag": "no",
+      "parent_divid": 2944697,
+      "item_sequence": 4,
+      "desc_clob": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<record>\r\n  <metadata>\r\n    <dc>\r\n      <identifier>21198/zz002dx6v0</identifier>\r\n      <title>SESSION 4 (3/21/2012)</title>\r\n      <description>\r\n        <tableOfContents>History of the National Museum in Brazil and Seeger’s role as an anthropologist there—Challenges associated with working in Brazil under a military dictatorship in the early seventies—His concern about letter bombs while he was working at the museum—Reasons he, a foreigner, was elected president of the Brazilian Indian rights commission—He is elected chairman of the department of anthropology at the museum—Evidence and encounters with expressions of Afro-Brazilian religious beliefs and practices around the museum—Situation at Indiana University which led to Seeger being offered as both associate professor of anthropology and director of the Archive of Traditional Music there—Contents, formats, and condition of the archive when Seeger took over as its director—After assessing the archive, he comes to value and appreciate its importance and worth, inspiring him to become a visible advocate for archives—How he began to solve problems of preservation, cataloging, and dissemination at the archive—How accepting the Hoagie Carmichael Collection led to the archive moving into a new and state-of-the-art facility—After finishing his book Why Suyá Sing, Seeger decides to take a sabbatical and return to Brazil to do a comparative study there, receiving grants to do it—Instead, he is recruited by Ralph Rinzler to come to the Smithsonian Institution to become director/curator of Folkways Records, an offer he ultimately accepts—The benefit recording project Folkways: A Vision Shared which led to Folkways succeeding at becoming part of the Smithsonian—Reasons Seeger decided to apply for the Folkways job—He receives the job and his family relocates to Annapolis, Maryland—The Smithsonian’s expectations for Folkways—How after careful study Seeger decided to approach updating and making changes at Folkways upon becoming its director/curator—New strategies he employed to try to reach and expand Folkways’ market—How the Internet became a boon to independent record labels—His love of the LP record—The challenge of coping with the Smithsonian’s bureaucracy—Ella Jenkins’s consistent sales success at Folkways—Folkways’ annual release strategy—The label’s mission and its stance regarding new artists—A video collection project is undertaken in partnership with JVC in Japan—Seeger’s personal involvement in Folkways’ projects and the size of the audience the projects reached—Other record labels Seeger decided to acquire—The importance of independent record labels—How Seeger handled Congress’s inquiry into the controversial catalog of Paradon Records after the Smithsonian acquired it—Quality help he enjoyed while at Folkways—His eventual frustration at Folkways.</tableOfContents>\r\n      </description>\r\n    </dc>\r\n  </metadata>\r\n</record>\r\n\r\n",
+      "old_divid": "",
+      "old_parent_divid": "",
+      "node_title": "SESSION 4 (3/21/2012)",
+      "statusid_fk": 2,
+      "created_by": "Eric Chuk",
+      "modified_by": "Heather",
+      "approved_by": ""
+    }
+  },
+  {
+    "model": "oral_history.projectitems",
+    "pk": 2944702,
+    "fields": {
+      "objectid_fk": 239,
+      "create_date": "2013-01-09",
+      "last_edit_date": "2015-04-23",
+      "projectid_fk": 80,
+      "item_ark": "21198/zz002dx6wh",
+      "sent_to_dpr_flag": "no",
+      "parent_divid": 2944697,
+      "item_sequence": 5,
+      "desc_clob": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<record>\r\n  <metadata>\r\n    <dc>\r\n      <identifier>21198/zz002dx6wh</identifier>\r\n      <title>SESSION 5 (5/18/2012)</title>\r\n      <description>\r\n        <tableOfContents>Conditions at Folkways which led to Seeger’s decision to leave his position at the label—Upon attending an ethnomusicology conference at UCLA, he is recruited to join the faculty—Conditions under which he agreed to the UCLA position, which involved commuting from his home on the East Coast—The appeal of UCLA’s Department of Ethnomusicology, one of the only such stand-alone departments in the country—Daniel Sheehy becomes Seeger’s replacement at Folkways—Challenges Seeger found as he adjusted to his new position at UCLA—The importance of music performance in UCLA’s Department of Ethnomusicology—The history of factions and divisions within the department—The intensity of his demanding travel and teaching schedule during his tenure at UCLA—Colleagues at UCLA with whom he enjoyed stimulating interactions—He teaches a course on archiving and eventually becomes director of UCLA’s Ethnomusicology Archive—The tremendous challenge of meeting the archiving requirements of ethnomusicological data as digital technology keeps rapidly changing—The precarious future of adequate archival preservation—Increasingly challenging issues of copyright, particularly due to the impact of the Internet and to powerful economic interests—Ethnomusicologists’ role regarding issues of copyright—The issue of restrictions on access to knowledge—The impact of changing technology on indigenous people—Shifts in emphasis in contemporary ethnomusicological recording and documentation—The need to develop an effective indexing system to apply to recorded and digitally preserved ethnomusicological data—The impact of changing technology on academic ethnomusicological practice, particularly YouTube—The influence of his experience with the Suya on his life and world view—The influence of the Seeger family lineage on his direction in life—Factors which led to his decision to retire from teaching at UCLA—Current prospects for venues in which Seeger can continue his interests and activities—The Seegers’ long and successful marriage—His feelings about Los Angeles given his admittedly rather limited experience of it—The Seegers’ two daughters’ choices of careers—The bittersweetness of entering old age—His optimistic view of life.</tableOfContents>\r\n      </description>\r\n    </dc>\r\n  </metadata>\r\n</record>\r\n\r\n",
+      "old_divid": "",
+      "old_parent_divid": "",
+      "node_title": "SESSION 5 (5/18/2012)",
+      "statusid_fk": 2,
+      "created_by": "Eric Chuk",
+      "modified_by": "Teresa Barnett ",
+      "approved_by": ""
+    }
+  }
+]
