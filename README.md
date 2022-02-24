@@ -69,6 +69,8 @@ The container runs via `docker_scripts/entrypoint.sh`, which
    $ docker-compose exec django python manage.py shell
    # Apply new migrations without a restart
    $ docker-compose exec django python manage.py migrate
+   # Populate database with seed data
+   $ docker-compose exec django python manage.py loaddata --app oral_history seed-data
    ```
 7. Connect to the running application via browser
 
