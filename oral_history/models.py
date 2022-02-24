@@ -56,7 +56,7 @@ class ProjectItems(models.Model):
     objectid_fk = models.ForeignKey('DlObjects', models.CASCADE, db_column='objectid_fk')
     create_date = models.DateField()
     last_edit_date = models.DateField()
-    projectid_fk = models.ForeignKey(Projects, models.CASCADE, db_column='projectid_fk')
+    projectid_fk = models.ForeignKey('Projects', models.CASCADE, db_column='projectid_fk')
     item_ark = models.CharField(unique=True, max_length=500)
     sent_to_dpr_flag = models.CharField(max_length=3, blank=True, null=True)
     parent_divid = models.IntegerField(blank=True, null=True)
