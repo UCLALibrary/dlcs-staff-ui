@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .forms import ProjectsForm
 
-# Create your views here.
+def projects_new(request):
+    form = ProjectsForm()
+    return render(request, 'oral_history/project.html', {'form': form})
