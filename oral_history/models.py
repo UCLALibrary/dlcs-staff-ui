@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class DlObjects(models.Model):
-    objectid_pk = models.IntegerField(primary_key=True)
+    objectid_pk = models.AutoField(primary_key=True, auto_created=True)
     projectid_fk = models.ForeignKey('Projects', models.CASCADE, db_column='projectid_fk')
     object_typeid_fk = models.ForeignKey('DlObjectTypes', models.CASCADE, db_column='object_typeid_fk')
     object_label = models.CharField(max_length=200, blank=True, null=True)
@@ -14,7 +14,7 @@ class DlObjects(models.Model):
         db_table = 'dl_objects'
 
 class DlObjectTypes(models.Model):
-    object_typeid_pk = models.IntegerField(primary_key=True)
+    object_typeid_pk = models.AutoField(primary_key=True, auto_created=True)
     object_type = models.CharField(max_length=25)
 
     class Meta:
@@ -22,7 +22,7 @@ class DlObjectTypes(models.Model):
         db_table = 'dl_object_types'
 
 class Projects(models.Model):
-    projectid_pk = models.IntegerField(primary_key=True)
+    projectid_pk = models.AutoField(primary_key=True, auto_created=True)
     project_title = models.CharField(max_length=200)
     project_manager = models.CharField(max_length=100)
     department = models.CharField(max_length=100, blank=True, null=True)
@@ -52,7 +52,7 @@ class Projects(models.Model):
         db_table = 'projects'
 
 class ProjectItems(models.Model):
-    divid_pk = models.IntegerField(primary_key=True)
+    divid_pk = models.BigAutoField(primary_key=True, auto_created=True)
     objectid_fk = models.ForeignKey('DlObjects', models.CASCADE, db_column='objectid_fk')
     create_date = models.DateField()
     last_edit_date = models.DateField()
@@ -75,7 +75,7 @@ class ProjectItems(models.Model):
         db_table = 'project_items'
 
 class QaStatus(models.Model):
-    statusid_pk = models.IntegerField(primary_key=True)
+    statusid_pk = models.AutoField(primary_key=True, auto_created=True)
     status = models.CharField(max_length=40)
     description = models.CharField(max_length=250, blank=True, null=True)
 
