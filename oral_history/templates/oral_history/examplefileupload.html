@@ -4,6 +4,8 @@
 <form name="upload_file_form" method="POST" enctype="multipart/form-data" onsubmit="skip_upload(this);">
     {% csrf_token %}
     {{ form.as_p }}
+    <div id="file_list_div" hidden="hidden">
+    </div>
     <button type="submit">Save</button>
 </form>
 {% endblock %}
