@@ -14,12 +14,17 @@ function skip_upload(form) {
 	alert(selected_file_name + " will be processed");
 }
 
+// Called when user selects a directory for upload.
+// Builds HTML with radio buttons listing each file, adds it to a hidden div, and shows that div.
 function list_files(file_list) {
 	files = file_list.files;
 	radio_list = "";
 	for (i = 0; i < files.length; i++) {
 		file_path = files[i].webkitRelativePath;
-		radio_list += `<p><input type='radio' name='selected_file' value='${file_path}'>${file_path}</p>`;
+		file_size = files[i].size;
+		file_type = (files[i].type != "" ? files[i].type : "UNKNOWN");
+		file_info = `${file_path} (${file_size} bytes, ${file_type})`
+		radio_list += `<p><input type='radio' name='selected_file' value='${file_path}'>${file_info}</p>`;
 	}
 	// TODO: Pass the target div to this function?
 	div = document.getElementById("file_list_div");
