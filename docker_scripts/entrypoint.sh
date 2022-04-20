@@ -26,7 +26,8 @@ fi
 
 # Django app server is fine for development
 if [ "$DJANGO_RUN_ENV" = "dev" ]; then
-  python ./manage.py runserver 0.0.0.0:8000
+  # Experiment with unbuffered output
+  PYTHONUNBUFFERED=1 python ./manage.py runserver 0.0.0.0:8000
 #else
   # Start the production app server
   #gunicorn proj.wsgi:application (or whatever)
