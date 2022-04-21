@@ -23,7 +23,7 @@ Sample item record(s) from the database<br>
     </tr>
     {% for item in query_results %}
     <tr> 
-        <td><a href="https://www.ucla.edu?var1=1%var2=2%var3=">{{ item.divid_pk }}</a></td>
+        <td><a href="upload_file?divid_pk={{ item.divid_pk }}">{{ item.divid_pk }}</a></td>
         <td>{{ item.create_date }}</td>
         <td>{{ item.last_edit_date }}</td>
         <td>{{ item.item_ark }}</td>
