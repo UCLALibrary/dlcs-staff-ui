@@ -146,3 +146,21 @@ DJANGO_DB_DSN=host.docker.internal:1599/remote_oracle_service_name
 DJANGO_DB_USER=remote_username
 DJANGO_DB_PASS=remote_password
 ```
+
+### Application operation
+
+This application is intended to be run from the legacy DLCS application where pressing a button will send the primary key (PK) of the selected item to this Django application which, in turn, will pop up a window from which the associated media file location which then may be picked by the user. After file selection, the ARK and media file name are sent to the script which processes the media file into derivatives which are moved to the proper location(s).
+
+Pressing the button on the legacy DLCS app will initate a request something like this:
+
+```
+<a href="https://www;library.ucla.edu/DigitalLibrary/OralHistory/upload_file?divid_pk=[insert the primary key]">Upload the file for this item</a>
+```
+
+A Django page is included that allows simulatation of the button press on the DLCS legacy application with links. This temporary _Harness_ is populated with example data to allow testing of the application and is available in the local environment at:
+
+    - http://127.0.0.1:8000/table
+
+The Admin section is at the standard:
+    - URL: http://127.0.0.1:8000/admin
+
