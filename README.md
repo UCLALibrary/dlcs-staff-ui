@@ -154,12 +154,12 @@ This application is intended to be run from the legacy DLCS application where pr
 Pressing the button on the legacy DLCS app will initate a request something like this:
 
 ```
-<a href="https://www;library.ucla.edu/DigitalLibrary/OralHistory/upload_file?divid_pk=[insert the primary key]">Upload the file for this item</a>
+<a href="url_for_this_application/upload_file?divid_pk=[insert the primary key]">Upload the file for this item</a>
 ```
 
 A Django page is included that allows simulatation of the button press on the DLCS legacy application with links. This temporary _Harness_ is populated with example data to allow testing of the application and is available in the local environment at:
 
-    - http://127.0.0.1:8000/table
+    - http://127.0.0.1:8000/projects/table
 
 The Admin section is at the standard:
     - URL: http://127.0.0.1:8000/admin
