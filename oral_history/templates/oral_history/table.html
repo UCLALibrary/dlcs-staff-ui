@@ -1,0 +1,43 @@
+{% extends 'oral_history/base.html' %}
+
+{% block content %}
+Sample item record(s) from the database<br>
+<br>
+<br>
+<table>
+    <tr>
+        <th>divid_pk</th>
+        <th>create</th>
+        <th>last_edit</th>
+        <th>ark</th>
+        <th>dpr_flag</th>
+        <th>parent_divid</th>
+        <th>item_seq</th>
+        <th>desc_clob</th>
+        <th>old_divid</th>
+        <th>old_parent_divid</th>
+        <th>node_title</th>
+        <th>created_by</th>
+        <th>modified_by</th>
+        <th>approved_by</th>
+    </tr>
+    {% for item in query_results %}
+    <tr> 
+        <td><a href="upload_file?divid_pk={{ item.divid_pk }}">{{ item.divid_pk }}</a></td>
+        <td>{{ item.create_date }}</td>
+        <td>{{ item.last_edit_date }}</td>
+        <td>{{ item.item_ark }}</td>
+        <td>{{ item.sent_to_dpr_flag }}</td>
+        <td>{{ item.parent_divid }}</td>
+        <td>{{ item.item_sequence }}</td>
+        <td>...</td>
+        <td>{{ item.old_divid }}</td>
+        <td>{{ item.old_parent_divid }}</td>
+        <td>{{ item.node_title }}</td>
+        <td>{{ item.created_by }}</td>
+        <td>{{ item.modified_by }}</td>
+        <td>{{ item.approved_by }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
