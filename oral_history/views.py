@@ -40,10 +40,3 @@ def upload_file(request):
 def projects_table(request):
     query_results = ProjectItems.objects.all()
     return render(request, 'oral_history/table.html', {'query_results': query_results})
-
-
-def projects_files(request):
-    id = request.GET.get('divid_pk')
-    query_results = ProjectItems.objects.filter(divid_pk=id)
-    print("query_results")
-    return render(request, 'oral_history/files.html', {'query_results': query_results})

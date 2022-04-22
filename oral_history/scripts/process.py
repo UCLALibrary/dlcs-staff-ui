@@ -7,5 +7,4 @@ class Process():
         print("Processing media file ...")
 
     def run(self, file_group, file_name, item_ark):
-        print("script('"+str(file_group)+"', '" +
-              str(file_name)+"', '"+str(item_ark)+"')")
+        print(f"script('{file_group}', '{file_name}', '{item_ark}')")
