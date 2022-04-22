@@ -1,0 +1,19 @@
+{% extends 'oral_history/base.html' %}
+
+{% block content %}
+Upload main media file for this item:<br>
+<br>
+{% for item in query_results %}
+{{ item.node_title }}<br>
+created_by: {{ item.created_by }}<br>
+item_ark: {{ item.item_ark }}<br>
+{% endfor %}
+<br>
+<form name="upload_file_form" method="POST" enctype="multipart/form-data" onsubmit="skip_upload(this);">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div id="file_list_div" hidden="hidden">
+    </div>
+    <button type="submit">Save</button>
+</form>
+{% endblock %}
