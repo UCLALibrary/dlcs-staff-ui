@@ -1,0 +1,12 @@
+{% extends 'oral_history/base.html' %}
+
+{% block content %}
+Upload master for this item:<br>
+<br>
+<br>
+{% for item in query_results %}
+{{ item.node_title }}<br>
+created_by: {{ item.created_by }}<br>
+item_ark: {{ item.item_ark }}<br>
+{% endfor %}
+{% endblock %}

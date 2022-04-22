@@ -163,4 +163,3 @@ A Django page is included that allows simulatation of the button press on the DL
 
 The Admin section is at the standard:
     - URL: http://127.0.0.1:8000/admin
-
