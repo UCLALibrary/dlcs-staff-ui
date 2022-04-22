@@ -159,7 +159,69 @@ Pressing the button on the legacy DLCS app will initate a request something like
 
 A Django page is included that allows simulatation of the button press on the DLCS legacy application with links. This temporary _Harness_ is populated with example data to allow testing of the application and is available in the local environment at:
 
-    - http://127.0.0.1:8000/projects/table
+    - http://127.0.0.1:8000/table
 
 The Admin section is at the standard:
     - URL: http://127.0.0.1:8000/admin
+
+### Logging
+
+Basic logging is available, with logs captured in `logs/application.log`.  At present, logs from both the custom application code and Django itself are captured.
+
+Logging level is set to `INFO` via `.docker-compose_django.env`.  If there's a regular need/desire for DEBUG level, we can discuss that.
+
+#### How to log
+
+Logging can be used in any Python file in the project.  For example, in `views.py`:
+```
+# Include the module with other imports
+import logging
+# Instantiate a logger, generally before any functions in the file
+logger = logging.getLogger(__name__)
+
+def project_table():
+    logger.info('This is a log message from project_table')
+
+    query_results = ProjectItems.objects.all()
+    for r in query_results:
+        logger.info(f'{r.node_title} === {r.item_ark}')
+
+    try:
+        1/0
+    except Exception as e:
+        logger.exception('Example exception')
+
+    logger.debug('This DEBUG message only appears if DJANGO_LOG_LEVEL=DEBUG')
+```
+#### Log messages:
+```
+INFO 2022-04-22 23:43:14,518 django.utils.autoreload autoreload Watching for file changes with StatReloader
+
+INFO 2022-04-22 23:43:21,973 oral_history.views views This is a log message from projects_table
+
+INFO 2022-04-22 23:43:22,007 oral_history.views views Oral History Collection === 21198/zz0008zh0f
+INFO 2022-04-22 23:43:22,007 oral_history.views views Z: Orphan Interviews after 1999 === 21198/zz00093sk9
+INFO 2022-04-22 23:43:22,007 oral_history.views views Interview of Anthony Seeger === 21198/zz002dx6qx
+INFO 2022-04-22 23:43:22,007 oral_history.views views SESSION 1 (2/2/2012) === 21198/zz002dx6rf
+INFO 2022-04-22 23:43:22,008 oral_history.views views SESSION 2 (3/1/2012) === 21198/zz002dx6sz
+INFO 2022-04-22 23:43:22,008 oral_history.views views SESSION 3 (3/6/2012) === 21198/zz002dx6tg
+INFO 2022-04-22 23:43:22,008 oral_history.views views SESSION 4 (3/21/2012) === 21198/zz002dx6v0
+INFO 2022-04-22 23:43:22,008 oral_history.views views SESSION 5 (5/18/2012) === 21198/zz002dx6wh
+
+ERROR 2022-04-22 23:43:22,008 oral_history.views views Example exception
+Traceback (most recent call last):
+  File "/home/django/dlcs-staff-ui/oral_history/views.py", line 18, in projects_table
+    1/0
+ZeroDivisionError: division by zero
+
+DEBUG 2022-04-22 23:43:22,008 oral_history.views views This DEBUG message only appears if DJANGO_LOG_LEVEL=DEBUG
+
+WARNING 2022-04-22 23:43:22,059 django.request log Not Found: /favicon.ico
+```
+#### Log format
+The current log format includes:
+* Level: DEBUG, INFO, WARNING, ERROR, or CRITICAL
+* Timestamp via `asctime`
+* Logger name: to distinguish between sources of messages (`django` vs `oral_history` application)
+* Module: somewhat redundant with logger name
+* Message: The main thing being logged
