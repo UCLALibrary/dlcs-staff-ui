@@ -1,4 +1,4 @@
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 from oral_history.scripts.process import Process
 
 
@@ -27,5 +27,5 @@ class Command(BaseCommand):
             process = Process("reports")
             process.run(file_group_str, file_name_str, item_ark_str)
             return
-        except ValueError as e:
-            exit(e)
+        except CommandError as e:
+            print("Error from script: " + str(e))
