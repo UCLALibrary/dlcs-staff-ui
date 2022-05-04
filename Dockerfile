@@ -4,6 +4,9 @@ FROM python:3.9-slim-bullseye
 RUN apt-get update && apt-get install -y software-properties-common \
     && apt-add-repository non-free && apt-get update
 
+# Set correct timezone
+RUN ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+
 # Install Oracle client; thanks to https://stackoverflow.com/a/59869379
 WORKDIR /opt/oracle
 RUN apt-get install -y libaio1 wget unzip \
