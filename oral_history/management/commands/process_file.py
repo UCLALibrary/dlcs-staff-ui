@@ -6,7 +6,7 @@ from wand.image import Image
 # Global variables for testing -- will be removed going forward
 dest_dir = '/tmp/'
 
-def calculate_destination_dir(mimetype, ark):
+def calculate_destination_dir(mime_type, ark):
     # Based on MIME type and project, the destination dir will differ
     # Using temp placeholder for now
 
@@ -21,7 +21,7 @@ def process_tiff_image(file_name, ark, dest_dir):
     # Calculate destination filename based on ark and sequence id from DB
     # Using tmp name for place holder
 
-    dest_filename = dest_dir + "tmp.jpg"
+    dest_filename = dest_dir + 'tmp.jpg'
     img = Image(filename=file_name)
     img.save(filename=dest_filename)
 
@@ -39,8 +39,8 @@ class Command(BaseCommand):
         # -f, --filename : Absolute file path of file to process
         # -a, --ark : The Archival Resource Key of the item to attach the submitted file to
 
-        parser.add_argument('-f','--filename', type = str, required = True, help='The full path of file to process')
-        parser.add_argument('-a','--ark', type = str, required = True, help='The ARK of the item to attach file to')
+        parser.add_argument('-f','--filename', type=str, required=True, help='The full path of file to process')
+        parser.add_argument('-a','--ark', type=str, required=True, help='The ARK of the item to attach file to')
 
 
     
@@ -48,25 +48,25 @@ class Command(BaseCommand):
         filename = options['filename']
         ark = options['ark']
 
-        mt, encoding = mimetypes.guess_type(filename)
+        mime_type, encoding = mimetypes.guess_type(filename)
 
         # Try/Catch if invalid mime and/or project/ark
-        dest_dir = calculate_destination_dir(mt, ark)
+        dest_dir = calculate_destination_dir(mime_type, ark)
 
         # Only process specific MIME types
-        if mt.casefold() == "image/tiff" :
+        if mime_type.casefold() in  ['image/tif', 'image/tiff'] :
             process_tiff_image(filename, ark, dest_dir)
 
-        elif mt.casefold() == "audio/wav" or "audio/x-wav" :
+        elif mime_type.casefold() in ['audio/wav', 'audio/x-wav'] :
             process_wav_image(filename, ark, dest_dir)
         
         else :
             raise CommandError('MIME type not recognized for "%s"' % filename)
 
         # Sanity output
-        self.stdout.write("File submitted is %s" % mt)
-        self.stdout.write("Ark submitted is %s" % ark)
-        self.stdout.write("File submitted is %s" % filename)
+        self.stdout.write('File submitted is %s' % mime_type)
+        self.stdout.write('Ark submitted is %s' % ark)
+        self.stdout.write('File submitted is %s' % filename)
 
 
 
