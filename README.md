@@ -109,7 +109,7 @@ $ docker-compose exec django bash
 # If using a file, keep it out of the git repo by including "secret" or "password" in the filename.
 DJANGO_DB_DSN=remote_database_domain:1521/remote_oracle_service_name
 DJANGO_DB_USER=remote_username
-DJANGO_DB_PASS=remote_password
+DJANGO_DB_PASSWORD=remote_password
 
 # Inspect the remote database using Django's management command
 # Full schema
@@ -144,7 +144,7 @@ requires a different DSN for database connection (remote user and password are t
 # host.docker.internal is a "magic" docker domain which allows docker to connect to host network resources
 DJANGO_DB_DSN=host.docker.internal:1599/remote_oracle_service_name
 DJANGO_DB_USER=remote_username
-DJANGO_DB_PASS=remote_password
+DJANGO_DB_PASSWORD=remote_password
 ```
 
 ### Application operation

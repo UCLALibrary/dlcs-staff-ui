@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': os.getenv('DJANGO_DB_DSN'),
         'USER': os.getenv('DJANGO_DB_USER'),
-        'PASSWORD': os.getenv('DJANGO_DB_PASS'),
+        'PASSWORD': os.getenv('DJANGO_DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
     }
