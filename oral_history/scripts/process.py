@@ -12,6 +12,12 @@ class Process():
         print(f"script('{file_group}', '{file_name}', '{item_ark}')")
 
         # error detection goes here
-        # temporary example error, uncomment to view in console
-
-        # raise CommandError('file "%s" not found' % file_name)
+        #
+        # temporary example errors, uncomment to view in console; replace with the script being written by KristianA
+        #
+        #x = 1/0
+        #
+        # raise CommandError(
+        #    f'Error from script - File not found: "{file_name}"')
+        # raise CommandError(
+        #    f'Error from script - This ARK format not supported: "{item_ark}"')

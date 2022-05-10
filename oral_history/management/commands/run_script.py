@@ -23,9 +23,7 @@ class Command(BaseCommand):
         item_ark_str = ''.join(map(str, item_ark))
 
         #
-        try:
-            process = Process("reports")
-            process.run(file_group_str, file_name_str, item_ark_str)
-            return
-        except CommandError as e:
-            print("Error from script: " + str(e))
+
+        process = Process("reports")
+        process.run(file_group_str, file_name_str, item_ark_str)
+        return

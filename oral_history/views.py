@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .forms import FileUploadForm, ProjectsForm
 from .models import ProjectItems
 from django.core.management import call_command
+from django.contrib import messages
+from django.core.management.base import CommandError
 
 
 def projects_new(request):
@@ -15,22 +17,43 @@ def upload_file(request):
 
     if request.method == 'POST':
         form = FileUploadForm(request.POST)
-        # Commented-out code in case we want to really upload files after all.
-        # Print statements go to django logs, for QAD dev
-        # form = FileUploadForm(request.POST, request.FILES)
-        # selected_file = request.FILES['selected_file']
-        # print(f'selected_file => {selected_file}')
-        # print(f'Name => {selected_file.name}')
-        # print(f'Size => {selected_file.size}')
-        # print(f'Type => {selected_file.content_type}')
-        # print(f'File Group => {selected_file.name}')
-        # print(request.POST.get('file_group'))
-        file_group = request.POST.get('file_group')
-        item_ark = query_results[0].item_ark
-        file_name = request.POST['file_name']
-        call_command('run_script', file_group=file_group, file_name=file_name,
-                     item_ark=item_ark)
-        # print(file_name)
+        if form.is_valid():
+            # Commented-out code in case we want to really upload files after all.
+            # Print statements go to django logs, for QAD dev
+            # form = FileUploadForm(request.POST, request.FILES)
+            # selected_file = request.FILES['selected_file']
+            # print(f'selected_file => {selected_file}')
+            # print(f'Name => {selected_file.name}')
+            # print(f'Size => {selected_file.size}')
+            # print(f'Type => {selected_file.content_type}')
+            # print(f'File Group => {selected_file.name}')
+            # print(request.POST.get('file_group'))
+            file_group = request.POST.get('file_group')
+            item_ark = query_results[0].item_ark
+            file_name = request.POST['file_name']
+
+            try:
+                call_command('run_script', file_group=file_group, file_name=file_name,
+                             item_ark=item_ark)
+                # print(file_name)
+                messages.success(
+                    request, "The media file was successfully processed")
+
+            # CommandErrors is set in the media processing script
+            except CommandError as e:
+                print(str(e))
+                messages.error(
+                    request, str(e))
+            except ZeroDivisionError as e:
+                messages.error(
+                    request, "Zero division error: " + str(e))
+            except Exception as e:
+                messages.error(
+                    request, "General error: " + str(e))
+
+        else:
+            messages.error(
+                request, "Please check the form fields and resubmit")
     else:
         form = FileUploadForm()
 
