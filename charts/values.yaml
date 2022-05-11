@@ -41,6 +41,7 @@ django:
     db_user: ""
     # Include if externalSecrets enabled: "false"
     #db_password: ""
+    dlcs_file_source: ""
     target_port: ""
 
   externalSecrets:

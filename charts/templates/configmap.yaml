@@ -11,3 +11,4 @@ data:
   DJANGO_ALLOWED_HOSTS: {{ range .Values.django.env.allowed_hosts }}{{ . | quote }}{{ end }}
   DJANGO_DB_DSN: {{ .Values.django.env.db_dsn }}
   DJANGO_DB_USER: {{ .Values.django.env.db_user }}
+  DJANGO_DLCS_FILE_SOURCE: {{ .Values.django.env.dlcs_file_source }}
