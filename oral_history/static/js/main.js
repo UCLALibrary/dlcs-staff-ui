@@ -11,7 +11,7 @@ function skip_upload(form) {
 	form.elements.selected_file.name = "";
 	form.elements.selected_dir.name = "";
 	// Handle notification...
-	alert(selected_file_name + " will be processed");
+	// alert(selected_file_name + " will be processed");
 }
 
 // Called when user selects a directory for upload.

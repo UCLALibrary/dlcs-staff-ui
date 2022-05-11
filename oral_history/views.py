@@ -18,35 +18,22 @@ def upload_file(request):
     if request.method == 'POST':
         form = FileUploadForm(request.POST)
         if form.is_valid():
-            # Commented-out code in case we want to really upload files after all.
-            # Print statements go to django logs, for QAD dev
-            # form = FileUploadForm(request.POST, request.FILES)
-            # selected_file = request.FILES['selected_file']
-            # print(f'selected_file => {selected_file}')
-            # print(f'Name => {selected_file.name}')
-            # print(f'Size => {selected_file.size}')
-            # print(f'Type => {selected_file.content_type}')
-            # print(f'File Group => {selected_file.name}')
-            # print(request.POST.get('file_group'))
-            file_group = request.POST.get('file_group')
+            file_group = form.cleaned_data['file_group']
+            file_name = form.cleaned_data['file_name']
             item_ark = query_results[0].item_ark
-            file_name = request.POST['file_name']
 
             try:
-                call_command('run_script', file_group=file_group, file_name=file_name,
+                call_command('process_file', file_group=file_group, file_name=file_name,
                              item_ark=item_ark)
-                # print(file_name)
                 messages.success(
                     request, "The media file was successfully processed")
 
-            # CommandErrors is set in the media processing script
+            # Errors from process_file, called above
+            # TODO: Are there more specific errors to be caught?
             except CommandError as e:
                 print(str(e))
                 messages.error(
                     request, str(e))
-            except ZeroDivisionError as e:
-                messages.error(
-                    request, "Zero division error: " + str(e))
             except Exception as e:
                 messages.error(
                     request, "General error: " + str(e))
