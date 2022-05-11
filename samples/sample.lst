@@ -1,24 +1,20 @@
-total 888
-drwxr-xr-x 10 akohler akohler   4096 May 10 19:50 .
-drwxr-xr-x 18 akohler akohler   4096 May  2 10:22 ..
-drwxr-xr-x  3 akohler akohler   4096 May 10 16:12 charts
--rw-r--r--  1 akohler akohler      0 Jan 21 09:47 db.sqlite3
-drwxr-xr-x  3 akohler akohler   4096 May 10 16:12 dlcs_staff_ui
--rw-r--r--  1 akohler akohler    249 Jan 24 09:17 .docker-compose_db.env
--rw-r--r--  1 akohler akohler    386 May 10 16:12 .docker-compose_django.env
--rw-r--r--  1 akohler akohler    340 Apr 22 15:25 .docker-compose_secrets.env
--rw-r--r--  1 akohler akohler    835 Apr 22 15:34 docker-compose.yml
--rw-r--r--  1 akohler akohler   1939 May 10 15:47 Dockerfile
-drwxr-xr-x  2 akohler akohler   4096 May 10 16:12 docker_scripts
-drwxr-xr-x  6 akohler akohler   4096 Jan 21 09:45 ENV
-drwxr-xr-x  8 akohler akohler   4096 May 10 19:41 .git
-drwxr-xr-x  3 akohler akohler   4096 May 10 15:47 .github
--rw-r--r--  1 akohler akohler   1884 Jan 27 10:35 .gitignore
--rw-r--r--  1 akohler akohler    245 May 10 14:39 its_dev_db_secret.env
-drwxr-xr-x  2 akohler akohler   4096 May  6 16:08 logs
--rwxr-xr-x  1 akohler akohler    669 Jan 21 09:58 manage.py
-drwxr-xr-x  9 akohler akohler   4096 May 10 15:47 oral_history
--rw-r--r--  1 akohler akohler   9497 May 10 16:12 README.md
--rw-r--r--  1 akohler akohler     98 Apr 13 19:41 requirements.txt
--rw-r--r--  1 akohler akohler      0 May 10 19:50 sample.lst
--rw-r--r--  1 akohler akohler 818184 May  6 13:05 sample.tiff
+INFO 2022-05-11 11:39:00,846 oral_history.management.commands.process_file process_file file_name = 'samples/sample.tiff'
+INFO 2022-05-11 11:39:00,847 oral_history.management.commands.process_file process_file item_ark = '21198/zz002dx6v0'
+INFO 2022-05-11 11:39:00,849 oral_history.management.commands.process_file process_file mime_type = 'image/tiff'
+INFO 2022-05-11 11:39:00,849 oral_history.management.commands.process_file process_file dest_file_name = '/tmp/tmp.jpg'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file 
+
+===== Starting new run =====
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file file_group = 'Text Appendix'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file file_name = 'samples/sample.tiff'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file item_ark = '21198/zz002dx6v0'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file mime_type = 'image/tiff'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file dest_file_name = '/tmp/tmp.jpg'
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file 
+
+===== Starting new run =====
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file file_group = 'Text Appendix'
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file file_name = 'samples/sample.lst'
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file item_ark = '21198/zz002dx6v0'
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file mime_type = None
+ERROR 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file Invalid mime_type = None
