@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 logger = logging.getLogger(__name__)
 
-def calculate_destination_dir(mime_type, ark):
+def calculate_destination_dir(mime_type, item_ark):
     # https://jira.library.ucla.edu/browse/SYS-808
     # Based on MIME type and project, the destination dir will differ
     # TODO:
@@ -14,35 +14,42 @@ def calculate_destination_dir(mime_type, ark):
     # Using temp placeholder for now
     return '/tmp/'
 
-def process_media_file(filename, ark):
-    mime_type, encoding = mimetypes.guess_type(filename)
+def process_media_file(file_name, item_ark):
+    mime_type, encoding = mimetypes.guess_type(file_name)
     logger.info(f'{mime_type = }')
-    # Or exception handling?
-    if mime_type is not None:
+    try:
         mime_type = mime_type.lower()
-        dest_dir = calculate_destination_dir(mime_type, ark)
+        dest_dir = calculate_destination_dir(mime_type, item_ark)
         if mime_type in ['image/tif', 'image/tiff']:
-            process_tiff(filename, ark, dest_dir)
+            process_tiff(file_name, item_ark, dest_dir)
         elif mime_type in ['audio/wav', 'audio/x-wav']:
-            process_wav(filename, ark, dest_dir)
+            process_wav(file_name, item_ark, dest_dir)
+        elif mime_type in ['something/jhove_related']:
+            process_jhove(file_name, item_ark, dest_dir)
         else:
-            raise CommandError(f'MIME type not recognized for {filename}')
-    else:
-        raise CommandError(f'MIME type not recognized for {filename}')
+            raise CommandError(f'MIME type not recognized for {file_name}')
+    except AttributeError as ex:
+        if mime_type is None:
+            logger.error(f'Invalid {mime_type = }')
+            raise CommandError(f'MIME type not recognized for {file_name}')
+    except Exception as ex:
+        logger.exception(ex)
+        # Re-raise the exception for the view to handle
+        raise
 
-def process_tiff(filename, ark, dest_dir):
+def process_tiff(file_name, item_ark, dest_dir):
     # https://jira.library.ucla.edu/browse/SYS-800
     # TODO:
-    # Calculate destination filename based on ark and sequence id from DB
+    # Calculate destination file_name based on ark and sequence id from DB
     # Using tmp name for place holder
-    dest_filename = dest_dir + 'tmp.jpg'
-    logger.info(f'{dest_filename = }')
+    dest_file_name = dest_dir + 'tmp.jpg'
+    logger.info(f'{dest_file_name = }')
 
-def process_wav(filename, ark, dest_dir):
+def process_wav(file_name, item_ark, dest_dir):
     # https://jira.library.ucla.edu/browse/SYS-801
     pass
 
-def process_jhove(filename, ark, dest_dir):
+def process_jhove(file_name, item_ark, dest_dir):
     # https://jira.library.ucla.edu/browse/SYS-802
     pass
 
@@ -55,16 +62,19 @@ class Command(BaseCommand):
     help = 'Django management command to process files'
 
     def add_arguments(self, parser):
-        parser.add_argument('-f','--filename', type=str, required=True, help='The full path of file to process')
-        parser.add_argument('-a','--ark', type=str, required=True, help='The ARK of the item to attach file to')
+        parser.add_argument('-a','--item_ark', type=str, required=True, help='The ARK of the item to attach file to')
+        parser.add_argument('-f','--file_name', type=str, required=True, help='The full path of file to process')
+        parser.add_argument('-g','--file_group', type=str, required=True, help='The file group of the file to process')
     
     def handle(self, *args, **options):
-        filename = options['filename']
-        ark = options['ark']
-        
+        file_group = options['file_group']
+        file_name = options['file_name']
+        item_ark = options['item_ark']
+
         # Log arguments, for now
         logger.info(f'\n\n===== Starting new run =====')
-        logger.info(f'{filename = }')
-        logger.info(f'{ark = }')
+        logger.info(f'{file_group = }')
+        logger.info(f'{file_name = }')
+        logger.info(f'{item_ark = }')
 
-        process_media_file(filename, ark)
+        process_media_file(file_name, item_ark)

@@ -33,7 +33,7 @@ def upload_file(request):
             file_name = request.POST['file_name']
 
             try:
-                call_command('run_script', file_group=file_group, file_name=file_name,
+                call_command('process_file', file_group=file_group, file_name=file_name,
                              item_ark=item_ark)
                 # print(file_name)
                 messages.success(
