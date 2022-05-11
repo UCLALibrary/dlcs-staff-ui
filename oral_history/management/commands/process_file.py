@@ -31,7 +31,7 @@ def process_media_file(file_name, item_ark):
     except AttributeError as ex:
         if mime_type is None:
             logger.error(f'Invalid {mime_type = }')
-            raise CommandError(f'MIME type not recognized for {file_name}')
+            raise CommandError(f'No MIME type identified for {file_name}')
     except Exception as ex:
         logger.exception(ex)
         # Re-raise the exception for the view to handle
