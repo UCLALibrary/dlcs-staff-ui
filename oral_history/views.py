@@ -18,9 +18,8 @@ def upload_file(request):
     if request.method == 'POST':
         form = FileUploadForm(request.POST)
         if form.is_valid():
-            # TODO: Get form data from form.cleaned_data
-            file_group = request.POST.get('file_group')
-            file_name = request.POST['file_name']
+            file_group = form.cleaned_data['file_group']
+            file_name = form.cleaned_data['file_name']
             item_ark = query_results[0].item_ark
 
             try:
@@ -29,14 +28,12 @@ def upload_file(request):
                 messages.success(
                     request, "The media file was successfully processed")
 
-            # CommandErrors is set in the media processing script
+            # Errors from process_file, called above
+            # TODO: Are there more specific errors to be caught?
             except CommandError as e:
                 print(str(e))
                 messages.error(
                     request, str(e))
-            except ZeroDivisionError as e:
-                messages.error(
-                    request, "Zero division error: " + str(e))
             except Exception as e:
                 messages.error(
                     request, "General error: " + str(e))

@@ -24,8 +24,10 @@ def process_media_file(file_name, item_ark):
             process_tiff(file_name, item_ark, dest_dir)
         elif mime_type in ['audio/wav', 'audio/x-wav']:
             process_wav(file_name, item_ark, dest_dir)
-        elif mime_type in ['something/jhove_related']:
-            process_jhove(file_name, item_ark, dest_dir)
+        elif mime_type in ['something/pdf_related']:
+            process_pdf(file_name, item_ark, dest_dir)
+        elif mime_type in ['something/text_related']:
+            process_text(file_name, item_ark, dest_dir)
         else:
             raise CommandError(f'MIME type not recognized for {file_name}')
     except AttributeError as ex:
@@ -49,8 +51,12 @@ def process_wav(file_name, item_ark, dest_dir):
     # https://jira.library.ucla.edu/browse/SYS-801
     pass
 
-def process_jhove(file_name, item_ark, dest_dir):
-    # https://jira.library.ucla.edu/browse/SYS-802
+def process_pdf(file_name, item_ark, dest_dir):
+    # https://jira.library.ucla.edu/browse/SYS-831
+    pass
+
+def process_text(file_name, item_ark, dest_dir):
+    # https://jira.library.ucla.edu/browse/SYS-832
     pass
 
 def update_db():
