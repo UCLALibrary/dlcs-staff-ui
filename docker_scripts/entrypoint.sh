@@ -10,7 +10,7 @@ fi
 # Tried script from https://github.com/vishnubob/wait-for-it
 # but it's not reliable for Oracle; listener may be up but db not ready.
 # Logs will show error until database is ready, which is OK.
-until python -c "import os ; import cx_Oracle ; conn = cx_Oracle.connect(os.environ.get('DJANGO_DB_USER'), os.environ.get('DJANGO_DB_PASS'), os.environ.get('DJANGO_DB_DSN'))" ; do
+until python -c "import os ; import cx_Oracle ; conn = cx_Oracle.connect(os.environ.get('DJANGO_DB_USER'), os.environ.get('DJANGO_DB_PASSWORD'), os.environ.get('DJANGO_DB_DSN'))" ; do
   echo "Database connection not ready - waiting"
   sleep 10
 done
