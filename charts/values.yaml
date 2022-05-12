@@ -29,6 +29,13 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+# NFS volume mount
+volume:
+  name: ""
+  nfsServer: ""
+  nfsMountPath: ""
+  podMountPath: ""
+
 django:
   env:
     run_env: "prod"
