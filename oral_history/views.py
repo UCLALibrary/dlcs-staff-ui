@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import FileUploadForm, ProjectsForm
-from .models import ProjectItems
+from .models import Projects, ProjectItems
 from django.core.management import call_command
 from django.contrib import messages
 from django.core.management.base import CommandError
@@ -30,14 +30,22 @@ def upload_file(request):
             # print(request.POST.get('file_group'))
             file_group = request.POST.get('file_group')
             item_ark = query_results[0].item_ark
-            file_name = request.POST['file_name']
+            file_name = request.POST['file_name'][0]
+            pfk_value = ProjectItems.objects.filter(
+                divid_pk=id).values('projectid_fk')[0]['projectid_fk']
 
             try:
                 call_command('run_script', file_group=file_group, file_name=file_name,
                              item_ark=item_ark)
                 # print(file_name)
+
+                path_dir = Projects.objects.filter(
+                    projectid_pk=pfk_value).values('image_masters_dir')[0]['image_masters_dir']
+
                 messages.success(
                     request, "The media file was successfully processed")
+                messages.success(request, pfk_value)
+                messages.success(request, path_dir)
 
             # CommandErrors is set in the media processing script
             except CommandError as e:
