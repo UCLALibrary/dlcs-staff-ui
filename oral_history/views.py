@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import FileUploadForm, ProjectsForm
-from .models import ProjectItems
+from .models import Projects, ProjectItems
 from django.core.management import call_command
 from django.contrib import messages
 from django.core.management.base import CommandError
@@ -27,6 +27,8 @@ def upload_file(request):
                              item_ark=item_ark)
                 messages.success(
                     request, "The media file was successfully processed")
+                messages.success(request, pfk_value)
+                messages.success(request, path_dir)
 
             # Errors from process_file, called above
             # TODO: Are there more specific errors to be caught?
