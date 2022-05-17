@@ -133,3 +133,6 @@ dmypy.json
 *secret*
 *password*
 
+# Data dumps
+models_dump.py
+
