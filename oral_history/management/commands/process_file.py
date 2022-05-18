@@ -1,8 +1,9 @@
 import logging
 import mimetypes
 from django.core.management.base import BaseCommand, CommandError
-
+from oral_history.models import Projects, ProjectItems
 logger = logging.getLogger(__name__)
+
 
 def calculate_destination_dir(mime_type, item_ark):
     # https://jira.library.ucla.edu/browse/SYS-808
@@ -10,9 +11,31 @@ def calculate_destination_dir(mime_type, item_ark):
     # TODO:
     # Need to use ark to go to DB, get project ID, then get directory
     # based on the mimetype
+    try:
+        if mime_type in ['image/tif', 'image/tiff']:
+            submasters_dir_to_find = 'image_submasters_dir'
+        elif mime_type in ['audio/wav', 'audio/x-wav']:
+            submasters_dir_to_find = 'audio_submasters_dir'
+        elif mime_type in ['something/pdf_related']:
+            submasters_dir_to_find = 'lob_submasters_dir'
+        elif mime_type in ['something/text_related']:
+            submasters_dir_to_find = 'text_submasters_dir'
 
-    # Using temp placeholder for now
-    return '/tmp/'
+        pfk_value = ProjectItems.objects.filter(
+            item_ark=item_ark).values('projectid_fk')[0]['projectid_fk']
+        submasters_dir = Projects.objects.filter(
+            projectid_pk=pfk_value).values(submasters_dir_to_find)[0][submasters_dir_to_find]
+
+        # temporary for verification
+        print("\nsubmaster dir for " + mime_type +
+              ": " + str(submasters_dir) + "\n")
+
+        return submasters_dir
+    except Exception as ex:
+        logger.exception(ex)
+        # Re-raise the exception for the view to handle
+        raise
+
 
 def process_media_file(file_name, item_ark):
     mime_type, encoding = mimetypes.guess_type(file_name)
@@ -39,6 +62,7 @@ def process_media_file(file_name, item_ark):
         # Re-raise the exception for the view to handle
         raise
 
+
 def process_tiff(file_name, item_ark, dest_dir):
     # https://jira.library.ucla.edu/browse/SYS-800
     # TODO:
@@ -47,31 +71,39 @@ def process_tiff(file_name, item_ark, dest_dir):
     dest_file_name = dest_dir + 'tmp.jpg'
     logger.info(f'{dest_file_name = }')
 
+
 def process_wav(file_name, item_ark, dest_dir):
     # https://jira.library.ucla.edu/browse/SYS-801
     pass
+
 
 def process_pdf(file_name, item_ark, dest_dir):
     # https://jira.library.ucla.edu/browse/SYS-831
     pass
 
+
 def process_text(file_name, item_ark, dest_dir):
     # https://jira.library.ucla.edu/browse/SYS-832
     pass
+
 
 def update_db():
     # https://jira.library.ucla.edu/browse/SYS-810
     # Is this done differently based on mime_type / other data?
     pass
 
+
 class Command(BaseCommand):
     help = 'Django management command to process files'
 
     def add_arguments(self, parser):
-        parser.add_argument('-a','--item_ark', type=str, required=True, help='The ARK of the item to attach file to')
-        parser.add_argument('-f','--file_name', type=str, required=True, help='The full path of file to process')
-        parser.add_argument('-g','--file_group', type=str, required=True, help='The file group of the file to process')
-    
+        parser.add_argument('-a', '--item_ark', type=str, required=True,
+                            help='The ARK of the item to attach file to')
+        parser.add_argument('-f', '--file_name', type=str,
+                            required=True, help='The full path of file to process')
+        parser.add_argument('-g', '--file_group', type=str, required=True,
+                            help='The file group of the file to process')
+
     def handle(self, *args, **options):
         file_group = options['file_group']
         file_name = options['file_name']
