@@ -8,8 +8,7 @@ logger = logging.getLogger(__name__)
 def calculate_destination_dir(mime_type, item_ark):
     # https://jira.library.ucla.edu/browse/SYS-808
     # Based on MIME type and project, the destination dir will differ
-    # TODO:
-    # Need to use ark to go to DB, get project ID, then get directory
+    # The ark is used to go to DB, get project ID, then get directory
     # based on the mimetype
     try:
         if mime_type in ['image/tif', 'image/tiff']:
@@ -22,13 +21,15 @@ def calculate_destination_dir(mime_type, item_ark):
             submasters_dir_to_find = 'text_submasters_dir'
 
         pfk_value = ProjectItems.objects.filter(
-            item_ark=item_ark).values('projectid_fk')[0]['projectid_fk']
-        submasters_dir = Projects.objects.filter(
-            projectid_pk=pfk_value).values(submasters_dir_to_find)[0][submasters_dir_to_find]
+            item_ark=item_ark).first().projectid_fk_id
+        submasters_dir = getattr(Projects.objects.get(
+            pk=pfk_value), submasters_dir_to_find)
 
-        # temporary for verification
-        print("\nsubmaster dir for " + mime_type +
-              ": " + str(submasters_dir) + "\n")
+        submaster_dir = str(submasters_dir)
+        logger.info(f'{submaster_dir = }')
+
+        submaster_mime = mime_type
+        logger.info(f'{submaster_mime = }')
 
         return submasters_dir
     except Exception as ex:
