@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': os.getenv('DJANGO_DB_DSN'),
         'USER': os.getenv('DJANGO_DB_USER'),
-        'PASSWORD': os.getenv('DJANGO_DB_PASS'),
+        'PASSWORD': os.getenv('DJANGO_DB_PASSWORD'),
         'HOST': '',
         'PORT': '',
     }
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
