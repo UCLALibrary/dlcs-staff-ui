@@ -61,6 +61,7 @@ class Projects(models.Model):
     class Meta:
         managed = True
         db_table = 'projects'
+        verbose_name_plural = 'projects'
 
 
 class ProjectItems(models.Model):
@@ -88,6 +89,7 @@ class ProjectItems(models.Model):
     class Meta:
         managed = True
         db_table = 'project_items'
+        verbose_name_plural = 'project items'
 
 
 class QaStatus(models.Model):
@@ -98,3 +100,48 @@ class QaStatus(models.Model):
     class Meta:
         managed = True
         db_table = 'qa_status'
+
+
+class FileGroups(models.Model):
+    file_groupid_pk = models.IntegerField(primary_key=True)
+    projectid_fk = models.ForeignKey('Projects', models.CASCADE, db_column='projectid_fk')
+    file_group_title = models.CharField(max_length=250)
+    description = models.CharField(max_length=250, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'file_groups'
+        verbose_name_plural = 'file groups'
+
+
+class ContentFiles(models.Model):
+    fileid_pk = models.IntegerField(primary_key=True)
+    file_groupid_fk = models.ForeignKey('FileGroups', models.CASCADE, db_column='file_groupid_fk')
+    divid_fk = models.ForeignKey('ProjectItems', models.CASCADE, db_column='divid_fk')
+    mime_type = models.CharField(max_length=75, blank=True, null=True)
+    file_sequence = models.CharField(max_length=255, blank=True, null=True)
+    file_size = models.CharField(max_length=20, blank=True, null=True)
+    create_date = models.DateField(blank=True, null=True)
+    file_location = models.CharField(max_length=500, blank=True, null=True)
+    location_type = models.CharField(max_length=25, blank=True, null=True)
+    file_use = models.CharField(max_length=50, blank=True, null=True)
+    file_name = models.CharField(max_length=100, blank=True, null=True)
+    content_type = models.CharField(max_length=25, blank=True, null=True)
+    # The following fields are in the database/model, but not used.
+    # Django guessed at several types via inspectdb.
+    old_fileid = models.CharField(max_length=100, blank=True, null=True)
+    bfile_video = models.TextField(blank=True, null=True)  # This field type is a guess.
+    blob_video = models.TextField(blank=True, null=True)  # This field type is a guess.
+    clob_text = models.TextField(blank=True, null=True)
+    nclob_text = models.TextField(blank=True, null=True)
+    bfile_image = models.TextField(blank=True, null=True)  # This field type is a guess.
+    blob_image = models.TextField(blank=True, null=True)  # This field type is a guess.
+    bfile_audio = models.TextField(blank=True, null=True)  # This field type is a guess.
+    blob_audio = models.TextField(blank=True, null=True)  # This field type is a guess.
+    bfile_lob = models.TextField(blank=True, null=True)  # This field type is a guess.
+    blob_lob = models.BinaryField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'content_files'
+        verbose_name_plural = 'content files'

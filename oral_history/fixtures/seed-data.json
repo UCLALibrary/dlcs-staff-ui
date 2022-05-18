@@ -1,98 +1,52 @@
 [
   {
-    "model": "oral_history.qastatus",
-    "pk": 1,
+    "model": "oral_history.dlobjects",
+    "pk": 236,
     "fields": {
-      "status": "In progress",
-      "description": "the record is being actively catalog."
+      "projectid_fk": 80,
+      "object_typeid_fk": 1,
+      "object_label": "Collection",
+      "object_level": 1
     }
   },
   {
-    "model": "oral_history.qastatus",
-    "pk": 2,
+    "model": "oral_history.dlobjects",
+    "pk": 237,
     "fields": {
-      "status": "Completed",
-      "description": "the resource and the metadata record are complete and ready to be part of the collection."
+      "projectid_fk": 80,
+      "object_typeid_fk": 9,
+      "object_label": "Series",
+      "object_level": 2
     }
   },
   {
-    "model": "oral_history.qastatus",
-    "pk": 3,
+    "model": "oral_history.dlobjects",
+    "pk": 238,
     "fields": {
-      "status": "Pending",
-      "description": "either the resource or the metadata have issues such that a decision needs to be made about whether the resource or metadata should be in the collection."
+      "projectid_fk": 80,
+      "object_typeid_fk": 19,
+      "object_label": "Interview",
+      "object_level": 3
     }
   },
   {
-    "model": "oral_history.qastatus",
-    "pk": 4,
+    "model": "oral_history.dlobjects",
+    "pk": 239,
     "fields": {
-      "status": "Derived",
-      "description": "New record created by deriving it from an existing record."
+      "projectid_fk": 80,
+      "object_typeid_fk": 13,
+      "object_label": "Audio",
+      "object_level": 4
     }
   },
   {
-    "model": "oral_history.qastatus",
-    "pk": 5,
+    "model": "oral_history.dlobjects",
+    "pk": 931,
     "fields": {
-      "status": "Imported",
-      "description": "the record was created through programmatic means."
-    }
-  },
-  {
-    "model": "oral_history.qastatus",
-    "pk": 6,
-    "fields": {
-      "status": "Needs QA",
-      "description": "the resource needs to have metadata quality assurance performed."
-    }
-  },
-  {
-    "model": "oral_history.qastatus",
-    "pk": 7,
-    "fields": {
-      "status": "Needs Review",
-      "description": "the resource (not metadata) is awaiting or is undergoing a review process."
-    }
-  },
-  {
-    "model": "oral_history.qastatus",
-    "pk": 8,
-    "fields": {
-      "status": "Record proofed; needs metadata review ",
-      "description": "record ready for review by CMC staff"
-    }
-  },
-  {
-    "model": "oral_history.qastatus",
-    "pk": 9,
-    "fields": {
-      "status": "Needs expert metadata review ",
-      "description": "initial review by CMC staff completed; needs further work by language/subject expert"
-    }
-  },
-  {
-    "model": "oral_history.qastatus",
-    "pk": 10,
-    "fields": {
-      "status": "Completed with minimal metadata",
-      "description": "the resource and the metadata record are complete and ready to be part of the collection."
-    }
-  },
-  {
-    "model": "oral_history.qastatus",
-    "pk": 11,
-    "fields": {
-      "status": "Sealed",
-      "description": "Anything with this status should not be published to the web."
-    }
-  },
-  {
-    "model": "oral_history.qastatus",
-    "pk": 12,
-    "fields": {
-      "status": "Migrated",
-      "description": "the record has been migrated to Islandora."
+      "projectid_fk": 80,
+      "object_typeid_fk": 13,
+      "object_label": "Video",
+      "object_level": 4
     }
   },
   {
@@ -314,56 +268,6 @@
     }
   },
   {
-    "model": "oral_history.dlobjects",
-    "pk": 236,
-    "fields": {
-      "projectid_fk": 80,
-      "object_typeid_fk": 1,
-      "object_label": "Collection",
-      "object_level": 1
-    }
-  },
-  {
-    "model": "oral_history.dlobjects",
-    "pk": 237,
-    "fields": {
-      "projectid_fk": 80,
-      "object_typeid_fk": 9,
-      "object_label": "Series",
-      "object_level": 2
-    }
-  },
-  {
-    "model": "oral_history.dlobjects",
-    "pk": 238,
-    "fields": {
-      "projectid_fk": 80,
-      "object_typeid_fk": 19,
-      "object_label": "Interview",
-      "object_level": 3
-    }
-  },
-  {
-    "model": "oral_history.dlobjects",
-    "pk": 239,
-    "fields": {
-      "projectid_fk": 80,
-      "object_typeid_fk": 13,
-      "object_label": "Audio",
-      "object_level": 4
-    }
-  },
-  {
-    "model": "oral_history.dlobjects",
-    "pk": 931,
-    "fields": {
-      "projectid_fk": 80,
-      "object_typeid_fk": 13,
-      "object_label": "Video",
-      "object_level": 4
-    }
-  },
-  {
     "model": "oral_history.projectitems",
     "pk": 29504,
     "fields": {
@@ -537,6 +441,237 @@
       "created_by": "Eric Chuk",
       "modified_by": "Teresa Barnett ",
       "approved_by": ""
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 1,
+    "fields": {
+      "status": "In progress",
+      "description": "the record is being actively catalog."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 2,
+    "fields": {
+      "status": "Completed",
+      "description": "the resource and the metadata record are complete and ready to be part of the collection."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 3,
+    "fields": {
+      "status": "Pending",
+      "description": "either the resource or the metadata have issues such that a decision needs to be made about whether the resource or metadata should be in the collection."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 4,
+    "fields": {
+      "status": "Derived",
+      "description": "New record created by deriving it from an existing record."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 5,
+    "fields": {
+      "status": "Imported",
+      "description": "the record was created through programmatic means."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 6,
+    "fields": {
+      "status": "Needs QA",
+      "description": "the resource needs to have metadata quality assurance performed."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 7,
+    "fields": {
+      "status": "Needs Review",
+      "description": "the resource (not metadata) is awaiting or is undergoing a review process."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 8,
+    "fields": {
+      "status": "Record proofed; needs metadata review ",
+      "description": "record ready for review by CMC staff"
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 9,
+    "fields": {
+      "status": "Needs expert metadata review ",
+      "description": "initial review by CMC staff completed; needs further work by language/subject expert"
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 10,
+    "fields": {
+      "status": "Completed with minimal metadata",
+      "description": "the resource and the metadata record are complete and ready to be part of the collection."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 11,
+    "fields": {
+      "status": "Sealed",
+      "description": "Anything with this status should not be published to the web."
+    }
+  },
+  {
+    "model": "oral_history.qastatus",
+    "pk": 12,
+    "fields": {
+      "status": "Migrated",
+      "description": "the record has been migrated to Islandora."
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 312,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "SubMasterImage1",
+      "description": "UCLA Center for Oral History Research Interview Collection Submaster Image"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 313,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "ThumbnailImage1",
+      "description": "UCLA Center for Oral History Research Interview Collection Thumbnail Image"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 314,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "MasterAudio1",
+      "description": "UCLA Center for Oral History Research Interview Collection Master Audio"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 315,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "SubMasterAudio1",
+      "description": "UCLA Center for Oral History Research Interview Collection Submaster Audio"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 316,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "PDF",
+      "description": "UCLA Center for Oral History Research Interview Collection PDF"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 317,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "Text Transcript",
+      "description": "Oral History Text - Transcript"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 549,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "Text Introduction",
+      "description": "Oral History Text - Introduction"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 550,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "Text Biography",
+      "description": "Oral History Text - Biography"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 551,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "Text Interview History",
+      "description": "Oral History Text - Interview History"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 552,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "Text Appendix",
+      "description": "Oral History Text - Appendix"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 561,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "Text Index",
+      "description": "Oral History Text - Index"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 562,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "MasterImage1",
+      "description": "Oral History Image - Master Image"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 1968,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "PDF  Résumé",
+      "description": "Narrator’s Résumé PDF"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 1969,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "PDF Appendix to Interview",
+      "description": "Appendix to Interview PDF"
+    }
+  },
+  {
+    "model": "oral_history.filegroups",
+    "pk": 1974,
+    "fields": {
+      "projectid_fk": 80,
+      "file_group_title": "PDF Legal Agreement",
+      "description": "Legal Agreement"
     }
   }
 ]
