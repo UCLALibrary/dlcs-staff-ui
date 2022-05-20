@@ -55,8 +55,8 @@ def process_tiff(file_name, item_ark, dest_dir):
     resize_height, resize_width = 50, 50
 
     try:
-        image_processor = ImageProcessor()
-        ContentFiles img_metadata = image_processor.resize_image(file_name, dest_file_name, resize_height, resize_width)
+        image_processor = ImageProcessor(file_name)
+        ContentFiles img_metadata = image_processor.create_thumbnail(file_name, dest_file_name, resize_height, resize_width)
 
         return img_metadata
 
