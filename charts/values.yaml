@@ -29,13 +29,6 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-# NFS volume mount
-volume:
-  name: ""
-  nfsServer: ""
-  nfsMountPath: ""
-  podMountPath: ""
-
 django:
   env:
     run_env: "prod"
@@ -58,6 +51,18 @@ django:
     # Include below if enabled: "true"
     #  db_password: ""
     #  django_secret_key: ""
+
+# Volume type specification
+volumes: []
+#  - name: ""
+#    nfs: 
+#      server: ""
+#      path: ""
+
+# Volume mount specification for the container
+volumeMounts: []
+#  - name: ""
+#    mountPath: ""
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
