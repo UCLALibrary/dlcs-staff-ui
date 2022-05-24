@@ -2,7 +2,7 @@ import logging
 import mimetypes
 from django.core.management.base import BaseCommand, CommandError
 from oral_history.models import ContentFiles
-from oral_history.scripts.process_image import ImageProcessor
+from oral_history.scripts.image_processor import ImageProcessor
 
 
 logger = logging.getLogger(__name__)
@@ -56,7 +56,7 @@ def process_tiff(file_name, item_ark, dest_dir):
 
     try:
         image_processor = ImageProcessor(file_name)
-        ContentFiles img_metadata = image_processor.create_thumbnail(file_name, dest_file_name, resize_height, resize_width)
+        img_metadata = image_processor.create_thumbnail(dest_file_name, resize_height, resize_width)
 
         return img_metadata
 
