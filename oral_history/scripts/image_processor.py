@@ -21,7 +21,7 @@ class ImageProcessor():
 
     def __init__(self, src_file_name):
         self.src_file_name = src_file_name
-        logger.info("Processing image file ...")
+        logger.info(f'Processing image: {src_file_name}')
 
     def create_thumbnail(self, dest_file_name, resize_height, resize_width):
         
@@ -52,21 +52,9 @@ class ImageProcessor():
                 img.save(filename=dest_file_name)
 
                 img_metadata = self.populate_content_file_data(dest_file_name, process_category)
-                return(img_metadata)
+                return img_metadata
 
         except:
             raise CommandError(f'Error processing file')
         
         logger.info(f'Image processed: {dest_file_name}')
-        # error detection goes here
-        #
-        # temporary example errors, uncomment to view in console; replace with the script being written by KristianA
-        #
-        #x = 1/0
-        #
-        # raise CommandError(
-        #    f'Error from script - File not found: "{file_name}"')
-        # raise CommandError(
-        #    f'Error from script - This ARK format not supported: "{item_ark}"')
-
-    
