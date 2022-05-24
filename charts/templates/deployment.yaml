@@ -29,8 +29,7 @@ spec:
               containerPort: 8000
               protocol: TCP
           volumeMounts:
-            - name: {{ .Values.volume.name }}
-              mountPath: {{ .Values.volume.podMountPath }}
+            {{- toYaml .Values.volumeMounts | nindent 12 }}
           livenessProbe:
             httpGet:
               path: /upload_file
@@ -47,11 +46,10 @@ spec:
                   value: {{ range .Values.django.env.allowed_hosts }}{{ . }}{{ end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.volumes }}
       volumes:
-        - name: {{ .Values.volume.name }}
-          nfs:
-            server: {{ .Values.volume.nfsServer }}
-            path: {{ .Values.volume.nfsMountPath }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
