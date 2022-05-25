@@ -1,0 +1,20 @@
+INFO 2022-05-11 11:39:00,846 oral_history.management.commands.process_file process_file file_name = 'samples/sample.tiff'
+INFO 2022-05-11 11:39:00,847 oral_history.management.commands.process_file process_file item_ark = '21198/zz002dx6v0'
+INFO 2022-05-11 11:39:00,849 oral_history.management.commands.process_file process_file mime_type = 'image/tiff'
+INFO 2022-05-11 11:39:00,849 oral_history.management.commands.process_file process_file dest_file_name = '/tmp/tmp.jpg'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file 
+
+===== Starting new run =====
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file file_group = 'Text Appendix'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file file_name = 'samples/sample.tiff'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file item_ark = '21198/zz002dx6v0'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file mime_type = 'image/tiff'
+INFO 2022-05-11 11:39:26,944 oral_history.management.commands.process_file process_file dest_file_name = '/tmp/tmp.jpg'
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file 
+
+===== Starting new run =====
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file file_group = 'Text Appendix'
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file file_name = 'samples/sample.lst'
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file item_ark = '21198/zz002dx6v0'
+INFO 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file mime_type = None
+ERROR 2022-05-11 11:39:43,298 oral_history.management.commands.process_file process_file Invalid mime_type = None
