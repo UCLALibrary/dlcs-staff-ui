@@ -1,7 +1,9 @@
 import logging
 import mimetypes
 from django.core.management.base import BaseCommand, CommandError
-from oral_history.models import Projects, ProjectItems
+from oral_history.models import ContentFiles, Projects, ProjectItems
+from oral_history.scripts.image_processor import ImageProcessor
+
 logger = logging.getLogger(__name__)
 
 
@@ -70,6 +72,22 @@ def process_tiff(file_name, item_ark, dest_dir):
     # Calculate destination file_name based on ark and sequence id from DB
     # Using tmp name for place holder
     dest_file_name = dest_dir + 'tmp.jpg'
+
+    # https://jira.library.ucla.edu/browse/SYS-837
+    # TODO:
+    # Calculate thumbnail height and width from admin metadata
+    resize_height, resize_width = 50, 50
+
+    try:
+        image_processor = ImageProcessor(file_name)
+        img_metadata = image_processor.create_thumbnail(dest_file_name, resize_height, resize_width)
+
+        return img_metadata
+
+    except Exception as ex:
+        logger.exception(ex)
+        raise
+        
     logger.info(f'{dest_file_name = }')
 
 
