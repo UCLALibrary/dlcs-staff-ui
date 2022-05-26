@@ -2,8 +2,9 @@ import os
 from django import forms
 from .models import Projects, FileGroups
 
-FILE_GROUPS = [(f.pk, f.description) for f in FileGroups.objects.all()]
 DLCS_FILE_SOURCE = os.getenv('DJANGO_DLCS_FILE_SOURCE')
+# Get list of tuples of file groups, using primary key as form value
+FILE_GROUPS = [(f.pk, f.description) for f in FileGroups.objects.all()]
 
 class ProjectsForm(forms.ModelForm):
 
