@@ -118,9 +118,9 @@ class FileGroups(models.Model):
 class LinkAdminGroups(models.Model):
     admin_linkid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_groupid_fk = models.ForeignKey(
-        'AdminGroups', models.DO_NOTHING, db_column='admin_groupid_fk', blank=True, null=True)
+        'AdminGroups', models.CASCADE, db_column='admin_groupid_fk', blank=True, null=True)
     file_groupid_fk = models.ForeignKey(
-        'FileGroups', models.DO_NOTHING, db_column='file_groupid_fk', blank=True, null=True)
+        'FileGroups', models.CASCADE, db_column='file_groupid_fk', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -131,7 +131,7 @@ class AdminGroups(models.Model):
     admin_groupid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_group_title = models.CharField(max_length=250)
     admin_typeid_fk = models.ForeignKey(
-        'AdminTypes', models.DO_NOTHING, db_column='admin_typeid_fk')
+        'AdminTypes', models.CASCADE, db_column='admin_typeid_fk')
     description = models.CharField(max_length=250, blank=True, null=True)
 
     class Meta:
@@ -155,7 +155,7 @@ class AdminTerms(models.Model):
     qualifier_flag = models.CharField(max_length=3, blank=True, null=True)
     repeat_flag = models.CharField(max_length=3, blank=True, null=True)
     admin_typeid_fk = models.ForeignKey(
-        'AdminTypes', models.DO_NOTHING, db_column='admin_typeid_fk')
+        'AdminTypes', models.CASCADE, db_column='admin_typeid_fk')
 
     class Meta:
         managed = False
@@ -166,7 +166,7 @@ class AdminQualifiers(models.Model):
     admin_qualifierid_pk = models.AutoField(
         primary_key=True, auto_created=True)
     admin_termid_fk = models.ForeignKey(
-        'AdminTerms', models.DO_NOTHING, db_column='admin_termid_fk', blank=True, null=True)
+        'AdminTerms', models.CASCADE, db_column='admin_termid_fk', blank=True, null=True)
     admin_qualifier = models.CharField(max_length=100, blank=True, null=True)
     qualifier_term_id = models.IntegerField(blank=True, null=True)
 
@@ -178,7 +178,7 @@ class AdminQualifiers(models.Model):
 class AdminControlValues(models.Model):
     admin_cvid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_termid_fk = models.ForeignKey(
-        'AdminTerms', models.DO_NOTHING, db_column='admin_termid_fk')
+        'AdminTerms', models.CASCADE, db_column='admin_termid_fk')
     admin_cv = models.CharField(max_length=500)
     admin_cv_source = models.CharField(max_length=200, blank=True, null=True)
 
@@ -190,14 +190,14 @@ class AdminControlValues(models.Model):
 class AdminValues(models.Model):
     admin_valueid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_termid_fk = models.ForeignKey(
-        'AdminTerms', models.DO_NOTHING, db_column='admin_termid_fk')
+        'AdminTerms', models.CASCADE, db_column='admin_termid_fk')
     admin_value = models.CharField(max_length=3000, blank=True, null=True)
     admin_cvid_fk = models.ForeignKey(
-        'AdminControlValues', models.DO_NOTHING, db_column='admin_cvid_fk', blank=True, null=True)
+        'AdminControlValues', models.CASCADE, db_column='admin_cvid_fk', blank=True, null=True)
     admin_qualifierid_fk = models.ForeignKey(
-        'AdminQualifiers', models.DO_NOTHING, db_column='admin_qualifierid_fk', blank=True, null=True)
+        'AdminQualifiers', models.CASCADE, db_column='admin_qualifierid_fk', blank=True, null=True)
     admin_groupid_fk = models.ForeignKey(
-        'AdminGroups', models.DO_NOTHING, db_column='admin_groupid_fk')
+        'AdminGroups', models.CASCADE, db_column='admin_groupid_fk')
     admin_profile = models.TextField(blank=True, null=True)
 
     class Meta:
