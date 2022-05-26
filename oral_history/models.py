@@ -103,7 +103,7 @@ class QaStatus(models.Model):
 
 
 class FileGroups(models.Model):
-    file_groupid_pk = models.IntegerField(primary_key=True)
+    file_groupid_pk = models.AutoField(primary_key=True, auto_created=True)
     projectid_fk = models.ForeignKey(
         'Projects', models.CASCADE, db_column='projectid_fk')
     file_group_title = models.CharField(max_length=250)
@@ -116,7 +116,7 @@ class FileGroups(models.Model):
 
 
 class LinkAdminGroups(models.Model):
-    admin_linkid_pk = models.IntegerField(primary_key=True)
+    admin_linkid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_groupid_fk = models.ForeignKey(
         'AdminGroups', models.DO_NOTHING, db_column='admin_groupid_fk', blank=True, null=True)
     file_groupid_fk = models.ForeignKey(
@@ -128,7 +128,7 @@ class LinkAdminGroups(models.Model):
 
 
 class AdminGroups(models.Model):
-    admin_groupid_pk = models.IntegerField(primary_key=True)
+    admin_groupid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_group_title = models.CharField(max_length=250)
     admin_typeid_fk = models.ForeignKey(
         'AdminTypes', models.DO_NOTHING, db_column='admin_typeid_fk')
@@ -140,7 +140,7 @@ class AdminGroups(models.Model):
 
 
 class AdminTypes(models.Model):
-    admin_typeid_pk = models.IntegerField(primary_key=True)
+    admin_typeid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_type = models.CharField(max_length=25, blank=True, null=True)
 
     class Meta:
@@ -149,7 +149,7 @@ class AdminTypes(models.Model):
 
 
 class AdminTerms(models.Model):
-    admin_termid_pk = models.IntegerField(primary_key=True)
+    admin_termid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_term = models.CharField(max_length=100)
     control_value_flag = models.CharField(max_length=3, blank=True, null=True)
     qualifier_flag = models.CharField(max_length=3, blank=True, null=True)
@@ -163,7 +163,8 @@ class AdminTerms(models.Model):
 
 
 class AdminQualifiers(models.Model):
-    admin_qualifierid_pk = models.IntegerField(primary_key=True)
+    admin_qualifierid_pk = models.AutoField(
+        primary_key=True, auto_created=True)
     admin_termid_fk = models.ForeignKey(
         'AdminTerms', models.DO_NOTHING, db_column='admin_termid_fk', blank=True, null=True)
     admin_qualifier = models.CharField(max_length=100, blank=True, null=True)
@@ -175,7 +176,7 @@ class AdminQualifiers(models.Model):
 
 
 class AdminControlValues(models.Model):
-    admin_cvid_pk = models.IntegerField(primary_key=True)
+    admin_cvid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_termid_fk = models.ForeignKey(
         'AdminTerms', models.DO_NOTHING, db_column='admin_termid_fk')
     admin_cv = models.CharField(max_length=500)
@@ -187,7 +188,7 @@ class AdminControlValues(models.Model):
 
 
 class AdminValues(models.Model):
-    admin_valueid_pk = models.IntegerField(primary_key=True)
+    admin_valueid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_termid_fk = models.ForeignKey(
         'AdminTerms', models.DO_NOTHING, db_column='admin_termid_fk')
     admin_value = models.CharField(max_length=3000, blank=True, null=True)
@@ -205,7 +206,7 @@ class AdminValues(models.Model):
 
 
 class ContentFiles(models.Model):
-    fileid_pk = models.IntegerField(primary_key=True)
+    fileid_pk = models.AutoField(primary_key=True, auto_created=True)
     file_groupid_fk = models.ForeignKey(
         'FileGroups', models.CASCADE, db_column='file_groupid_fk')
     divid_fk = models.ForeignKey(
