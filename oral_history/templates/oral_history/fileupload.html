@@ -21,11 +21,9 @@ item_ark: {{ item.item_ark }}<br>
     {% endfor %}
 {% endif %}
 <br>
-<form name="upload_file_form" method="POST" enctype="multipart/form-data" onsubmit="skip_upload(this);">
+<form name="upload_file_form" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <div id="file_list_div" hidden="hidden">
-    </div>
     <button type="submit">Save</button>
 </form>
 {% endblock %}
