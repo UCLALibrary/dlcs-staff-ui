@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'admin_control_values',
-                'managed': False,
+                'managed': True,
             },
         ),
         migrations.CreateModel(
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'admin_groups',
-                'managed': False,
+                'managed': True,
             },
         ),
         migrations.CreateModel(
@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'admin_qualifiers',
-                'managed': False,
+                'managed': True,
             },
         ),
         migrations.CreateModel(
@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'admin_terms',
-                'managed': False,
+                'managed': True,
             },
         ),
         migrations.CreateModel(
@@ -68,7 +68,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'admin_types',
-                'managed': False,
+                'managed': True,
             },
         ),
         migrations.CreateModel(
@@ -80,7 +80,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'admin_values',
-                'managed': False,
+                'managed': True,
             },
         ),
         migrations.CreateModel(
@@ -90,7 +90,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'link_admin_groups',
-                'managed': False,
+                'managed': True,
             },
         ),
     ]
