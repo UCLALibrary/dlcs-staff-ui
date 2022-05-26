@@ -123,7 +123,7 @@ class LinkAdminGroups(models.Model):
         'FileGroups', models.CASCADE, db_column='file_groupid_fk', blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'link_admin_groups'
 
 
@@ -135,7 +135,7 @@ class AdminGroups(models.Model):
     description = models.CharField(max_length=250, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'admin_groups'
 
 
@@ -144,7 +144,7 @@ class AdminTypes(models.Model):
     admin_type = models.CharField(max_length=25, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'admin_types'
 
 
@@ -158,7 +158,7 @@ class AdminTerms(models.Model):
         'AdminTypes', models.CASCADE, db_column='admin_typeid_fk')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'admin_terms'
 
 
@@ -171,7 +171,7 @@ class AdminQualifiers(models.Model):
     qualifier_term_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'admin_qualifiers'
 
 
@@ -183,7 +183,7 @@ class AdminControlValues(models.Model):
     admin_cv_source = models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'admin_control_values'
 
 
@@ -201,7 +201,7 @@ class AdminValues(models.Model):
     admin_profile = models.TextField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'admin_values'
 
 
