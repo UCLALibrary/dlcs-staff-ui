@@ -103,8 +103,9 @@ class QaStatus(models.Model):
 
 
 class FileGroups(models.Model):
-    file_groupid_pk = models.IntegerField(primary_key=True)
-    projectid_fk = models.ForeignKey('Projects', models.CASCADE, db_column='projectid_fk')
+    file_groupid_pk = models.AutoField(primary_key=True, auto_created=True)
+    projectid_fk = models.ForeignKey(
+        'Projects', models.CASCADE, db_column='projectid_fk')
     file_group_title = models.CharField(max_length=250)
     description = models.CharField(max_length=250, blank=True, null=True)
 
@@ -114,10 +115,103 @@ class FileGroups(models.Model):
         verbose_name_plural = 'file groups'
 
 
+class LinkAdminGroups(models.Model):
+    admin_linkid_pk = models.AutoField(primary_key=True, auto_created=True)
+    admin_groupid_fk = models.ForeignKey(
+        'AdminGroups', models.CASCADE, db_column='admin_groupid_fk', blank=True, null=True)
+    file_groupid_fk = models.ForeignKey(
+        'FileGroups', models.CASCADE, db_column='file_groupid_fk', blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'link_admin_groups'
+
+
+class AdminGroups(models.Model):
+    admin_groupid_pk = models.AutoField(primary_key=True, auto_created=True)
+    admin_group_title = models.CharField(max_length=250)
+    admin_typeid_fk = models.ForeignKey(
+        'AdminTypes', models.CASCADE, db_column='admin_typeid_fk')
+    description = models.CharField(max_length=250, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'admin_groups'
+
+
+class AdminTypes(models.Model):
+    admin_typeid_pk = models.AutoField(primary_key=True, auto_created=True)
+    admin_type = models.CharField(max_length=25, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'admin_types'
+
+
+class AdminTerms(models.Model):
+    admin_termid_pk = models.AutoField(primary_key=True, auto_created=True)
+    admin_term = models.CharField(max_length=100)
+    control_value_flag = models.CharField(max_length=3, blank=True, null=True)
+    qualifier_flag = models.CharField(max_length=3, blank=True, null=True)
+    repeat_flag = models.CharField(max_length=3, blank=True, null=True)
+    admin_typeid_fk = models.ForeignKey(
+        'AdminTypes', models.CASCADE, db_column='admin_typeid_fk')
+
+    class Meta:
+        managed = True
+        db_table = 'admin_terms'
+
+
+class AdminQualifiers(models.Model):
+    admin_qualifierid_pk = models.AutoField(
+        primary_key=True, auto_created=True)
+    admin_termid_fk = models.ForeignKey(
+        'AdminTerms', models.CASCADE, db_column='admin_termid_fk', blank=True, null=True)
+    admin_qualifier = models.CharField(max_length=100, blank=True, null=True)
+    qualifier_term_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'admin_qualifiers'
+
+
+class AdminControlValues(models.Model):
+    admin_cvid_pk = models.AutoField(primary_key=True, auto_created=True)
+    admin_termid_fk = models.ForeignKey(
+        'AdminTerms', models.CASCADE, db_column='admin_termid_fk')
+    admin_cv = models.CharField(max_length=500)
+    admin_cv_source = models.CharField(max_length=200, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'admin_control_values'
+
+
+class AdminValues(models.Model):
+    admin_valueid_pk = models.AutoField(primary_key=True, auto_created=True)
+    admin_termid_fk = models.ForeignKey(
+        'AdminTerms', models.CASCADE, db_column='admin_termid_fk')
+    # Reduced from 3000 to 2000 for SYS-841 akohler
+    admin_value = models.CharField(max_length=2000, blank=True, null=True)
+    admin_cvid_fk = models.ForeignKey(
+        'AdminControlValues', models.CASCADE, db_column='admin_cvid_fk', blank=True, null=True)
+    admin_qualifierid_fk = models.ForeignKey(
+        'AdminQualifiers', models.CASCADE, db_column='admin_qualifierid_fk', blank=True, null=True)
+    admin_groupid_fk = models.ForeignKey(
+        'AdminGroups', models.CASCADE, db_column='admin_groupid_fk')
+    admin_profile = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'admin_values'
+
+
 class ContentFiles(models.Model):
-    fileid_pk = models.IntegerField(primary_key=True)
-    file_groupid_fk = models.ForeignKey('FileGroups', models.CASCADE, db_column='file_groupid_fk')
-    divid_fk = models.ForeignKey('ProjectItems', models.CASCADE, db_column='divid_fk')
+    fileid_pk = models.AutoField(primary_key=True, auto_created=True)
+    file_groupid_fk = models.ForeignKey(
+        'FileGroups', models.CASCADE, db_column='file_groupid_fk')
+    divid_fk = models.ForeignKey(
+        'ProjectItems', models.CASCADE, db_column='divid_fk')
     mime_type = models.CharField(max_length=75, blank=True, null=True)
     file_sequence = models.CharField(max_length=255, blank=True, null=True)
     file_size = models.CharField(max_length=20, blank=True, null=True)
@@ -130,15 +224,22 @@ class ContentFiles(models.Model):
     # The following fields are in the database/model, but not used.
     # Django guessed at several types via inspectdb.
     old_fileid = models.CharField(max_length=100, blank=True, null=True)
-    bfile_video = models.TextField(blank=True, null=True)  # This field type is a guess.
-    blob_video = models.TextField(blank=True, null=True)  # This field type is a guess.
+    # This field type is a guess.
+    bfile_video = models.TextField(blank=True, null=True)
+    # This field type is a guess.
+    blob_video = models.TextField(blank=True, null=True)
     clob_text = models.TextField(blank=True, null=True)
     nclob_text = models.TextField(blank=True, null=True)
-    bfile_image = models.TextField(blank=True, null=True)  # This field type is a guess.
-    blob_image = models.TextField(blank=True, null=True)  # This field type is a guess.
-    bfile_audio = models.TextField(blank=True, null=True)  # This field type is a guess.
-    blob_audio = models.TextField(blank=True, null=True)  # This field type is a guess.
-    bfile_lob = models.TextField(blank=True, null=True)  # This field type is a guess.
+    # This field type is a guess.
+    bfile_image = models.TextField(blank=True, null=True)
+    # This field type is a guess.
+    blob_image = models.TextField(blank=True, null=True)
+    # This field type is a guess.
+    bfile_audio = models.TextField(blank=True, null=True)
+    # This field type is a guess.
+    blob_audio = models.TextField(blank=True, null=True)
+    # This field type is a guess.
+    bfile_lob = models.TextField(blank=True, null=True)
     blob_lob = models.BinaryField(blank=True, null=True)
 
     class Meta:
