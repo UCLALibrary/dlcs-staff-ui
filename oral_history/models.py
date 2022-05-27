@@ -191,7 +191,8 @@ class AdminValues(models.Model):
     admin_valueid_pk = models.AutoField(primary_key=True, auto_created=True)
     admin_termid_fk = models.ForeignKey(
         'AdminTerms', models.CASCADE, db_column='admin_termid_fk')
-    admin_value = models.CharField(max_length=3000, blank=True, null=True)
+    # Reduced from 3000 to 2000 for SYS-841 akohler
+    admin_value = models.CharField(max_length=2000, blank=True, null=True)
     admin_cvid_fk = models.ForeignKey(
         'AdminControlValues', models.CASCADE, db_column='admin_cvid_fk', blank=True, null=True)
     admin_qualifierid_fk = models.ForeignKey(
