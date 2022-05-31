@@ -23,7 +23,7 @@ spec:
             - configMapRef:
                 name: {{ include "dlcs-staff-ui.fullname" . }}-configmap
             - secretRef:
-                name: {{ template "dlcs-staff-ui.fullname" . }}-externalsecret
+                name: {{ include "dlcs-staff-ui.fullname" . }}-secrets
           ports:
             - name: http
               containerPort: 8000
