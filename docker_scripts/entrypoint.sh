@@ -17,7 +17,8 @@ done
 
 if [ "$DJANGO_RUN_ENV" = "dev" ]; then
   # Make sure database migrations are up to date
-  python ./manage.py migrate
+  # --skip-checks allows migrations with an empty db when code refers to models.
+  python ./manage.py migrate --skip-checks
 
   # Create default superuser for dev environment, using django env vars.
   # Logs will show error if this exists, which is OK.
