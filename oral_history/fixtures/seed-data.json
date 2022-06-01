@@ -673,5 +673,4331 @@
       "file_group_title": "PDF Legal Agreement",
       "description": "Legal Agreement"
     }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 1,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "text/html",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 2,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "text/xml",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 3,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "image/tiff",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 4,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "image/jpeg",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 5,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "audio/x-wav",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 6,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "audio/x-aiff",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 7,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "audio/x-mp3",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 8,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "video/mpeg-2",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 9,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "video/quicktime",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 10,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "application/x-shockwave-flash",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 11,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "application/pdf",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 12,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "application/zip",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 13,
+    "fields": {
+      "admin_termid_fk": 3,
+      "admin_cv": "big endian",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 14,
+    "fields": {
+      "admin_termid_fk": 3,
+      "admin_cv": "little endian",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 15,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_cv": "White is Zero",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 16,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_cv": "Black is Zero",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 17,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_cv": "RGB",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 18,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_cv": "CMYK",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 19,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_cv": "Transparency Mask",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 20,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_cv": "YCbCr",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 21,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_cv": "CIELab",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 22,
+    "fields": {
+      "admin_termid_fk": 18,
+      "admin_cv": "Fixed",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 23,
+    "fields": {
+      "admin_termid_fk": 18,
+      "admin_cv": "Variable",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 24,
+    "fields": {
+      "admin_termid_fk": 29,
+      "admin_cv": "ASCII",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 25,
+    "fields": {
+      "admin_termid_fk": 29,
+      "admin_cv": "UTF-8",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 26,
+    "fields": {
+      "admin_termid_fk": 29,
+      "admin_cv": "UTF-16",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 27,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_cv": "in.",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 28,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_cv": "cm",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 29,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_cv": "no absolute unit of measurement",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 38,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "text/plain",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 39,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "image/x-dwg",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admincontrolvalues",
+    "pk": 40,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_cv": "image/png",
+      "admin_cv_source": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 1,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 2,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 3,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 4,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 5,
+    "fields": {
+      "admin_group_title": "CD Audio Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 6,
+    "fields": {
+      "admin_group_title": "MP3 Audio Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "Medium quality MP3 128 Kbps"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 7,
+    "fields": {
+      "admin_group_title": "PDF Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 8,
+    "fields": {
+      "admin_group_title": "XML Text Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "only applies to XML UTF-8"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 9,
+    "fields": {
+      "admin_group_title": "Rights MD for Bennettt Project",
+      "admin_typeid_fk": 2,
+      "description": "Rights MD for Bennettt Project"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 10,
+    "fields": {
+      "admin_group_title": "Rights Cashin Foundation",
+      "admin_typeid_fk": 2,
+      "description": "Rights MD owned by the Cashin Foundation"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 11,
+    "fields": {
+      "admin_group_title": "Text Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "text/plain, ASCII"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 12,
+    "fields": {
+      "admin_group_title": "Aids Poster 200dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 13,
+    "fields": {
+      "admin_group_title": "Aids Poster 300dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 14,
+    "fields": {
+      "admin_group_title": "Aids Poster Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 15,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 16,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 17,
+    "fields": {
+      "admin_group_title": "Mazer Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300dpi, RGB color, uncompressed TIFF"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 18,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 19,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 20,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 21,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 22,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 23,
+    "fields": {
+      "admin_group_title": "Marshall & Co., Leeds, Papers 300dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 24,
+    "fields": {
+      "admin_group_title": "Marshall & Co., Leeds, Papers Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 1200 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 25,
+    "fields": {
+      "admin_group_title": "Armenian Ms 1 Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 1200 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 26,
+    "fields": {
+      "admin_group_title": "Ethiopian MS Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 1200 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 27,
+    "fields": {
+      "admin_group_title": "Medieval and Renaissance MS Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 1200 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 28,
+    "fields": {
+      "admin_group_title": "Canon Law Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "400 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 29,
+    "fields": {
+      "admin_group_title": "Canon Law Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, RGB 2200 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 30,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD 300 dpi 1500 pixels",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 1500 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 31,
+    "fields": {
+      "admin_group_title": "Friedlander 100dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "100 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 32,
+    "fields": {
+      "admin_group_title": "Friedlander 120dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "120 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 33,
+    "fields": {
+      "admin_group_title": "Friedlander 152dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "152 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 34,
+    "fields": {
+      "admin_group_title": "Friedlander 200dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "200 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 35,
+    "fields": {
+      "admin_group_title": "Friedlander 300dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 36,
+    "fields": {
+      "admin_group_title": "Friedlander 400dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "400 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 37,
+    "fields": {
+      "admin_group_title": "Friedlander 400dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "150 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 38,
+    "fields": {
+      "admin_group_title": "Friedlander 400dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "600 dpi RGB"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 39,
+    "fields": {
+      "admin_group_title": "Lee (S. Charles) Papers 300dpi Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 40,
+    "fields": {
+      "admin_group_title": "CAD Drawing Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "Computer-aided design (CAD)"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 41,
+    "fields": {
+      "admin_group_title": "PNG Thumb to Scale Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "96 dpi, Portable Network Graphics (PNG)"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 42,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 43,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 44,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 45,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 46,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 47,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 48,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 49,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 50,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 51,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 52,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 53,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 54,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 55,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 56,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 57,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 58,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 59,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 60,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 61,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 62,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 63,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 64,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 65,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 66,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 67,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 68,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 69,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 70,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 71,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 72,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 73,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 74,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 75,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 76,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 77,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 78,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 79,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 80,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 81,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 82,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 83,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 84,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 85,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 86,
+    "fields": {
+      "admin_group_title": "Basic UCLA Rights MD",
+      "admin_typeid_fk": 2,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 87,
+    "fields": {
+      "admin_group_title": "Image Master Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 88,
+    "fields": {
+      "admin_group_title": "Image Submaster Technical MD",
+      "admin_typeid_fk": 1,
+      "description": "300 dpi, 750 pixels in long dimension"
+    }
+  },
+  {
+    "model": "oral_history.admingroups",
+    "pk": 89,
+    "fields": {
+      "admin_group_title": "Image Thumbnail Technical MD",
+      "admin_typeid_fk": 1,
+      "description": ""
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 1,
+    "fields": {
+      "admin_termid_fk": 3,
+      "admin_qualifier": "Byte Order",
+      "qualifier_term_id": 43
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 2,
+    "fields": {
+      "admin_termid_fk": 4,
+      "admin_qualifier": "compression",
+      "qualifier_term_id": 43
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 3,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "compressionScheme",
+      "qualifier_term_id": 4
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 4,
+    "fields": {
+      "admin_termid_fk": 45,
+      "admin_qualifier": "BasicImageCharacteristics",
+      "qualifier_term_id": 44
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 5,
+    "fields": {
+      "admin_termid_fk": 46,
+      "admin_qualifier": "PhotometricInterpretation",
+      "qualifier_term_id": 45
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 6,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_qualifier": "Color Space",
+      "qualifier_term_id": 46
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 7,
+    "fields": {
+      "admin_termid_fk": 48,
+      "admin_qualifier": "GeneralCaptureInformation",
+      "qualifier_term_id": 47
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 8,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "captureDevice",
+      "qualifier_term_id": 48
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 9,
+    "fields": {
+      "admin_termid_fk": 49,
+      "admin_qualifier": "ScannerCapture",
+      "qualifier_term_id": 47
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 10,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "ScannerManufacturer",
+      "qualifier_term_id": 49
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 11,
+    "fields": {
+      "admin_termid_fk": 50,
+      "admin_qualifier": "scannerModel",
+      "qualifier_term_id": 49
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 12,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "scannerModelName",
+      "qualifier_term_id": 50
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 13,
+    "fields": {
+      "admin_termid_fk": 52,
+      "admin_qualifier": "SpatialMetrics",
+      "qualifier_term_id": 51
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 14,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "Sampling Ferquency Unit",
+      "qualifier_term_id": 52
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 15,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "xSamplingFrequency",
+      "qualifier_term_id": 52
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 16,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "ySamplingFrequency",
+      "qualifier_term_id": 52
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 17,
+    "fields": {
+      "admin_termid_fk": 53,
+      "admin_qualifier": "ImageColorEncoding",
+      "qualifier_term_id": 51
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 18,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_qualifier": "Bits Per Sample",
+      "qualifier_term_id": 53
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 19,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "bitsPerSampleValue",
+      "qualifier_term_id": 16
+    }
+  },
+  {
+    "model": "oral_history.adminqualifiers",
+    "pk": 20,
+    "fields": {
+      "admin_termid_fk": null,
+      "admin_qualifier": "samplesPerPixel",
+      "qualifier_term_id": 16
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 1,
+    "fields": {
+      "admin_term": "MIME Type",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 2,
+    "fields": {
+      "admin_term": "Format Note",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 3,
+    "fields": {
+      "admin_term": "Byte Order",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 4,
+    "fields": {
+      "admin_term": "Compression Scheme",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 5,
+    "fields": {
+      "admin_term": "Compression Level",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 6,
+    "fields": {
+      "admin_term": "Color Space",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 7,
+    "fields": {
+      "admin_term": "Image Profile",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 8,
+    "fields": {
+      "admin_term": "Device Source",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 9,
+    "fields": {
+      "admin_term": "Capture Device Manufacturer",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 10,
+    "fields": {
+      "admin_term": "Capture Device Model",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 11,
+    "fields": {
+      "admin_term": "Capture Device Model Serial Number",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 12,
+    "fields": {
+      "admin_term": "Capture Software",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 13,
+    "fields": {
+      "admin_term": "Capture Software Version",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 14,
+    "fields": {
+      "admin_term": "Sampling Frequency Unit",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 15,
+    "fields": {
+      "admin_term": "Image Sampling Frequency",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 16,
+    "fields": {
+      "admin_term": "Bits Per Sample",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 17,
+    "fields": {
+      "admin_term": "Data Rate",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 18,
+    "fields": {
+      "admin_term": "Data Rate Mode",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 19,
+    "fields": {
+      "admin_term": "Audio Data Encoding",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 20,
+    "fields": {
+      "admin_term": "Audio Sampling Frequency",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 21,
+    "fields": {
+      "admin_term": "Audio Noise Reduction",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 22,
+    "fields": {
+      "admin_term": "Audio Number of Channels",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 23,
+    "fields": {
+      "admin_term": "Video Aspect Ratio",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 24,
+    "fields": {
+      "admin_term": "Video Frame Rate",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 25,
+    "fields": {
+      "admin_term": "Video Pixels Horizontal",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 26,
+    "fields": {
+      "admin_term": "Video Pixels Vertical",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 27,
+    "fields": {
+      "admin_term": "Video Resolution",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 28,
+    "fields": {
+      "admin_term": "Video Sampling",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 29,
+    "fields": {
+      "admin_term": "Text Character Set",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 30,
+    "fields": {
+      "admin_term": "Text Markup",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 31,
+    "fields": {
+      "admin_term": "Image Target",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 32,
+    "fields": {
+      "admin_term": "Note",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 33,
+    "fields": {
+      "admin_term": "Copyright Status",
+      "control_value_flag": "yes",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 2
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 34,
+    "fields": {
+      "admin_term": "Copyright Statement",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 2
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 35,
+    "fields": {
+      "admin_term": "Rights Holder Name",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 2
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 36,
+    "fields": {
+      "admin_term": "Rights Holder Contact",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 2
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 37,
+    "fields": {
+      "admin_term": "Copyright Date",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 2
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 38,
+    "fields": {
+      "admin_term": "Credit Statement",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 2
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 39,
+    "fields": {
+      "admin_term": "Licensing Note",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 2
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 40,
+    "fields": {
+      "admin_term": "Access Category",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 2
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 41,
+    "fields": {
+      "admin_term": "Image Quality",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 42,
+    "fields": {
+      "admin_term": "Image Pixels Long Dimension",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 43,
+    "fields": {
+      "admin_term": "BasicDigitalObjectInformation",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 44,
+    "fields": {
+      "admin_term": "BasicImageInformation",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 45,
+    "fields": {
+      "admin_term": "BasicImageCharacteristics",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 46,
+    "fields": {
+      "admin_term": "PhotometricInterpretation",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 47,
+    "fields": {
+      "admin_term": "ImageCaptureMetadata",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 48,
+    "fields": {
+      "admin_term": "GeneralCaptureInformation",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 49,
+    "fields": {
+      "admin_term": "ScannerCapture",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 50,
+    "fields": {
+      "admin_term": "scannerModel",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 51,
+    "fields": {
+      "admin_term": "ImageAssessmentMetadata",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 52,
+    "fields": {
+      "admin_term": "SpatialMetrics",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 53,
+    "fields": {
+      "admin_term": "ImageColorEncoding",
+      "control_value_flag": "no",
+      "qualifier_flag": "yes",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 61,
+    "fields": {
+      "admin_term": "Bit Depth",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 62,
+    "fields": {
+      "admin_term": "Frame Count",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 63,
+    "fields": {
+      "admin_term": "Horizontal Resolution",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.adminterms",
+    "pk": 64,
+    "fields": {
+      "admin_term": "Vertical Resolution",
+      "control_value_flag": "no",
+      "qualifier_flag": "no",
+      "repeat_flag": "no",
+      "admin_typeid_fk": 1
+    }
+  },
+  {
+    "model": "oral_history.admintypes",
+    "pk": 1,
+    "fields": {
+      "admin_type": "Technical"
+    }
+  },
+  {
+    "model": "oral_history.admintypes",
+    "pk": 2,
+    "fields": {
+      "admin_type": "Rights"
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 1,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 11,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 7,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 2,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "Adobe Acrobat",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 7,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 3,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "7",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 7,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 4,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 2,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 8,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 5,
+    "fields": {
+      "admin_termid_fk": 29,
+      "admin_value": "",
+      "admin_cvid_fk": 25,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 8,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 6,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 1,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 7,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 1,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 8,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 1,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 9,
+    "fields": {
+      "admin_termid_fk": 34,
+      "admin_value": "http://digital.library.ucla.edu/rights/copyright1.html",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 2,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 10,
+    "fields": {
+      "admin_termid_fk": 35,
+      "admin_value": "UC Regents",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 2,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 11,
+    "fields": {
+      "admin_termid_fk": 37,
+      "admin_value": "2008",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 2,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 12,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 1,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 13,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "600",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 1,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 14,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 15,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 16,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 17,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 18,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 19,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 20,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "750",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 21,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 4,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 4,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 22,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 4,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 23,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 4,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 24,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 4,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 25,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "72",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 4,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 26,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "75",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 4,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 27,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "200",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 4,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 28,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 5,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 5,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 29,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 29,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 5,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 30,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "16",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 5,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 31,
+    "fields": {
+      "admin_termid_fk": 22,
+      "admin_value": "2",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 5,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 32,
+    "fields": {
+      "admin_termid_fk": 20,
+      "admin_value": "44100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 5,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 33,
+    "fields": {
+      "admin_termid_fk": 19,
+      "admin_value": "PCM",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 5,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 34,
+    "fields": {
+      "admin_termid_fk": 17,
+      "admin_value": "1.4112 Mbps",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 5,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 35,
+    "fields": {
+      "admin_termid_fk": 18,
+      "admin_value": "fixed",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 5,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 36,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 7,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 37,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 29,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 38,
+    "fields": {
+      "admin_termid_fk": 22,
+      "admin_value": "2",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 39,
+    "fields": {
+      "admin_termid_fk": 20,
+      "admin_value": "22050",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 40,
+    "fields": {
+      "admin_termid_fk": 19,
+      "admin_value": "MPEG1",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 41,
+    "fields": {
+      "admin_termid_fk": 17,
+      "admin_value": "128 Kbps",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 42,
+    "fields": {
+      "admin_termid_fk": 18,
+      "admin_value": "fixed",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 43,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "ImageMagick",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 44,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "6.4.4-1 Q8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 3,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 45,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "AutoDesk Cleaner XL",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 46,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "1.5",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 6,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 48,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 12,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 49,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 12,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 50,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 12,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 51,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 12,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 52,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "200",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 12,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 53,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 13,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 54,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 13,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 55,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 13,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 56,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 13,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 57,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 13,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 58,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 59,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 60,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "ImageMagick",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 63,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "6.4.2-1 Q8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 64,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 65,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 66,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 67,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 68,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "1500",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 14,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 111,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 23,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 112,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 23,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 113,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 23,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 114,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 23,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 115,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 23,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 116,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 117,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 118,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "ImageMagick",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 120,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "6.4.2-1 Q8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 121,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 122,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 123,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 124,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 125,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "1200",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 24,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 126,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 127,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 128,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "ImageMagick",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 130,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "6.4.2-1 Q8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 131,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "1200",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 132,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 133,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 134,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "600",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 135,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 25,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 136,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 137,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 138,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "ImageMagick",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 139,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "6.4.2-1 Q8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 140,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "1200",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 142,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 143,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 144,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "600",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 145,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 26,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 146,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 147,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 148,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "ImageMagick",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 149,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "6.4.2-1 Q8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 150,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "1200",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 151,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 152,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 153,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "600",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 154,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 27,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 155,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 28,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 156,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 28,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 157,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 28,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 158,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 28,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 159,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "400",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 28,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 160,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 161,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 162,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 163,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 164,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 165,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 166,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "2200",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 167,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "ImageMagick",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 168,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "6.4.4-1 Q8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 29,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 169,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 170,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 171,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 172,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 173,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 174,
+    "fields": {
+      "admin_termid_fk": 41,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 175,
+    "fields": {
+      "admin_termid_fk": 42,
+      "admin_value": "1500",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 176,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "ImageMagick",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 177,
+    "fields": {
+      "admin_termid_fk": 13,
+      "admin_value": "6.4.4-1 Q8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 30,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 178,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 31,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 179,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 31,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 180,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 31,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 181,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 31,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 182,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "100",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 31,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 183,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 32,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 184,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 32,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 185,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 32,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 186,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 32,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 187,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "120",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 32,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 188,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 33,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 189,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 33,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 190,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 33,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 191,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 33,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 192,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "152",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 33,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 193,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 34,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 194,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 34,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 195,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 34,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 196,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 34,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 197,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "200",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 34,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 198,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 35,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 199,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 35,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 200,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 35,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 201,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 35,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 202,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 35,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 203,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 36,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 204,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 36,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 205,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 36,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 206,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 36,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 207,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "400",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 36,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 208,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 37,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 209,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 37,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 210,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 37,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 211,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 37,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 213,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "150",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 37,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 214,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 38,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 215,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 38,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 217,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 38,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 218,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 38,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 219,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "600",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 38,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 220,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 39,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 221,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 39,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 222,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 39,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 223,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 39,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 224,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 39,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 225,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 38,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 11,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 226,
+    "fields": {
+      "admin_termid_fk": 29,
+      "admin_value": "",
+      "admin_cvid_fk": 24,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 11,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 227,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 3,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 17,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 228,
+    "fields": {
+      "admin_termid_fk": 6,
+      "admin_value": "",
+      "admin_cvid_fk": 17,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 17,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 230,
+    "fields": {
+      "admin_termid_fk": 16,
+      "admin_value": "8",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 17,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 231,
+    "fields": {
+      "admin_termid_fk": 14,
+      "admin_value": "",
+      "admin_cvid_fk": 27,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 17,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 232,
+    "fields": {
+      "admin_termid_fk": 15,
+      "admin_value": "300",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 17,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 233,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 39,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 40,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 234,
+    "fields": {
+      "admin_termid_fk": 12,
+      "admin_value": "AutoCAD DWG",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 40,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 235,
+    "fields": {
+      "admin_termid_fk": 1,
+      "admin_value": "",
+      "admin_cvid_fk": 40,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 41,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 237,
+    "fields": {
+      "admin_termid_fk": 61,
+      "admin_value": "24",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 41,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 239,
+    "fields": {
+      "admin_termid_fk": 63,
+      "admin_value": "96",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 41,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 240,
+    "fields": {
+      "admin_termid_fk": 64,
+      "admin_value": "96",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 41,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.adminvalues",
+    "pk": 241,
+    "fields": {
+      "admin_termid_fk": 62,
+      "admin_value": "1",
+      "admin_cvid_fk": null,
+      "admin_qualifierid_fk": null,
+      "admin_groupid_fk": 41,
+      "admin_profile": ""
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 589,
+    "fields": {
+      "admin_groupid_fk": 1,
+      "file_groupid_fk": 562
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 590,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 562
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 591,
+    "fields": {
+      "admin_groupid_fk": 3,
+      "file_groupid_fk": 312
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 592,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 312
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 593,
+    "fields": {
+      "admin_groupid_fk": 4,
+      "file_groupid_fk": 313
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 594,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 313
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 595,
+    "fields": {
+      "admin_groupid_fk": 5,
+      "file_groupid_fk": 314
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 596,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 314
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 597,
+    "fields": {
+      "admin_groupid_fk": 6,
+      "file_groupid_fk": 315
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 598,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 315
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 599,
+    "fields": {
+      "admin_groupid_fk": 7,
+      "file_groupid_fk": 316
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 600,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 316
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 601,
+    "fields": {
+      "admin_groupid_fk": 8,
+      "file_groupid_fk": 317
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 602,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 317
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 3763,
+    "fields": {
+      "admin_groupid_fk": 7,
+      "file_groupid_fk": 1968
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 3764,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 1968
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 3765,
+    "fields": {
+      "admin_groupid_fk": 7,
+      "file_groupid_fk": 1969
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 3766,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 1969
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 3773,
+    "fields": {
+      "admin_groupid_fk": 7,
+      "file_groupid_fk": 1974
+    }
+  },
+  {
+    "model": "oral_history.linkadmingroups",
+    "pk": 3774,
+    "fields": {
+      "admin_groupid_fk": 2,
+      "file_groupid_fk": 1974
+    }
   }
 ]
