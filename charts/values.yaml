@@ -43,6 +43,9 @@ django:
     #db_password: ""
     dlcs_file_source: ""
     target_port: ""
+    oh_libpartners: ""
+    oh_masterslz: ""
+    oh_wowza: ""
 
   externalSecrets:
     enabled: "false"
