@@ -65,6 +65,7 @@ class Projects(models.Model):
 
 
 class ProjectItems(models.Model):
+    # TODO: Change this to AutoField for consistency?  Do we need 64 bits for this?
     divid_pk = models.BigAutoField(primary_key=True, auto_created=True)
     objectid_fk = models.ForeignKey(
         'DlObjects', models.CASCADE, db_column='objectid_fk')
