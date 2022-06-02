@@ -2,6 +2,7 @@ import logging
 import mimetypes
 from django.core.management.base import BaseCommand, CommandError
 from oral_history.models import ContentFiles, Projects, ProjectItems
+from oral_history.scripts.audio_processor import AudioProcessor
 from oral_history.scripts.image_processor import ImageProcessor
 
 logger = logging.getLogger(__name__)
@@ -92,8 +93,24 @@ def process_tiff(file_name, item_ark, dest_dir):
 
 
 def process_wav(file_name, item_ark, dest_dir):
-    # https://jira.library.ucla.edu/browse/SYS-801
-    pass
+    
+    # https://jira.library.ucla.edu/browse/SYS-800
+    # TODO:
+    # Calculate destination file_name based on ark and sequence id from DB
+    # Using tmp name for place holder
+    dest_file_name = dest_dir + 'tmp.mp3'
+
+    try:
+        audio_processor = AudioProcessor(file_name)
+        audio_metadata = audio_processor.create_audio_mp3()
+
+        return audio_metadata
+
+    except Exception as ex:
+        logger.exception(ex)
+        raise
+
+    logger.info(f'{dest_file_name = }')
 
 
 def process_pdf(file_name, item_ark, dest_dir):
