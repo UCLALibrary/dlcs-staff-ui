@@ -68,7 +68,7 @@ def process_media_file(file_name, item_ark):
 
 
 def process_tiff(file_name, item_ark, dest_dir):
-    # https://jira.library.ucla.edu/browse/SYS-800
+    # https://jira.library.ucla.edu/browse/SYS-857
     # TODO:
     # Calculate destination file_name based on ark and sequence id from DB
     # Using tmp name for place holder
@@ -94,7 +94,7 @@ def process_tiff(file_name, item_ark, dest_dir):
 
 def process_wav(file_name, item_ark, dest_dir):
     
-    # https://jira.library.ucla.edu/browse/SYS-800
+    # https://jira.library.ucla.edu/browse/SYS-857
     # TODO:
     # Calculate destination file_name based on ark and sequence id from DB
     # Using tmp name for place holder
@@ -102,7 +102,7 @@ def process_wav(file_name, item_ark, dest_dir):
 
     try:
         audio_processor = AudioProcessor(file_name)
-        audio_metadata = audio_processor.create_audio_mp3()
+        audio_metadata = audio_processor.create_audio_mp3(dest_file_name)
 
         return audio_metadata
 
