@@ -32,7 +32,7 @@ class ImageProcessor():
         mime_type, encoding = mimetypes.guess_type(file_path)
 
         img_metadata = ContentFiles()
-        img_metadata.mime_types = mime_type
+        img_metadata.mime_type = mime_type
         img_metadata.file_sequence = 0
         img_metadata.file_size = os.path.getsize(file_path)
         img_metadata.create_date = datetime.date.today()

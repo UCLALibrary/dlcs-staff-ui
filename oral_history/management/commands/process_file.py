@@ -1,5 +1,6 @@
 import logging
 import mimetypes
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from oral_history.models import ContentFiles, Projects, ProjectItems
 from oral_history.scripts.image_processor import ImageProcessor
@@ -22,6 +23,7 @@ def calculate_destination_dir(mime_type, item_ark):
         elif mime_type in ['something/text_related']:
             submasters_dir_to_find = 'text_submasters_dir'
 
+        # TODO: Refactor this to avoid repeated code
         pfk_value = ProjectItems.objects.filter(
             item_ark=item_ark).first().projectid_fk_id
         submasters_dir = getattr(Projects.objects.get(
@@ -40,14 +42,14 @@ def calculate_destination_dir(mime_type, item_ark):
         raise
 
 
-def process_media_file(file_name, item_ark):
+def process_media_file(file_name, item_ark, file_group):
     mime_type, encoding = mimetypes.guess_type(file_name)
     logger.info(f'{mime_type = }')
     try:
         mime_type = mime_type.lower()
         dest_dir = calculate_destination_dir(mime_type, item_ark)
         if mime_type in ['image/tif', 'image/tiff']:
-            process_tiff(file_name, item_ark, dest_dir)
+            derivative_data = process_tiff(file_name, item_ark, dest_dir)
         elif mime_type in ['audio/wav', 'audio/x-wav']:
             process_wav(file_name, item_ark, dest_dir)
         elif mime_type in ['something/pdf_related']:
@@ -56,6 +58,8 @@ def process_media_file(file_name, item_ark):
             process_text(file_name, item_ark, dest_dir)
         else:
             raise CommandError(f'MIME type not recognized for {file_name}')
+
+        update_db(derivative_data, item_ark, file_group)
     except AttributeError as ex:
         if mime_type is None:
             logger.error(f'Invalid {mime_type = }')
@@ -72,6 +76,7 @@ def process_tiff(file_name, item_ark, dest_dir):
     # Calculate destination file_name based on ark and sequence id from DB
     # Using tmp name for place holder
     dest_file_name = dest_dir + 'tmp.jpg'
+    logger.info(f'{dest_file_name = }')
 
     # https://jira.library.ucla.edu/browse/SYS-837
     # TODO:
@@ -87,8 +92,6 @@ def process_tiff(file_name, item_ark, dest_dir):
     except Exception as ex:
         logger.exception(ex)
         raise
-        
-    logger.info(f'{dest_file_name = }')
 
 
 def process_wav(file_name, item_ark, dest_dir):
@@ -106,10 +109,21 @@ def process_text(file_name, item_ark, dest_dir):
     pass
 
 
-def update_db():
-    # https://jira.library.ucla.edu/browse/SYS-810
-    # Is this done differently based on mime_type / other data?
-    pass
+def get_project_item(item_ark):
+    # Given an ARK, return the full ProjectItem, or None if there's no match.
+    try:
+        return ProjectItems.objects.get(item_ark=item_ark)
+    except ObjectDoesNotExist:
+        return None
+
+
+def update_db(derivative_data, item_ark, file_group):
+    # Adds required foreign keys to ContentFiles object, then saves it.
+    # file_group already contains a FileGroups primary key, from the calling form.
+    project_item = get_project_item(item_ark)
+    derivative_data.divid_fk_id = project_item.pk
+    derivative_data.file_groupid_fk_id = file_group
+    derivative_data.save()
 
 
 class Command(BaseCommand):
@@ -134,4 +148,4 @@ class Command(BaseCommand):
         logger.info(f'{file_name = }')
         logger.info(f'{item_ark = }')
 
-        process_media_file(file_name, item_ark)
+        process_media_file(file_name, item_ark, file_group)
