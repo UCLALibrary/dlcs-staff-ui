@@ -101,7 +101,8 @@ def process_wav(file_name, item_ark, dest_dir):
     # TODO:
     # Calculate destination file_name based on ark and sequence id from DB
     # Using tmp name for place holder
-    dest_file_name = dest_dir + 'tmp.mp3'
+    dest_file_name = '/tmp/' + 'tmp.mp3'
+    logger.info(f'{dest_file_name = }')
 
     try:
         audio_processor = AudioProcessor(file_name)
@@ -112,8 +113,6 @@ def process_wav(file_name, item_ark, dest_dir):
     except Exception as ex:
         logger.exception(ex)
         raise
-
-    logger.info(f'{dest_file_name = }')
 
 
 def process_pdf(file_name, item_ark, dest_dir):
