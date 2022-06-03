@@ -3,6 +3,7 @@ import mimetypes
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from oral_history.models import ContentFiles, Projects, ProjectItems
+from oral_history.scripts.audio_processor import AudioProcessor
 from oral_history.scripts.image_processor import ImageProcessor
 
 logger = logging.getLogger(__name__)
@@ -51,7 +52,7 @@ def process_media_file(file_name, item_ark, file_group):
         if mime_type in ['image/tif', 'image/tiff']:
             derivative_data = process_tiff(file_name, item_ark, dest_dir)
         elif mime_type in ['audio/wav', 'audio/x-wav']:
-            process_wav(file_name, item_ark, dest_dir)
+            derivative_data = process_wav(file_name, item_ark, dest_dir)
         elif mime_type in ['something/pdf_related']:
             process_pdf(file_name, item_ark, dest_dir)
         elif mime_type in ['something/text_related']:
@@ -71,7 +72,7 @@ def process_media_file(file_name, item_ark, file_group):
 
 
 def process_tiff(file_name, item_ark, dest_dir):
-    # https://jira.library.ucla.edu/browse/SYS-800
+    # https://jira.library.ucla.edu/browse/SYS-857
     # TODO:
     # Calculate destination file_name based on ark and sequence id from DB
     # Using tmp name for place holder
@@ -95,8 +96,23 @@ def process_tiff(file_name, item_ark, dest_dir):
 
 
 def process_wav(file_name, item_ark, dest_dir):
-    # https://jira.library.ucla.edu/browse/SYS-801
-    pass
+    
+    # https://jira.library.ucla.edu/browse/SYS-857
+    # TODO:
+    # Calculate destination file_name based on ark and sequence id from DB
+    # Using tmp name for place holder
+    dest_file_name = '/tmp/' + 'tmp.mp3'
+    logger.info(f'{dest_file_name = }')
+
+    try:
+        audio_processor = AudioProcessor(file_name)
+        audio_metadata = audio_processor.create_audio_mp3(dest_file_name)
+
+        return audio_metadata
+
+    except Exception as ex:
+        logger.exception(ex)
+        raise
 
 
 def process_pdf(file_name, item_ark, dest_dir):
