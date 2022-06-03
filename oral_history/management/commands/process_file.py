@@ -52,7 +52,7 @@ def process_media_file(file_name, item_ark, file_group):
         if mime_type in ['image/tif', 'image/tiff']:
             derivative_data = process_tiff(file_name, item_ark, dest_dir)
         elif mime_type in ['audio/wav', 'audio/x-wav']:
-            process_wav(file_name, item_ark, dest_dir)
+            derivative_data = process_wav(file_name, item_ark, dest_dir)
         elif mime_type in ['something/pdf_related']:
             process_pdf(file_name, item_ark, dest_dir)
         elif mime_type in ['something/text_related']:

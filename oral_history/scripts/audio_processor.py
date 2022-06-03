@@ -46,6 +46,7 @@ class AudioProcessor():
             # ac : 2 channels - Forces to 2 channels in the case there are more or less present. OH source files will always be 2 channels
 
             stream = ffmpeg.input(self.src_file_name)
+            # TODO: Add -y flag to override existing output files, or handle another way
             stream = ffmpeg.output(stream, dest_file_name, acodec='libmp3lame', audio_bitrate='320k', ar=44100, ac=2)
             ffmpeg.run(stream)
 
