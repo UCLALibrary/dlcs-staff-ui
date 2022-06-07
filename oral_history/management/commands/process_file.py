@@ -133,6 +133,14 @@ def get_project_item(item_ark):
         return None
 
 
+def get_content_files(div_id):
+    # Given a div_id return list of ContentFiles, or None if there's no match.
+    try:
+        return ContentFiles.objects.get(div_id=div_id)
+    except ObjectDoesNotExist:
+        return None
+
+
 def update_db(derivative_data, item_ark, file_group):
     # Adds required foreign keys to ContentFiles object, then saves it.
     # file_group already contains a FileGroups primary key, from the calling form.
@@ -141,6 +149,17 @@ def update_db(derivative_data, item_ark, file_group):
     derivative_data.file_groupid_fk_id = file_group
     derivative_data.save()
 
+def calc_content_file_seq(item_ark):
+    project_item = get_project_item(item_ark)
+    content_files = get_content_files(project_item.divid_pk)
+
+
+def create_content_file_name(item_ark, file_sequence, file_use, file_extension):
+
+    item_ark = item_ark.replace("/", "-")
+    file_name = item_ark + "-" + file_sequence + "-" + file_use + "." + file_extension
+    
+    return file_name
 
 class Command(BaseCommand):
     help = 'Django management command to process files'
