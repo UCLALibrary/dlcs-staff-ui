@@ -1,0 +1,96 @@
+# Values for dlcs-staff-uitest.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: uclalibrary/dlcs-staff-ui
+  tag: latest
+  pullPolicy: Always
+
+nameOverride: ""
+
+fullnameOverride: ""
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  enabled: "true"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+    cert-manager.io/cluster-issuer: sectigo-acme-clusterissuer
+    kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: 'dlcs-staff.library.ucla.edu' # placeholder for now: ak 20220510
+      paths:
+        - "/"
+  tls:
+  - secretName: dlcs-staff-ui-tls
+    hosts:
+      - dlcs-staff.library.ucla.edu
+
+django:
+  env:
+    run_env: "test"
+    debug: "false"
+    allowed_hosts:
+      - dlcs-staff.library.ucla.edu
+    db_dsn: "dba-lib-odb-q01.it.ucla.edu:1521/DLCS"
+    db_user: "dlcs"
+    dlcs_file_source: "/media/oh_source"
+    oh_libpartners: "/media/oh_source"
+    oh_masterslz: "/media/oh_lz"
+    oh_wowza: "/media/oh_wowza"
+
+  externalSecrets:
+    enabled: "true"
+    env:
+      # Application database used by django
+      db_password: "/systems/testsoftwaredev/dlcs-staff-uitest/db_password"
+      django_secret_key: "/systems/testsoftwaredev/dlcs-staff-uitest/django_secret_key"
+
+# PersistentVolume and PersistentVolumeClaim parameters
+persistentVolumes:
+  ohsource:
+    storage: "5.5Ti"
+    access: "ReadOnlyMany"
+    server: "lib-partners.in.library.ucla.edu"
+    path: "/OralHistory"
+  ohmasters:
+    storage: "1.1Ti"
+    access: "ReadWriteOnce"
+    server: "dlp.in.library.ucla.edu"
+    path: "/oralhistory_LZ"
+  ohwowza:
+    storage: "5Ti"
+    access: "ReadWriteOnce"
+    server: "wowza.in.library.ucla.edu"
+    path: "/dlp/oralhistory"
+
+# Volume mount specification for the container
+volumeMounts:
+  - name: "ohsource"
+    mountPath: "/media/oh_source"
+  - name: "ohmasters"
+    mountPath: "/media/oh_lz"
+  - name: "ohwowza"
+    mountPath: "/media/oh_wowza/"
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 4Gi
+  requests:
+    cpu: 250m
+    memory: 100Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

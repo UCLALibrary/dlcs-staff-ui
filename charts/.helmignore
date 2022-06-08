@@ -22,3 +22,6 @@
 .idea/
 *.tmproj
 .vscode/
+# Environment-specific Values files
+/test-dlcsstaffui-values.yaml
+/prod-dlcsstaffui-values.yaml
