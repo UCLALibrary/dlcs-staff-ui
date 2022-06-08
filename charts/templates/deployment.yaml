@@ -46,10 +46,8 @@ spec:
                   value: {{ range .Values.django.env.allowed_hosts }}{{ . }}{{ end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.volumes }}
       volumes:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- include "dlcs-staff-ui.volumes" . | nindent 8 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

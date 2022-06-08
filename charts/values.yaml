@@ -49,18 +49,25 @@ django:
 
   externalSecrets:
     enabled: "false"
-    backend: "systemManager"
     env: {}
     # Include below if enabled: "true"
     #  db_password: ""
     #  django_secret_key: ""
 
-# Volume type specification
-volumes: []
-#  - name: ""
-#    nfs: 
-#      server: ""
-#      path: ""
+# PersistentVolume and PersistentVolumeClaim parameters
+persistentVolumes:
+  ohsource:
+    storage: ""
+    access: ""
+    server: ""
+  ohmasters:
+    storage: ""
+    access: ""
+    server: ""
+  ohwowza:
+    storage: ""
+    access: ""
+    server: ""
 
 # Volume mount specification for the container
 volumeMounts: []
