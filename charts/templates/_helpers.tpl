@@ -50,3 +50,17 @@ app.kubernetes.io/name: {{ include "dlcs-staff-ui.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{/*
+Deployment Volume Configuration
+*/}}
+{{- define "dlcs-staff-ui.volumes" -}}
+- name: "ohsource"
+  persistentVolumeClaim:
+    claimName: {{ include "dlcs-staff-ui.fullname" . }}-pvc-ohsource
+- name: "ohmasters"
+  persistentVolumeClaim:
+    claimName: {{ include "dlcs-staff-ui.fullname" . }}-pvc-ohmasters
+- name: "ohwowza"
+  persistentVolumeClaim:
+    claimName: {{ include "dlcs-staff-ui.fullname" . }}-pvc-ohwowza
+{{- end }}
