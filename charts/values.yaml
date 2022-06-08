@@ -60,14 +60,17 @@ persistentVolumes:
     storage: ""
     access: ""
     server: ""
+    path: ""
   ohmasters:
     storage: ""
     access: ""
     server: ""
+    path: ""
   ohwowza:
     storage: ""
     access: ""
     server: ""
+    path: ""
 
 # Volume mount specification for the container
 volumeMounts: []

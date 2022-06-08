@@ -9,6 +9,6 @@ spec:
     - {{ .Values.persistentVolumes.ohwowza.access }}
   nfs:
     server: {{ .Values.persistentVolumes.ohwowza.server | quote }}
-    path: "/"
+    path: {{ .Values.persistentVolumes.ohwowza.path | quote }}
   mountOptions:
     - nfsvers=3

@@ -2,4 +2,4 @@ apiVersion: v2
 appVersion: "0.1"
 description: Chart for DLCS Staff UI
 name: dlcs-staff-ui
-version: 0.0.5
+version: 0.0.6
