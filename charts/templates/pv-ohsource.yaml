@@ -9,6 +9,6 @@ spec:
     - {{ .Values.persistentVolumes.ohsource.access }}
   nfs:
     server: {{ .Values.persistentVolumes.ohsource.server | quote }}
-    path: "/"
+    path: {{ .Values.persistentVolumes.ohsource.path | quote }}
   mountOptions:
     - nfsvers=3
