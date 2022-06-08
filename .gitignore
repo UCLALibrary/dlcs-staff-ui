@@ -132,6 +132,8 @@ dmypy.json
 # Secret / password files
 *secret*
 *password*
+# Allow Helm External Secrets
+!externalsecret.yaml
 
 # Data dumps
 models_dump.py
