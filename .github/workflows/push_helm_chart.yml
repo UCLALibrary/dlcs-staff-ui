@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'charts/**'
-      - '!charts/*-dlcsstaffui-values.yaml'
+      - '!charts/*-*-values.yaml'
     branches:
       - main
 
