@@ -2,6 +2,7 @@ import logging
 import mimetypes
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
+from django.db.models import Max
 from oral_history.models import ContentFiles, Projects, ProjectItems
 from oral_history.scripts.audio_processor import AudioProcessor
 from oral_history.scripts.image_processor import ImageProcessor
@@ -14,6 +15,7 @@ def calculate_destination_dir(mime_type, item_ark):
     # Based on MIME type and project, the destination dir will differ
     # The ark is used to go to DB, get project ID, then get directory
     # based on the mimetype
+
     try:
         if mime_type in ['image/tif', 'image/tiff']:
             submasters_dir_to_find = 'image_submasters_dir'
@@ -35,6 +37,10 @@ def calculate_destination_dir(mime_type, item_ark):
 
         submaster_mime = mime_type
         logger.info(f'{submaster_mime = }')
+
+        # This function might be removed completely upon refactor
+        # Local environment variables will replace root dir to return
+        # Temporarily using "/tmp/" as local placeholder
 
         return submasters_dir
     except Exception as ex:
@@ -72,19 +78,15 @@ def process_media_file(file_name, item_ark, file_group):
 
 
 def process_tiff(file_name, item_ark, dest_dir):
-    # https://jira.library.ucla.edu/browse/SYS-857
-    # TODO:
-    # Calculate destination file_name based on ark and sequence id from DB
-    # Using tmp name for place holder
-    dest_file_name = dest_dir + 'tmp.jpg'
-    logger.info(f'{dest_file_name = }')
-
     # https://jira.library.ucla.edu/browse/SYS-837
     # TODO:
     # Calculate thumbnail height and width from admin metadata
     resize_height, resize_width = 50, 50
 
     try:
+        dest_file_name = dest_dir + get_new_content_file_name(item_ark, "thumbnail", "jpg")
+        logger.info(f'{dest_file_name = }')
+
         image_processor = ImageProcessor(file_name)
         img_metadata = image_processor.create_thumbnail(dest_file_name, resize_height, resize_width)
 
@@ -96,15 +98,11 @@ def process_tiff(file_name, item_ark, dest_dir):
 
 
 def process_wav(file_name, item_ark, dest_dir):
-    
-    # https://jira.library.ucla.edu/browse/SYS-857
-    # TODO:
-    # Calculate destination file_name based on ark and sequence id from DB
-    # Using tmp name for place holder
-    dest_file_name = '/tmp/' + 'tmp.mp3'
-    logger.info(f'{dest_file_name = }')
 
     try:
+        dest_file_name = dest_dir + get_new_content_file_name(item_ark, "submaster", "mp3")
+        logger.info(f'{dest_file_name = }')
+
         audio_processor = AudioProcessor(file_name)
         audio_metadata = audio_processor.create_audio_mp3(dest_file_name)
 
@@ -133,12 +131,43 @@ def get_project_item(item_ark):
         return None
 
 
-def get_content_files(div_id):
+def get_content_files(divid):
     # Given a div_id return list of ContentFiles, or None if there's no match.
     try:
-        return ContentFiles.objects.get(div_id=div_id)
+        return ContentFiles.objects.get(divid_fk=divid)
     except ObjectDoesNotExist:
         return None
+
+
+def get_next_seq_from_content_files(divid):
+    # Return the max + 1 sequence for content files associated with a project item (div_id)
+    # If no records exist, return 1
+    try:
+        seq_string = ContentFiles.objects.filter(divid_fk=divid).aggregate(seq=Max('file_sequence'))['seq']
+        return int(seq_string) + 1 if len(seq_string) > 0 else 1
+
+    except ObjectDoesNotExist:
+        return 1
+
+def get_new_content_file_name(item_ark, file_use, file_extension):
+    # Arguments should be all lowercase and slash replace with dash
+
+    project_item = get_project_item(item_ark)
+    file_sequence = str(get_next_seq_from_content_files(project_item.divid_pk))
+
+    item_ark = item_ark.replace("/", "-").lower()
+    file_use = file_use.lower()
+    file_extension = file_extension.lower()
+
+    content_file_name = (item_ark 
+                            + "-" 
+                            + file_sequence 
+                            + "-" 
+                            + file_use 
+                            + "." 
+                            + file_extension)
+
+    return content_file_name 
 
 
 def update_db(derivative_data, item_ark, file_group):
@@ -148,18 +177,6 @@ def update_db(derivative_data, item_ark, file_group):
     derivative_data.divid_fk_id = project_item.pk
     derivative_data.file_groupid_fk_id = file_group
     derivative_data.save()
-
-def calc_content_file_seq(item_ark):
-    project_item = get_project_item(item_ark)
-    content_files = get_content_files(project_item.divid_pk)
-
-
-def create_content_file_name(item_ark, file_sequence, file_use, file_extension):
-
-    item_ark = item_ark.replace("/", "-")
-    file_name = item_ark + "-" + file_sequence + "-" + file_use + "." + file_extension
-    
-    return file_name
 
 class Command(BaseCommand):
     help = 'Django management command to process files'
