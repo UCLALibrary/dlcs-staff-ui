@@ -131,43 +131,41 @@ def get_project_item(item_ark):
         return None
 
 
-def get_content_files(divid):
-    # Given a div_id return list of ContentFiles, or None if there's no match.
-    try:
-        return ContentFiles.objects.get(divid_fk=divid)
-    except ObjectDoesNotExist:
-        return None
-
+def get_content_files_for_project_item(divid):
+    # Given a div_id return list of ContentFiles, or empty QuerySet if no match
+    return ContentFiles.objects.filter(divid_fk=divid)
+  
 
 def get_next_seq_from_content_files(divid):
     # Return the max + 1 sequence for content files associated with a project item (div_id)
     # If no records exist, return 1
-    try:
-        seq_string = ContentFiles.objects.filter(divid_fk=divid).aggregate(seq=Max('file_sequence'))['seq']
+    
+    cf = get_content_files_for_project_item(divid)
+    
+    if cf.exists():
+        seq_string = cf.aggregate(seq=Max('file_sequence'))['seq']
         return int(seq_string) + 1 if len(seq_string) > 0 else 1
-
-    except ObjectDoesNotExist:
+    
+    else:
         return 1
 
 def get_new_content_file_name(item_ark, file_use, file_extension):
-    # Arguments should be all lowercase and slash replace with dash
+    # Returned file name should be all lowercase and ark slash replaced with dash
+    # If no record found for submitted ark, return None
 
     project_item = get_project_item(item_ark)
-    file_sequence = str(get_next_seq_from_content_files(project_item.divid_pk))
 
-    item_ark = item_ark.replace("/", "-").lower()
-    file_use = file_use.lower()
-    file_extension = file_extension.lower()
+    if project_item:
+        file_sequence = str(get_next_seq_from_content_files(project_item.divid_pk))
 
-    content_file_name = (item_ark 
-                            + "-" 
-                            + file_sequence 
-                            + "-" 
-                            + file_use 
-                            + "." 
-                            + file_extension)
+        item_ark = item_ark.replace("/", "-")
 
-    return content_file_name 
+        content_file_name = f'{item_ark}-{file_sequence}-{file_use}.{file_extension}'.lower()
+
+        return content_file_name
+    
+    else:
+        return None
 
 
 def update_db(derivative_data, item_ark, file_group):
