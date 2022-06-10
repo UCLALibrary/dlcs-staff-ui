@@ -41,6 +41,7 @@ def calculate_destination_dir(mime_type, item_ark):
         # This function might be removed completely upon refactor
         # Local environment variables will replace root dir to return
         # Temporarily using "/tmp/" as local placeholder
+        submasters_dir = "/tmp/"
 
         return submasters_dir
     except Exception as ex:
