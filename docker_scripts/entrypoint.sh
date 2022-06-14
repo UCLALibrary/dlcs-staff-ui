@@ -29,7 +29,16 @@ fi
 if [ "$DJANGO_RUN_ENV" = "dev" ]; then
   # Experiment with unbuffered output
   PYTHONUNBUFFERED=1 python ./manage.py runserver 0.0.0.0:8000
-#else
-  # Start the production app server
-  #gunicorn proj.wsgi:application (or whatever)
+else
+  # Build static files directory, starting fresh each time - do we really need this?
+  python manage.py collectstatic --no-input
+
+  # Start the Gunicorn web server
+  # Gunicorn cmd line flags:
+  # -w number of gunicorn worker processes
+  # -b IPADDR:PORT binding
+  # -t timeout in seconds.  This may need to be large for long-running file conversions, until async is added.
+  # --access-logfile where to send HTTP access logs (- is stdout)
+  export GUNICORN_CMD_ARGS="-w 3 -b 0.0.0.0:8000 -t 600 --access-logfile -"
+  gunicorn dlcs_staff_ui.wsgi:application
 fi
