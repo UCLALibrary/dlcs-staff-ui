@@ -138,3 +138,5 @@ dmypy.json
 # Data dumps
 models_dump.py
 
+# Local static files collected when testing gunicorn and whitenoise
+staticfiles/

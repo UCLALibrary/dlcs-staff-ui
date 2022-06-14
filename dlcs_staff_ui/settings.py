@@ -21,17 +21,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--g3--6#6p%adl64&qdc$1_stwuk&hn50%gomt9@hnvx#(6ehm*'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = []
+# Define the list of allowed hosts to connect to this application
+# This is passed in via the environment variable DJANGO_ALLOWED_HOSTS
+# which is a string - but ALLOWED_HOSTS requires a list
+ALLOWED_HOSTS = list(os.getenv("DJANGO_ALLOWED_HOSTS").split(","))
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Enable whitenoise in development per http://whitenoise.evans.io/en/stable/django.html
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -120,7 +126,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
+# Django will add this URL, and serve static files from here
+STATIC_URL = '/static/'
+# Where on the file system should Django find our custom static files?
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Where will all static files - our custom + Django's?
+# This matters only when not using runserver, and using collectstaticfiles.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# There is a timing issue with Whitenoise that is described here:
+# https://github.com/evansd/whitenoise/issues/215
+# The work around suggested is to check for the existence of the
+# static root directory, and if doesn't exist yet then create it
+if not os.path.isdir(STATIC_ROOT):
+    os.makedirs(STATIC_ROOT, mode=0o755)
+
+# Improved caching with whitenoise when running in production.
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
