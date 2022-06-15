@@ -6,6 +6,7 @@ import mimetypes
 import os
 from django.core.management.base import CommandError
 from oral_history.models import ContentFiles
+from pathlib import Path
 from wand.image import Image
 
 logger = logging.getLogger(__name__)
@@ -19,8 +20,10 @@ class ImageProcessor():
     IMAGE_CONTENT_TYPE = "Image"
 
 
-    def __init__(self, src_file_name):
+    def __init__(self, src_file_name, file_sequence):
         self.src_file_name = src_file_name
+        self.file_sequence = file_sequence
+
         logger.info(f'Processing image: {src_file_name}')
 
     def create_thumbnail(self, dest_file_name, resize_height, resize_width):
@@ -33,7 +36,7 @@ class ImageProcessor():
 
         img_metadata = ContentFiles()
         img_metadata.mime_type = mime_type
-        img_metadata.file_sequence = 0
+        img_metadata.file_sequence = self.file_sequence
         img_metadata.file_size = os.path.getsize(file_path)
         img_metadata.create_date = datetime.date.today()
         img_metadata.file_location = file_path
@@ -57,4 +60,8 @@ class ImageProcessor():
         except:
             raise CommandError(f'Error processing file')
         
-        logger.info(f'Image processed: {dest_file_name}')
+    def create_dest_dir(self, dest_file_name):
+        
+        p = Path(dest_file_name)
+        parent_path = p.parent
+        parent_path.mkdir(parents=True, exist_ok=True)

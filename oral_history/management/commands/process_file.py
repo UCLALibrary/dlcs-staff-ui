@@ -1,5 +1,6 @@
 import logging
 import mimetypes
+import os
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from django.db.models import Max
@@ -10,40 +11,126 @@ from oral_history.scripts.image_processor import ImageProcessor
 logger = logging.getLogger(__name__)
 
 
-def calculate_destination_dir(mime_type, item_ark):
-    # https://jira.library.ucla.edu/browse/SYS-808
-    # Based on MIME type and project, the destination dir will differ
-    # The ark is used to go to DB, get project ID, then get directory
-    # based on the mimetype
+def calculate_destination_dir(media_type, item_ark, file_use):
+    # The proper folder location for a file depends on:
+    #
+    # mime_type - Type of media
+    # item_ark - The 'stub' name of the project
+    # file_use - Purpose of the file (master, submaster, thumbnail)
 
+    # Final destination dir formula:
+    # Local mount based on location type + 
+    # project_app_name (from projects.webapp_name) +
+    # mime_type folder name +
+    # location_type folder name
+    # 
+    # Example: ${DJANGO_OH_MASTERSLZ}/oralhistory/audio/masters 
+
+    try: 
+        local_root = get_local_root_dir(media_type, file_use)
+        app_folder = get_app_folder_name(item_ark)
+        media_folder = get_media_folder_by_mime_type(media_type, file_use)
+
+        logger.info(f"{local_root = }, {app_folder = }, {media_folder =}")
+    
+        full_dest_dir = f"{local_root}{app_folder}{media_folder}"
+
+        return full_dest_dir 
+    
+    except Exception as ex:
+        logger.exception(ex)
+        # Re-raise the exception for the view to handle
+        raise
+
+def get_local_root_dir(media_type, file_use):
+    
+    local_root = None
+
+    if file_use == "master":
+        local_root = os.getenv('DJANGO_OH_MASTERSLZ')
+    
+    elif file_use == "submaster" :
+        
+        if media_type == "audio":
+            local_root = os.getenv('DJANGO_OH_WOWZA')
+        
+        else:
+            local_root = os.getenv('DJANGO_OH_SUBMASTERSLZ')
+    
+    elif file_use == "thumbnail":
+        local_root = os.getenv('DJANGO_OH_THUMBNAILSLZ')
+    
+    return local_root
+    
+def get_app_folder_name(item_ark):
+    
+    pfk_value = ProjectItems.objects.filter(
+        item_ark=item_ark).first().projectid_fk_id
+    proj_app_name = getattr(Projects.objects.get(
+        pk=pfk_value), "webapp_name")
+    
+    app_folder_name = f"/{proj_app_name}"
+    
+    return app_folder_name
+
+def get_folder_by_use(file_use):
+    
+    file_use_folder = ""
+
+    if file_use == "master":
+        file_use_folder = "/masters"
+    
+    elif file_use == "submaster":
+        file_use_folder = "/submasters"
+
+    elif file_use == "thumbnail":
+        file_use_folder = "/nails"
+    
+    return file_use_folder
+
+def get_media_folder_by_mime_type(media_type, file_use):
+
+    folder_name = ""
+    file_use_folder = get_folder_by_use(file_use)
+        
+    if media_type == "image":
+        folder_name = "/"
+    
+    elif media_type == "audio":
+        folder_name = "/audio"
+    
+    elif media_type == "text":
+        folder_name = "/text"
+    
+    elif media_type == "pdf":
+        folder_name = "/pdf"
+
+    folder_name = f"{folder_name}{file_use_folder}/"
+
+    return folder_name
+
+def calculate_media_type(file_name):
+
+    mime_type, encoding = mimetypes.guess_type(file_name)
+    logger.info(f'{mime_type = }')
+
+    mime_type = mime_type.lower()
+
+    
     try:
-        if mime_type in ['image/tif', 'image/tiff']:
-            submasters_dir_to_find = 'image_submasters_dir'
-        elif mime_type in ['audio/wav', 'audio/x-wav']:
-            submasters_dir_to_find = 'audio_submasters_dir'
-        elif mime_type in ['something/pdf_related']:
-            submasters_dir_to_find = 'lob_submasters_dir'
-        elif mime_type in ['something/text_related']:
-            submasters_dir_to_find = 'text_submasters_dir'
-
-        # TODO: Refactor this to avoid repeated code
-        pfk_value = ProjectItems.objects.filter(
-            item_ark=item_ark).first().projectid_fk_id
-        submasters_dir = getattr(Projects.objects.get(
-            pk=pfk_value), submasters_dir_to_find)
-
-        submaster_dir = str(submasters_dir)
-        logger.info(f'{submaster_dir = }')
-
-        submaster_mime = mime_type
-        logger.info(f'{submaster_mime = }')
-
-        # This function might be removed completely upon refactor
-        # Local environment variables will replace root dir to return
-        # Temporarily using "/tmp/" as local placeholder
-        submasters_dir = "/tmp/"
-
-        return submasters_dir
+        if mime_type in ["image/tif", "image/tiff"]:
+            media_type = "image"
+        elif mime_type in ["audio/wav", "audio/x-wav"]:
+            media_type = "audio"
+        elif mime_type in ["application/pdf"]:
+            media_type = "pdf"
+        elif mime_type in ["text/plain", "text/xml", "application/xml"]:
+            media_type = "text"
+        else:
+            raise CommandError(f'MIME type not recognized for {file_name}')
+        
+        return media_type
+    
     except Exception as ex:
         logger.exception(ex)
         # Re-raise the exception for the view to handle
@@ -51,45 +138,54 @@ def calculate_destination_dir(mime_type, item_ark):
 
 
 def process_media_file(file_name, item_ark, file_group):
-    mime_type, encoding = mimetypes.guess_type(file_name)
-    logger.info(f'{mime_type = }')
-    try:
-        mime_type = mime_type.lower()
-        dest_dir = calculate_destination_dir(mime_type, item_ark)
-        if mime_type in ['image/tif', 'image/tiff']:
-            derivative_data = process_tiff(file_name, item_ark, dest_dir)
-        elif mime_type in ['audio/wav', 'audio/x-wav']:
-            derivative_data = process_wav(file_name, item_ark, dest_dir)
-        elif mime_type in ['something/pdf_related']:
-            process_pdf(file_name, item_ark, dest_dir)
-        elif mime_type in ['something/text_related']:
-            process_text(file_name, item_ark, dest_dir)
-        else:
-            raise CommandError(f'MIME type not recognized for {file_name}')
 
-        update_db(derivative_data, item_ark, file_group)
+    try:
+        media_type = calculate_media_type(file_name)
+        
+        if media_type == "image":
+            derivative_data = process_tiff(file_name, item_ark)
+        
+        elif media_type == "audio":
+            derivative_data = process_wav(file_name, item_ark)
+
+        elif media_type == "pdf":
+            process_pdf(file_name, item_ark)
+
+        elif media_type == "text":
+            process_text(file_name, item_ark)
+
+        else:
+            raise CommandError(f'Media type not recognized for {file_name}')
+
+        for content_file in derivative_data:
+            update_db(content_file, item_ark, file_group)
+
     except AttributeError as ex:
-        if mime_type is None:
-            logger.error(f'Invalid {mime_type = }')
-            raise CommandError(f'No MIME type identified for {file_name}')
+        if media_type is None:
+            logger.error(f'Invalid {media_type = }')
+            raise CommandError(f'No media type identified for {file_name}')
     except Exception as ex:
         logger.exception(ex)
         # Re-raise the exception for the view to handle
         raise
 
 
-def process_tiff(file_name, item_ark, dest_dir):
+def process_tiff(file_name, item_ark):
     # https://jira.library.ucla.edu/browse/SYS-837
     # TODO:
     # Calculate thumbnail height and width from admin metadata
     resize_height, resize_width = 50, 50
 
     try:
-        dest_file_name = dest_dir + get_new_content_file_name(item_ark, "thumbnail", "jpg")
+        img_metadata = []
+        
+        dest_dir = calculate_destination_dir("image", item_ark, "thumbnail")
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "thumbnail", "jpg")
+        dest_file_name = f"{dest_dir}{cf_name}"
         logger.info(f'{dest_file_name = }')
 
-        image_processor = ImageProcessor(file_name)
-        img_metadata = image_processor.create_thumbnail(dest_file_name, resize_height, resize_width)
+        image_processor = ImageProcessor(file_name, file_sequence)
+        img_metadata.append(image_processor.create_thumbnail(dest_file_name, resize_height, resize_width))
 
         return img_metadata
 
@@ -98,14 +194,18 @@ def process_tiff(file_name, item_ark, dest_dir):
         raise
 
 
-def process_wav(file_name, item_ark, dest_dir):
+def process_wav(file_name, item_ark):
 
     try:
-        dest_file_name = dest_dir + get_new_content_file_name(item_ark, "submaster", "mp3")
+        audio_metadata = []
+
+        dest_dir = calculate_destination_dir("audio", item_ark, "submaster")
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", "mp3")
+        dest_file_name = f"{dest_dir}{cf_name}"
         logger.info(f'{dest_file_name = }')
 
-        audio_processor = AudioProcessor(file_name)
-        audio_metadata = audio_processor.create_audio_mp3(dest_file_name)
+        audio_processor = AudioProcessor(file_name, file_sequence)
+        audio_metadata.append(audio_processor.create_audio_mp3(dest_file_name))
 
         return audio_metadata
 
@@ -114,12 +214,12 @@ def process_wav(file_name, item_ark, dest_dir):
         raise
 
 
-def process_pdf(file_name, item_ark, dest_dir):
+def process_pdf(file_name, item_ark):
     # https://jira.library.ucla.edu/browse/SYS-831
     pass
 
 
-def process_text(file_name, item_ark, dest_dir):
+def process_text(file_name, item_ark):
     # https://jira.library.ucla.edu/browse/SYS-832
     pass
 
@@ -150,20 +250,23 @@ def get_next_seq_from_content_files(divid):
     else:
         return 1
 
-def get_new_content_file_name(item_ark, file_use, file_extension):
+def get_new_content_file_name(item_ark, file_use, file_extension, file_seq_override = None):
     # Returned file name should be all lowercase and ark slash replaced with dash
     # If no record found for submitted ark, return None
 
     project_item = get_project_item(item_ark)
 
     if project_item:
-        file_sequence = str(get_next_seq_from_content_files(project_item.divid_pk))
+        if file_seq_override:
+            file_sequence = file_seq_override
+        else:
+            file_sequence = str(get_next_seq_from_content_files(project_item.divid_pk))
 
         item_ark = item_ark.replace("/", "-")
 
         content_file_name = f'{item_ark}-{file_sequence}-{file_use}.{file_extension}'.lower()
 
-        return content_file_name
+        return content_file_name, file_sequence
     
     else:
         return None
