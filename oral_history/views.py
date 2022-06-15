@@ -50,3 +50,14 @@ def upload_file(request):
 def projects_table(request):
     query_results = ProjectItems.objects.all()
     return render(request, 'oral_history/table.html', {'query_results': query_results})
+
+
+def view_logs(request):
+    log_file = 'logs/application.log'
+    try:
+        with open(log_file, 'r') as f:
+            log_data = f.read()
+    except FileNotFoundError as ex:
+        log_data = f'Log file {log_file} not found'
+
+    return render(request, 'oral_history/logs.html', {'log_data': log_data})
