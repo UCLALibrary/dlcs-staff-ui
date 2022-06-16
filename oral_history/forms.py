@@ -1,10 +1,11 @@
 import os
 from django import forms
 from .models import Projects, FileGroups
+from .settings import PROJECT_ID
 
 DLCS_FILE_SOURCE = os.getenv('DJANGO_DLCS_FILE_SOURCE')
 # Get list of tuples of Oral History Project file groups, using primary key as form value
-FILE_GROUPS = [(f.pk, f.description) for f in FileGroups.objects.filter(projectid_fk_id__exact=80)]
+FILE_GROUPS = [(f.pk, f.description) for f in FileGroups.objects.filter(projectid_fk_id__exact=PROJECT_ID)]
 
 class ProjectsForm(forms.ModelForm):
 

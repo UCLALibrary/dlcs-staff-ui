@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import FileUploadForm, ProjectsForm
 from .models import ProjectItems
+from .settings import PROJECT_ID
 from django.core.management import call_command
 from django.contrib import messages
 from django.core.management.base import CommandError
@@ -50,7 +51,7 @@ def upload_file(request):
 # Temporary "test harness" view, providing a local interface to the fileupload form
 def projects_table(request):
     # Retrieve up to 10 of the "first" project items
-    query_results = ProjectItems.objects.filter(projectid_fk_id__exact=80)[:10]
+    query_results = ProjectItems.objects.filter(projectid_fk_id__exact=PROJECT_ID)[:10]
     return render(request, 'oral_history/table.html', {'query_results': query_results})
 
 
