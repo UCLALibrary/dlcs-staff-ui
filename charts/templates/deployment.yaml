@@ -37,6 +37,8 @@ spec:
               httpHeaders:
                 - name: Host
                   value: {{ range .Values.django.env.allowed_hosts }}{{ . }}{{ end }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 10
           readinessProbe:
             httpGet:
               path: /upload_file
@@ -44,6 +46,8 @@ spec:
               httpHeaders:
                 - name: Host
                   value: {{ range .Values.django.env.allowed_hosts }}{{ . }}{{ end }}
+            initialDelaySeconds: 10
+            timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
