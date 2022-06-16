@@ -3,8 +3,8 @@ from django import forms
 from .models import Projects, FileGroups
 
 DLCS_FILE_SOURCE = os.getenv('DJANGO_DLCS_FILE_SOURCE')
-# Get list of tuples of file groups, using primary key as form value
-FILE_GROUPS = [(f.pk, f.description) for f in FileGroups.objects.all()]
+# Get list of tuples of Oral History Project file groups, using primary key as form value
+FILE_GROUPS = [(f.pk, f.description) for f in FileGroups.objects.filter(projectid_fk_id__exact=80)]
 
 class ProjectsForm(forms.ModelForm):
 

@@ -47,8 +47,10 @@ def upload_file(request):
     return render(request, 'oral_history/fileupload.html', {'form': form, 'query_results': query_results})
 
 
+# Temporary "test harness" view, providing a local interface to the fileupload form
 def projects_table(request):
-    query_results = ProjectItems.objects.all()
+    # Retrieve up to 10 of the "first" project items
+    query_results = ProjectItems.objects.filter(projectid_fk_id__exact=80)[:10]
     return render(request, 'oral_history/table.html', {'query_results': query_results})
 
 
