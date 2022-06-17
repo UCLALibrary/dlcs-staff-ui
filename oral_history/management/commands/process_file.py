@@ -4,9 +4,10 @@ import os
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from django.db.models import Max
-from oral_history.models import ContentFiles, Projects, ProjectItems
+from oral_history.models import ContentFiles, FileGroups, Projects, ProjectItems
 from oral_history.scripts.audio_processor import AudioProcessor
 from oral_history.scripts.image_processor import ImageProcessor
+from oral_history.settings import PROJECT_ID
 
 logger = logging.getLogger(__name__)
 
@@ -135,6 +136,31 @@ def calculate_media_type(file_name):
         logger.exception(ex)
         # Re-raise the exception for the view to handle
         raise
+
+
+def get_related_file_group(media_type, target_file_use):
+    # Gets the relevant related file group, or returns
+    # the master-level file group if no matching target_file_use.
+    related_groups = {
+        'audio': {'Master': 'MasterAudio', 'Submaster': 'SubMasterAudio'},
+        'image': {'Master': 'MasterImage', 'Submaster': 'SubMasterImage', 'Thumbnail': 'ThumbnailImage1'},
+        'pdf': {},
+        'text': {},
+    }
+
+    # Will be None if value not found
+    related_title = related_groups.get(media_type).get(target_file_use)
+    if related_title:
+        # Get the id of the matching file group.  Should be only one but use first() to be sure.
+        # Will be None if no match found.
+        related_file_group = FileGroups.objects.filter(
+            projectid_fk_id__exact=PROJECT_ID,
+            file_group_title__startswith=related_title,
+            ).values_list('file_groupid_pk', flat=True).first()
+    else:
+        related_file_group = None
+
+    return related_file_group
 
 
 def process_media_file(file_name, item_ark, file_group):
