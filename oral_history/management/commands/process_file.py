@@ -3,8 +3,8 @@ import mimetypes
 import os
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
-from django.db.models import Max
-from oral_history.models import ContentFiles, FileGroups, Projects, ProjectItems
+from django.db.models import F, Max
+from oral_history.models import AdminValues, ContentFiles, FileGroups, Projects, ProjectItems
 from oral_history.scripts.audio_processor import AudioProcessor
 from oral_history.scripts.image_processor import ImageProcessor
 from oral_history.settings import PROJECT_ID
@@ -197,10 +197,12 @@ def process_media_file(file_name, item_ark, file_group):
 
 
 def process_tiff(file_name, item_ark):
-    # https://jira.library.ucla.edu/browse/SYS-837
-    # TODO:
-    # Calculate thumbnail height and width from admin metadata
-    resize_height, resize_width = 50, 50
+
+    # Get thumbnail-related settings
+    thumbnail_settings = get_thumbnail_settings()
+    # This has other values - see function definition -
+    # but for now just grab side size in 'Image Pixels Long Dimension'
+    resize_height = resize_width = thumbnail_settings['Image Pixels Long Dimension']
 
     try:
         img_metadata = []
@@ -296,6 +298,30 @@ def get_new_content_file_name(item_ark, file_use, file_extension, file_seq_overr
     
     else:
         return None
+
+
+def get_thumbnail_settings():
+    # Retrieve default thumbnail settings from database.
+    query_data = AdminValues.objects.filter(
+        admin_groupid_fk__admin_group_title__exact='Image Thumbnail Technical MD',
+        admin_termid_fk__admin_term__in=(
+            'Bits Per Sample',
+            'Image Pixels Long Dimension',
+            'Image Quality',
+            'Image Sampling Frequency')
+        ).select_related('admin_termid_fk').values(
+        'admin_value',
+        admin_term=F('admin_termid_fk__admin_term')
+        )
+    # Convert queryset (list of dictionaries) to single dictionary for easier use.
+    # At present this returns:
+    # {
+    #     'Image Sampling Frequency': '72',
+    #     'Bits Per Sample': '8',
+    #     'Image Quality': '75',
+    #     'Image Pixels Long Dimension': '200'
+    # }
+    return {row['admin_term'] : row['admin_value'] for row in query_data}
 
 
 def update_db(derivative_data, item_ark, file_group):
