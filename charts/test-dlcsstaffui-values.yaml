@@ -42,7 +42,7 @@ django:
       - dlcs-staff.library.ucla.edu
     db_dsn: "dba-lib-odb-q01.it.ucla.edu:1521/DLCS"
     db_user: "dlcs"
-    dlcs_file_source: "/media/oh_source"
+    dlcs_file_source: "samples"
     oh_libpartners: "/media/oh_source"
     oh_masterslz: "/media/oh_lz"
     oh_wowza: "/media/oh_wowza"
