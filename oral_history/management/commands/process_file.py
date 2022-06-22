@@ -1,11 +1,13 @@
 import logging
 import mimetypes
 import os
+import pathlib
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from django.db.models import F, Max
 from oral_history.models import AdminValues, ContentFiles, FileGroups, Projects, ProjectItems
 from oral_history.scripts.audio_processor import AudioProcessor
+from oral_history.scripts.file_processor import FileProcessor
 from oral_history.scripts.image_processor import ImageProcessor
 from oral_history.settings import PROJECT_ID
 
@@ -169,22 +171,22 @@ def process_media_file(file_name, item_ark, file_group):
         media_type = calculate_media_type(file_name)
         
         if media_type == "image":
-            derivative_data = process_tiff(file_name, item_ark)
+            content_file_data = process_tiff(file_name, item_ark, file_group)
         
         elif media_type == "audio":
-            derivative_data = process_wav(file_name, item_ark)
+            content_file_data = process_wav(file_name, item_ark, file_group)
 
         elif media_type == "pdf":
-            process_pdf(file_name, item_ark)
+            content_file_data = process_file(file_name, item_ark, media_type, file_group)
 
         elif media_type == "text":
-            process_text(file_name, item_ark)
+            content_file_data = process_text(file_name, item_ark, media_type, file_group)
 
         else:
             raise CommandError(f'Media type not recognized for {file_name}')
 
-        for content_file in derivative_data:
-            update_db(content_file, item_ark, file_group)
+        for content_file in content_file_data:
+            update_db(content_file, item_ark)
 
     except AttributeError as ex:
         if media_type is None:
@@ -212,8 +214,18 @@ def process_tiff(file_name, item_ark):
         dest_file_name = f"{dest_dir}{cf_name}"
         logger.info(f'{dest_file_name = }')
 
-        image_processor = ImageProcessor(file_name, file_sequence)
+        image_processor = ImageProcessor(file_name, file_sequence, file_group)
         img_metadata.append(image_processor.create_thumbnail(dest_file_name, resize_height, resize_width))
+
+        file_ext = pathlib.Path(file_name).suffix
+
+        dest_dir = calculate_destination_dir("image", item_ark, "master")
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
+        dest_file_name = f"{dest_dir}{cf_name}"
+
+        file_group = get_related_file_group("image", "Master")
+        file_processor = FileProcessor(file_name, file_sequence, "master", file_group, "image")
+        img_metadata.append(file_processor.copy_file(dest_file_name, "master"))
 
         return img_metadata
 
@@ -222,7 +234,7 @@ def process_tiff(file_name, item_ark):
         raise
 
 
-def process_wav(file_name, item_ark):
+def process_wav(file_name, item_ark, file_group):
 
     try:
         audio_metadata = []
@@ -232,8 +244,19 @@ def process_wav(file_name, item_ark):
         dest_file_name = f"{dest_dir}{cf_name}"
         logger.info(f'{dest_file_name = }')
 
-        audio_processor = AudioProcessor(file_name, file_sequence)
+        file_group = get_related_file_group("audio", "Submaster")
+        audio_processor = AudioProcessor(file_name, file_sequence, file_group, "submaster")
         audio_metadata.append(audio_processor.create_audio_mp3(dest_file_name))
+
+        file_ext = pathlib.Path(file_name).suffix
+
+        dest_dir = calculate_destination_dir("audio", item_ark, "master")
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
+        dest_file_name = f"{dest_dir}{cf_name}"
+
+        file_group = get_related_file_group("audio", "Master")
+        file_processor = FileProcessor(file_name, file_sequence, file_group, "master", "audio")
+        audio_metadata.append(file_processor.copy_file(dest_file_name))
 
         return audio_metadata
 
@@ -242,14 +265,36 @@ def process_wav(file_name, item_ark):
         raise
 
 
-def process_pdf(file_name, item_ark):
-    # https://jira.library.ucla.edu/browse/SYS-831
-    pass
+def process_pdf(file_name, item_ark, media_type, file_group):
+    return process_file(file_name, item_ark, media_type, file_group)
 
 
-def process_text(file_name, item_ark):
-    # https://jira.library.ucla.edu/browse/SYS-832
-    pass
+def process_text(file_name, item_ark, media_type, file_group):
+    return process_file(file_name, item_ark, media_type, file_group)
+
+
+def process_file(file_name, item_ark, media_type, file_group):
+    # For those media types that do not require processing, 2 copies of the file
+    # represent the master and submaster records
+    file_metadata = []
+
+    file_ext = pathlib.Path(file_name).suffix
+    
+    dest_dir = calculate_destination_dir(media_type, item_ark, "submaster")
+    cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", file_ext)
+    dest_file_name = f"{dest_dir}{cf_name}"
+    file_processor = FileProcessor(file_name, file_sequence, file_group, "submaster", media_type)
+    file_metadata.append(file_processor.copy_file(dest_file_name))
+
+
+    dest_dir = calculate_destination_dir(media_type, item_ark, "master")
+    cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
+    dest_file_name = f"{dest_dir}{cf_name}"
+    file_processor.file_use = "master"
+    file_processor.file_sequence = file_sequence
+    file_metadata.append(file_processor.copy_file(dest_file_name))
+
+    return file_metadata
 
 
 def get_project_item(item_ark):
@@ -323,14 +368,11 @@ def get_thumbnail_settings():
     # }
     return {row['admin_term'] : row['admin_value'] for row in query_data}
 
-
-def update_db(derivative_data, item_ark, file_group):
+def update_db(content_file_data, item_ark):
     # Adds required foreign keys to ContentFiles object, then saves it.
-    # file_group already contains a FileGroups primary key, from the calling form.
     project_item = get_project_item(item_ark)
-    derivative_data.divid_fk_id = project_item.pk
-    derivative_data.file_groupid_fk_id = file_group
-    derivative_data.save()
+    content_file_data.divid_fk_id = project_item.pk
+    content_file_data.save()
 
 class Command(BaseCommand):
     help = 'Django management command to process files'
