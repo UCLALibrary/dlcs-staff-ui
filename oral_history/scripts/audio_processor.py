@@ -15,24 +15,30 @@ class AudioProcessor():
 
     AUDIO_CONTENT_TYPE = "Audio"
 
-    def __init__(self, src_file_name, file_sequence):
+    def __init__(self, src_file_name, file_sequence, file_group, file_use):
         self.src_file_name = src_file_name
         self.file_sequence = file_sequence
+        self.file_group = file_group
+        self.file_use = file_use
 
         logger.info(f'Processing audio: {src_file_name}')
 
-    def populate_content_file_data(self, file_path, location_type):
+    def populate_content_file_data(self, file_path):
         
         mime_type, encoding = mimetypes.guess_type(file_path)
 
         content_metadata = ContentFiles()
-        content_metadata.mime_type = mime_type
+        
         content_metadata.file_sequence = self.file_sequence
+        content_metadata.file_groupid_fk_id = self.file_group
+        content_metadata.file_use = self.file_use
+        content_metadata.content_type = self.AUDIO_CONTENT_TYPE
+
+        content_metadata.mime_type = mime_type
         content_metadata.file_size = os.path.getsize(file_path)
         content_metadata.create_date = datetime.date.today()
         content_metadata.file_location = file_path
-        content_metadata.location_type = location_type
-        content_metadata.content_type = self.AUDIO_CONTENT_TYPE
+        
 
         return content_metadata
     
@@ -54,7 +60,7 @@ class AudioProcessor():
             stream = ffmpeg.output(stream, dest_file_name, acodec='libmp3lame', audio_bitrate='320k', ar=44100, ac=2)
             ffmpeg.run(stream)
 
-            audio_metadata = self.populate_content_file_data(dest_file_name, "submaster")
+            audio_metadata = self.populate_content_file_data(dest_file_name)
 
             logger.info(f'Audio processed: {dest_file_name}')
 
