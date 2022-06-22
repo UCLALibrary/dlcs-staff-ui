@@ -1,7 +1,6 @@
 import logging
 import mimetypes
 import os
-import pathlib
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from django.db.models import F, Max
@@ -10,6 +9,7 @@ from oral_history.scripts.audio_processor import AudioProcessor
 from oral_history.scripts.file_processor import FileProcessor
 from oral_history.scripts.image_processor import ImageProcessor
 from oral_history.settings import PROJECT_ID
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -217,7 +217,7 @@ def process_tiff(file_name, item_ark):
         image_processor = ImageProcessor(file_name, file_sequence, file_group)
         img_metadata.append(image_processor.create_thumbnail(dest_file_name, resize_height, resize_width))
 
-        file_ext = pathlib.Path(file_name).suffix
+        file_ext = Path(file_name).suffix
 
         dest_dir = calculate_destination_dir("image", item_ark, "master")
         cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
@@ -248,7 +248,7 @@ def process_wav(file_name, item_ark, file_group):
         audio_processor = AudioProcessor(file_name, file_sequence, file_group, "submaster")
         audio_metadata.append(audio_processor.create_audio_mp3(dest_file_name))
 
-        file_ext = pathlib.Path(file_name).suffix
+        file_ext = Path(file_name).suffix
 
         dest_dir = calculate_destination_dir("audio", item_ark, "master")
         cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
@@ -270,7 +270,7 @@ def process_file(file_name, item_ark, media_type, file_group):
     # represent the master and submaster records
     file_metadata = []
 
-    file_ext = pathlib.Path(file_name).suffix
+    file_ext = Path(file_name).suffix
     
     dest_dir = calculate_destination_dir(media_type, item_ark, "submaster")
     cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", file_ext)
