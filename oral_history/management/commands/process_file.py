@@ -180,7 +180,7 @@ def process_media_file(file_name, item_ark, file_group):
             content_file_data = process_file(file_name, item_ark, media_type, file_group)
 
         elif media_type == "text":
-            content_file_data = process_text(file_name, item_ark, media_type, file_group)
+            content_file_data = process_file(file_name, item_ark, media_type, file_group)
 
         else:
             raise CommandError(f'Media type not recognized for {file_name}')
@@ -240,7 +240,7 @@ def process_wav(file_name, item_ark, file_group):
         audio_metadata = []
 
         dest_dir = calculate_destination_dir("audio", item_ark, "submaster")
-        cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", "mp3")
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", ".mp3")
         dest_file_name = f"{dest_dir}{cf_name}"
         logger.info(f'{dest_file_name = }')
 
@@ -263,14 +263,6 @@ def process_wav(file_name, item_ark, file_group):
     except Exception as ex:
         logger.exception(ex)
         raise
-
-
-def process_pdf(file_name, item_ark, media_type, file_group):
-    return process_file(file_name, item_ark, media_type, file_group)
-
-
-def process_text(file_name, item_ark, media_type, file_group):
-    return process_file(file_name, item_ark, media_type, file_group)
 
 
 def process_file(file_name, item_ark, media_type, file_group):
@@ -337,7 +329,7 @@ def get_new_content_file_name(item_ark, file_use, file_extension, file_seq_overr
 
         item_ark = item_ark.replace("/", "-")
 
-        content_file_name = f'{item_ark}-{file_sequence}-{file_use}.{file_extension}'.lower()
+        content_file_name = f'{item_ark}-{file_sequence}-{file_use}{file_extension}'.lower()
 
         return content_file_name, file_sequence
     
