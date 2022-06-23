@@ -30,6 +30,10 @@ class ImageProcessor():
         
         return self.resize_image(dest_file_name, resize_height, resize_width, ImageProcessor.THUMBNAIL_CATEGORY)
     
+    def create_submaster_img(self, dest_file_name, resize_height, resize_width):
+
+        return self.resize_image(dest_file_name, resize_height, resize_width, ImageProcessor.SUBMASTER_CATEGORY)
+    
     def populate_content_file_data(self, file_path, image_category):
         
         mime_type, encoding = mimetypes.guess_type(file_path)
