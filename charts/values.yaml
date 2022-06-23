@@ -45,6 +45,8 @@ django:
     target_port: ""
     oh_libpartners: ""
     oh_masterslz: ""
+    # oh_static is not yet mounted: https://jira.library.ucla.edu/browse/SYS-862
+    #oh_static: ""
     oh_wowza: ""
 
   externalSecrets:
