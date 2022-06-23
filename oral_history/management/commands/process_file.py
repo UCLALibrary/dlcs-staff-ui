@@ -31,7 +31,7 @@ def calculate_destination_dir(media_type, item_ark, file_use):
 
     try: 
         local_root = get_local_root_dir(media_type, file_use)
-        app_folder = get_app_folder_name(item_ark)
+        app_folder = get_app_folder_name()
         media_folder = get_media_folder_by_mime_type(media_type, file_use)
 
         logger.info(f"{local_root = }, {app_folder = }, {media_folder =}")
@@ -68,13 +68,16 @@ def get_local_root_dir(media_type, file_use):
     
     return local_root
     
-def get_app_folder_name(item_ark):
-    
-    pfk_value = ProjectItems.objects.filter(
-        item_ark=item_ark).first().projectid_fk_id
+def get_app_folder_name():
+    # App folder name will vary based on environment.
+    # May also vary based on project, though for now there's only
+    # the oral history project, so use that project_id.
     proj_app_name = getattr(Projects.objects.get(
-        pk=pfk_value), "webapp_name")
-    
+        pk=PROJECT_ID), "webapp_name")
+
+    # Override for TEST environment only
+    if os.getenv('DJANGO_RUN_ENV') == 'test':
+        proj_app_name += '-test'
     app_folder_name = f"/{proj_app_name}"
     
     return app_folder_name
