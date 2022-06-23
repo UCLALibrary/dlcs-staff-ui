@@ -58,10 +58,13 @@ def get_local_root_dir(media_type, file_use):
             local_root = os.getenv('DJANGO_OH_WOWZA')
         
         else:
-            local_root = os.getenv('DJANGO_OH_SUBMASTERSLZ')
+            local_root = os.getenv('DJANGO_OH_STATIC')
     
     elif file_use == "thumbnail":
-        local_root = os.getenv('DJANGO_OH_THUMBNAILSLZ')
+        local_root = os.getenv('DJANGO_OH_STATIC')
+
+    if local_root is None:
+        raise ValueError(f'local_root is not set: {media_type = }, {file_use = }')
     
     return local_root
     

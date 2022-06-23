@@ -45,6 +45,8 @@ django:
     dlcs_file_source: "samples"
     oh_libpartners: "/media/oh_source"
     oh_masterslz: "/media/oh_lz"
+    # oh_static is not yet mounted: https://jira.library.ucla.edu/browse/SYS-862
+    #oh_static: "/media/oh_static"
     oh_wowza: "/media/oh_wowza"
 
   externalSecrets:
