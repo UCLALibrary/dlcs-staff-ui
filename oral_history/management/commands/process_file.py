@@ -103,7 +103,7 @@ def get_media_folder_by_mime_type(media_type, file_use):
     file_use_folder = get_folder_by_use(file_use)
         
     if media_type == "image":
-        folder_name = "/"
+        folder_name = ""
     
     elif media_type == "audio":
         folder_name = "/audio"
@@ -177,7 +177,7 @@ def process_media_file(file_name, item_ark, file_group):
         media_type = calculate_media_type(file_name)
         
         if media_type == "image":
-            content_file_data = process_tiff(file_name, item_ark, file_group)
+            content_file_data = process_tiff(file_name, item_ark)
         
         elif media_type == "audio":
             content_file_data = process_wav(file_name, item_ark, file_group)
@@ -221,20 +221,21 @@ def process_tiff(file_name, item_ark):
         
         # Thumbnail related operations
         dest_dir = calculate_destination_dir("image", item_ark, "thumbnail")
-        cf_name, file_sequence = get_new_content_file_name(item_ark, "thumbnail", "jpg")
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "thumbnail", ".jpg")
         dest_file_name = f"{dest_dir}{cf_name}"
         logger.info(f'{dest_file_name = }')
 
+        file_group = get_related_file_group("image", "Thumbnail")
         image_processor = ImageProcessor(file_name, file_sequence, file_group)
         img_metadata.append(image_processor.create_thumbnail(dest_file_name, resize_height, resize_width))
 
         # Submaster image related operations
         dest_dir = calculate_destination_dir("image", item_ark, "submaster")
-        cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", "jpg", file_sequence)
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", ".jpg", file_sequence)
         dest_file_name = f"{dest_dir}{cf_name}"
         file_group = get_related_file_group("image", "Submaster")
         image_processor.file_group = file_group
-        img_metadata.append(image_processor.create_submaster_img(dest_file_name, resize_height, resize_width))
+        img_metadata.append(image_processor.create_submaster_img(dest_file_name, submaster_img_resize_height, submaster_img_resize_width))
         
         # Master image related operations
         file_ext = Path(file_name).suffix
@@ -245,8 +246,8 @@ def process_tiff(file_name, item_ark):
         
 
         file_group = get_related_file_group("image", "Master")
-        file_processor = FileProcessor(file_name, file_sequence, "master", file_group, "image")
-        img_metadata.append(file_processor.copy_file(dest_file_name, "master"))
+        file_processor = FileProcessor(file_name, file_sequence, file_group, "master", "image")
+        img_metadata.append(file_processor.copy_file(dest_file_name))
 
         return img_metadata
 
