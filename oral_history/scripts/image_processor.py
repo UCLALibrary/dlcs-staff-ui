@@ -20,15 +20,20 @@ class ImageProcessor():
     IMAGE_CONTENT_TYPE = "Image"
 
 
-    def __init__(self, src_file_name, file_sequence):
+    def __init__(self, src_file_name, file_sequence, file_group):
         self.src_file_name = src_file_name
         self.file_sequence = file_sequence
+        self.file_group = file_group
 
         logger.info(f'Processing image: {src_file_name}')
 
     def create_thumbnail(self, dest_file_name, resize_height, resize_width):
         
         return self.resize_image(dest_file_name, resize_height, resize_width, ImageProcessor.THUMBNAIL_CATEGORY)
+    
+    def create_submaster_img(self, dest_file_name, resize_height, resize_width):
+
+        return self.resize_image(dest_file_name, resize_height, resize_width, ImageProcessor.SUBMASTER_CATEGORY)
     
     def populate_content_file_data(self, file_path, image_category):
         
@@ -37,6 +42,7 @@ class ImageProcessor():
         img_metadata = ContentFiles()
         img_metadata.mime_type = mime_type
         img_metadata.file_sequence = self.file_sequence
+        img_metadata.file_groupid_fk_id = self.file_group
         img_metadata.file_size = os.path.getsize(file_path)
         img_metadata.create_date = datetime.date.today()
         img_metadata.file_location = file_path
@@ -49,11 +55,17 @@ class ImageProcessor():
         
         logger.info(f"script('{self.src_file_name}', '{dest_file_name}', '{resize_height}', {resize_width} )")
 
+
         try:
+            self.create_dest_dir(dest_file_name)
+
+            resize_height = int(resize_height)
+            resize_width = int(resize_width)
+            
             with Image(filename=self.src_file_name) as img:
                 img.resize(height=resize_height, width=resize_width)
                 img.save(filename=dest_file_name)
-
+                
                 img_metadata = self.populate_content_file_data(dest_file_name, process_category)
                 return img_metadata
 

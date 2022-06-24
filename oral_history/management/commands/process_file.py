@@ -103,7 +103,7 @@ def get_media_folder_by_mime_type(media_type, file_use):
     file_use_folder = get_folder_by_use(file_use)
         
     if media_type == "image":
-        folder_name = "/"
+        folder_name = ""
     
     elif media_type == "audio":
         folder_name = "/audio"
@@ -177,7 +177,7 @@ def process_media_file(file_name, item_ark, file_group):
         media_type = calculate_media_type(file_name)
         
         if media_type == "image":
-            content_file_data = process_tiff(file_name, item_ark, file_group)
+            content_file_data = process_tiff(file_name, item_ark)
         
         elif media_type == "audio":
             content_file_data = process_wav(file_name, item_ark, file_group)
@@ -212,26 +212,42 @@ def process_tiff(file_name, item_ark):
     # but for now just grab side size in 'Image Pixels Long Dimension'
     resize_height = resize_width = thumbnail_settings['Image Pixels Long Dimension']
 
+    # Get submaster image related settings
+    submaster_img_settings = get_submaster_image_settings()
+    submaster_img_resize_height = submaster_img_resize_width = submaster_img_settings['Image Pixels Long Dimension']
+
     try:
         img_metadata = []
         
+        # Thumbnail related operations
         dest_dir = calculate_destination_dir("image", item_ark, "thumbnail")
-        cf_name, file_sequence = get_new_content_file_name(item_ark, "thumbnail", "jpg")
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "thumbnail", ".jpg")
         dest_file_name = f"{dest_dir}{cf_name}"
         logger.info(f'{dest_file_name = }')
 
+        file_group = get_related_file_group("image", "Thumbnail")
         image_processor = ImageProcessor(file_name, file_sequence, file_group)
         img_metadata.append(image_processor.create_thumbnail(dest_file_name, resize_height, resize_width))
 
+        # Submaster image related operations
+        dest_dir = calculate_destination_dir("image", item_ark, "submaster")
+        cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", ".jpg", file_sequence)
+        dest_file_name = f"{dest_dir}{cf_name}"
+        file_group = get_related_file_group("image", "Submaster")
+        image_processor.file_group = file_group
+        img_metadata.append(image_processor.create_submaster_img(dest_file_name, submaster_img_resize_height, submaster_img_resize_width))
+        
+        # Master image related operations
         file_ext = Path(file_name).suffix
 
         dest_dir = calculate_destination_dir("image", item_ark, "master")
         cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
         dest_file_name = f"{dest_dir}{cf_name}"
+        
 
         file_group = get_related_file_group("image", "Master")
-        file_processor = FileProcessor(file_name, file_sequence, "master", file_group, "image")
-        img_metadata.append(file_processor.copy_file(dest_file_name, "master"))
+        file_processor = FileProcessor(file_name, file_sequence, file_group, "master", "image")
+        img_metadata.append(file_processor.copy_file(dest_file_name))
 
         return img_metadata
 
@@ -344,9 +360,17 @@ def get_new_content_file_name(item_ark, file_use, file_extension, file_seq_overr
 
 
 def get_thumbnail_settings():
-    # Retrieve default thumbnail settings from database.
+    return get_image_settings("Image Thumbnail Technical MD")
+
+
+def get_submaster_image_settings():
+    return get_image_settings("Image Submaster Technical MD")
+
+
+def get_image_settings(admin_group_title):
+    # Retrieve default image settings from database based on image admin group submitted
     query_data = AdminValues.objects.filter(
-        admin_groupid_fk__admin_group_title__exact='Image Thumbnail Technical MD',
+        admin_groupid_fk__admin_group_title__exact=admin_group_title,
         admin_termid_fk__admin_term__in=(
             'Bits Per Sample',
             'Image Pixels Long Dimension',
@@ -357,7 +381,7 @@ def get_thumbnail_settings():
         admin_term=F('admin_termid_fk__admin_term')
         )
     # Convert queryset (list of dictionaries) to single dictionary for easier use.
-    # At present this returns:
+    # At present this returns the following for thumbnails:
     # {
     #     'Image Sampling Frequency': '72',
     #     'Bits Per Sample': '8',
@@ -365,6 +389,7 @@ def get_thumbnail_settings():
     #     'Image Pixels Long Dimension': '200'
     # }
     return {row['admin_term'] : row['admin_value'] for row in query_data}
+
 
 def update_db(content_file_data, item_ark):
     # Adds required foreign keys to ContentFiles object, then saves it.
