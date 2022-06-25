@@ -33,7 +33,7 @@ class FileUploadForm(forms.Form):
     # __init__ is called every time the form is needed.
     # Cache values for 5 seconds (arbitrary); use cache if populated,
     # otherwise start fresh.
-    def __init__(self, **kwargs):
+    def __init__(self, *args, **kwargs):
         seconds_to_cache = 5
         key = 'file_name-cache-key'
         choices = cache.get(key)
@@ -42,5 +42,5 @@ class FileUploadForm(forms.Form):
             choices = field.choices
             cache.set(key, choices, seconds_to_cache)
 
-        super().__init__(**kwargs)
+        super().__init__(*args, **kwargs)
         self.base_fields['file_name'].choices = choices
