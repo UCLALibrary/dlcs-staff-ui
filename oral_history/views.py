@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render
 from .forms import FileUploadForm, ProjectsForm
 from .models import ProjectItems
@@ -6,6 +7,7 @@ from django.core.management import call_command
 from django.contrib import messages
 from django.core.management.base import CommandError
 
+logger = logging.getLogger(__name__)
 
 def projects_new(request):
     form = ProjectsForm()
