@@ -17,5 +17,3 @@ data:
   # oh_static is not yet mounted: https://jira.library.ucla.edu/browse/SYS-862
   #DJANGO_OH_STATIC: {{ .Values.django.env.oh_static }}
   DJANGO_OH_WOWZA: {{ .Values.django.env.oh_wowza }}
-  # Meaningless value for triggering ArgoCD deploys
-  DJANGO_TRIGGER_DEPLOY: {{ .Values.django.env.trigger_deploy }}
