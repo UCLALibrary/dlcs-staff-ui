@@ -46,8 +46,7 @@ django:
     dlcs_file_source: "/media/oh_source/upload"
     oh_libpartners: "/media/oh_source"
     oh_masterslz: "/media/oh_lz"
-    # oh_static is not yet mounted: https://jira.library.ucla.edu/browse/SYS-862
-    #oh_static: "/media/oh_static"
+    oh_static: "/media/oh_static"
     oh_wowza: "/media/oh_wowza"
     # Meaningless value for triggering ArgoCD deploys; increment to force deploy
     trigger_deploy: "1"
@@ -68,14 +67,19 @@ persistentVolumes:
     path: "/OralHistory"
   ohmasters:
     storage: "1.1Ti"
-    access: "ReadWriteOnce"
+    access: "ReadWriteMany"
     server: "dlp.in.library.ucla.edu"
     path: "/oralhistory_LZ"
   ohwowza:
     storage: "5Ti"
-    access: "ReadWriteOnce"
+    access: "ReadWriteMany"
     server: "wowza.in.library.ucla.edu"
     path: "/dlp/oralhistory"
+  ohstatic:
+    storage: "300Gi"
+    access: "ReadWriteMany"
+    server: "dlp.in.library.ucla.edu"
+    path: "/oralhistory"
 
 # Volume mount specification for the container
 volumeMounts:
@@ -85,6 +89,8 @@ volumeMounts:
     mountPath: "/media/oh_lz"
   - name: "ohwowza"
     mountPath: "/media/oh_wowza/"
+  - name: "ohstatic"
+    mountPath: "/media/oh_static"
 
 resources:
   limits:
