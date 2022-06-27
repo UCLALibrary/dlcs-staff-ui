@@ -63,4 +63,7 @@ Deployment Volume Configuration
 - name: "ohwowza"
   persistentVolumeClaim:
     claimName: {{ include "dlcs-staff-ui.fullname" . }}-pvc-ohwowza
+- name: "ohstatic"
+  persistentVolumeClaim:
+    claimName: {{ include "dlcs-staff-ui.fullname" . }}-pvc-ohstatic
 {{- end }}
