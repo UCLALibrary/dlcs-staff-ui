@@ -67,17 +67,17 @@ persistentVolumes:
     path: "/OralHistory"
   ohmasters:
     storage: "1.1Ti"
-    access: "ReadWriteOnce"
+    access: "ReadWriteMany"
     server: "dlp.in.library.ucla.edu"
     path: "/oralhistory_LZ"
   ohwowza:
     storage: "5Ti"
-    access: "ReadWriteOnce"
+    access: "ReadWriteMany"
     server: "wowza.in.library.ucla.edu"
     path: "/dlp/oralhistory"
   ohstatic:
     storage: "300Gi"
-    access: "ReadWriteOnce"
+    access: "ReadWriteMany"
     server: "dlp.in.library.ucla.edu"
     path: "/oralhistory"
 
