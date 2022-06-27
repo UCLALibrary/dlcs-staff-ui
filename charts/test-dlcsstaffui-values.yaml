@@ -49,6 +49,8 @@ django:
     # oh_static is not yet mounted: https://jira.library.ucla.edu/browse/SYS-862
     #oh_static: "/media/oh_static"
     oh_wowza: "/media/oh_wowza"
+    # Meaningless value for triggering ArgoCD deploys; increment to force deploy
+    trigger_deploy: "1"
 
   externalSecrets:
     enabled: "true"
