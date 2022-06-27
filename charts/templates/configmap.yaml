@@ -18,4 +18,4 @@ data:
   #DJANGO_OH_STATIC: {{ .Values.django.env.oh_static }}
   DJANGO_OH_WOWZA: {{ .Values.django.env.oh_wowza }}
   # Meaningless value for triggering ArgoCD deploys
-  DJANGO_TRIGGER_DEPLOY: {{ .Values.django.env.trigger_deploy }}
+  DJANGO_TRIGGER_DEPLOY: {{ .Values.django.env.trigger_deploy | quote }}
