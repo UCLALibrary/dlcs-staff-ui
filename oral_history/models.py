@@ -222,26 +222,6 @@ class ContentFiles(models.Model):
     file_use = models.CharField(max_length=50, blank=True, null=True)
     file_name = models.CharField(max_length=100, blank=True, null=True)
     content_type = models.CharField(max_length=25, blank=True, null=True)
-    # The following fields are in the database/model, but not used.
-    # Django guessed at several types via inspectdb.
-    old_fileid = models.CharField(max_length=100, blank=True, null=True)
-    # This field type is a guess.
-    bfile_video = models.TextField(blank=True, null=True)
-    # This field type is a guess.
-    blob_video = models.TextField(blank=True, null=True)
-    clob_text = models.TextField(blank=True, null=True)
-    nclob_text = models.TextField(blank=True, null=True)
-    # This field type is a guess.
-    bfile_image = models.TextField(blank=True, null=True)
-    # This field type is a guess.
-    blob_image = models.TextField(blank=True, null=True)
-    # This field type is a guess.
-    bfile_audio = models.TextField(blank=True, null=True)
-    # This field type is a guess.
-    blob_audio = models.TextField(blank=True, null=True)
-    # This field type is a guess.
-    bfile_lob = models.TextField(blank=True, null=True)
-    blob_lob = models.BinaryField(blank=True, null=True)
 
     class Meta:
         managed = True
