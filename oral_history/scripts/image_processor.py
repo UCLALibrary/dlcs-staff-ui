@@ -53,8 +53,7 @@ class ImageProcessor():
     
     def resize_image(self, dest_file_name, resize_height, resize_width, process_category):
         
-        logger.info(f"script('{self.src_file_name}', '{dest_file_name}', '{resize_height}', {resize_width} )")
-
+        logger.info(f"script('{self.src_file_name}', '{dest_file_name}', '{resize_height}', {resize_width}, {process_category} )")
 
         try:
             self.create_dest_dir(dest_file_name)

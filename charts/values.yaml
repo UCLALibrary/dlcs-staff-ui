@@ -33,6 +33,7 @@ django:
   env:
     run_env: "prod"
     debug: "false"
+    log_level: ""
     allowed_hosts: []
     #  - localhost
     #  - 127.0.0.1
@@ -47,8 +48,6 @@ django:
     oh_masterslz: ""
     oh_static: ""
     oh_wowza: ""
-    # Meaningless value for triggering ArgoCD deploys
-    trigger_deploy: ""
 
   externalSecrets:
     enabled: "false"
