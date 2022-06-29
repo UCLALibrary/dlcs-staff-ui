@@ -233,6 +233,7 @@ def process_tiff(file_name, item_ark):
         dest_dir = calculate_destination_dir("image", item_ark, "submaster")
         cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", ".jpg", file_sequence)
         dest_file_name = f"{dest_dir}{cf_name}"
+        logger.info(f'{dest_file_name = }')
         file_group = get_related_file_group("image", "Submaster")
         image_processor.file_group = file_group
         img_metadata.append(image_processor.create_submaster_img(dest_file_name, submaster_img_resize_height, submaster_img_resize_width))
@@ -243,7 +244,7 @@ def process_tiff(file_name, item_ark):
         dest_dir = calculate_destination_dir("image", item_ark, "master")
         cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
         dest_file_name = f"{dest_dir}{cf_name}"
-        
+        logger.info(f'{dest_file_name = }')
 
         file_group = get_related_file_group("image", "Master")
         file_processor = FileProcessor(file_name, file_sequence, file_group, "master", "image")
@@ -275,6 +276,7 @@ def process_wav(file_name, item_ark, file_group):
         dest_dir = calculate_destination_dir("audio", item_ark, "master")
         cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
         dest_file_name = f"{dest_dir}{cf_name}"
+        logger.info(f'{dest_file_name = }')
 
         file_group = get_related_file_group("audio", "Master")
         file_processor = FileProcessor(file_name, file_sequence, file_group, "master", "audio")
@@ -352,6 +354,7 @@ def get_new_content_file_name(item_ark, file_use, file_extension, file_seq_overr
         item_ark = item_ark.replace("/", "-")
 
         content_file_name = f'{item_ark}-{file_sequence}-{file_use}{file_extension}'.lower()
+        logger.info(f'{content_file_name = }')
 
         return content_file_name, file_sequence
     

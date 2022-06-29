@@ -38,6 +38,8 @@ django:
   env:
     run_env: "test"
     debug: "false"
+    # DEBUG, INFO, WARNING, ERROR, CRITICAL
+    log_level: "INFO"
     allowed_hosts:
       - dlcs-staff.library.ucla.edu
     db_dsn: "dba-lib-odb-q01.it.ucla.edu:1521/DLCS"
@@ -48,8 +50,6 @@ django:
     oh_masterslz: "/media/oh_lz"
     oh_static: "/media/oh_static"
     oh_wowza: "/media/oh_wowza"
-    # Meaningless value for triggering ArgoCD deploys; increment to force deploy
-    trigger_deploy: "1"
 
   externalSecrets:
     enabled: "true"
