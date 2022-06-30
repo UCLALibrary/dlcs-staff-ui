@@ -27,7 +27,7 @@ def upload_file(request):
 
             try:
                 call_command('process_file', file_group=file_group, file_name=file_name,
-                             item_ark=item_ark)
+                             item_ark=item_ark, request=request)
                 messages.success(
                     request, "The media file was successfully processed")
 
