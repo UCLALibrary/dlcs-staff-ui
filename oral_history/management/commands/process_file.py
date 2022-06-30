@@ -400,6 +400,19 @@ def update_db(content_file_data, item_ark):
     content_file_data.divid_fk_id = project_item.pk
     content_file_data.save()
 
+
+def get_url_message(content_file_data):
+    # Builds HTML containing URL(s) for generated content files
+    html = '<ul>'
+    for content_file in content_file_data:
+        if content_file.file_location.startswith('http'):
+            html += f'<li><a href="{content_file.file_location}"">{content_file.file_use}</a></li>'
+        else:
+            html += f'<li>{content_file.file_use} = {content_file.file_location}</li>'
+    html += '</ul>'
+    return html
+
+
 class Command(BaseCommand):
     help = 'Django management command to process files'
 
