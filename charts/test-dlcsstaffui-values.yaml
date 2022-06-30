@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: uclalibrary/dlcs-staff-ui
-  tag: v0.8.2
+  tag: v0.8.3
   pullPolicy: Always
 
 nameOverride: ""

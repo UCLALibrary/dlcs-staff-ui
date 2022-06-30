@@ -27,16 +27,18 @@ class FileProcessor():
         mime_type, encoding = mimetypes.guess_type(file_path)
 
         content_metadata = ContentFiles()
-        content_metadata.file_groupid_fk_id = self.file_group
-        content_metadata.file_use = self.file_use
-        content_metadata.file_sequence = self.file_sequence
+
         content_metadata.content_type = self.content_type
-
-        content_metadata.mime_type = mime_type
-        content_metadata.file_size = os.path.getsize(file_path)
         content_metadata.create_date = datetime.date.today()
+        content_metadata.file_groupid_fk_id = self.file_group
         content_metadata.file_location = file_path
-
+        content_metadata.file_name = os.path.basename(file_path)
+        content_metadata.file_sequence = self.file_sequence
+        content_metadata.file_size = os.path.getsize(file_path)
+        content_metadata.file_use = self.file_use
+        content_metadata.location_type = "URL"
+        content_metadata.mime_type = mime_type
+        
         return content_metadata
 
     
