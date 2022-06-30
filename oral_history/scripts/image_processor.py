@@ -40,14 +40,17 @@ class ImageProcessor():
         mime_type, encoding = mimetypes.guess_type(file_path)
 
         img_metadata = ContentFiles()
-        img_metadata.mime_type = mime_type
-        img_metadata.file_sequence = self.file_sequence
-        img_metadata.file_groupid_fk_id = self.file_group
-        img_metadata.file_size = os.path.getsize(file_path)
-        img_metadata.create_date = datetime.date.today()
-        img_metadata.file_location = file_path
-        img_metadata.location_type = image_category
+        
         img_metadata.content_type = self.IMAGE_CONTENT_TYPE
+        img_metadata.create_date = datetime.date.today()
+        img_metadata.file_groupid_fk_id = self.file_group
+        img_metadata.file_name = os.path.basename(file_path)
+        img_metadata.file_sequence = self.file_sequence
+        img_metadata.file_size = os.path.getsize(file_path)
+        img_metadata.file_use = image_category
+        img_metadata.file_location = file_path
+        img_metadata.mime_type = mime_type
+        img_metadata.location_type = "URL"
 
         return img_metadata
     

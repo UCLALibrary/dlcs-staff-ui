@@ -29,16 +29,16 @@ class AudioProcessor():
 
         content_metadata = ContentFiles()
         
-        content_metadata.file_sequence = self.file_sequence
-        content_metadata.file_groupid_fk_id = self.file_group
-        content_metadata.file_use = self.file_use
         content_metadata.content_type = self.AUDIO_CONTENT_TYPE
-
-        content_metadata.mime_type = mime_type
-        content_metadata.file_size = os.path.getsize(file_path)
         content_metadata.create_date = datetime.date.today()
+        content_metadata.file_groupid_fk_id = self.file_group
         content_metadata.file_location = file_path
-        
+        content_metadata.file_name = os.path.basename(file_path)
+        content_metadata.file_use = self.file_use
+        content_metadata.file_sequence = self.file_sequence
+        content_metadata.file_size = os.path.getsize(file_path)
+        content_metadata.location_type = "URL"
+        content_metadata.mime_type = mime_type
 
         return content_metadata
     
@@ -54,11 +54,11 @@ class AudioProcessor():
             # audio_bitrate : 320k - High(er) constant bitrate chosen over VBR for device compatiblity reasons
             # ar : 44.1kHz - Matches sample rate of our source file, which will always be 16 bit 44.1khz wav for this project
             # ac : 2 channels - Forces to 2 channels in the case there are more or less present. OH source files will always be 2 channels
+            # overwrite_output : True - Overwrite if existing file
 
             stream = ffmpeg.input(self.src_file_name)
-            # TODO: Add -y flag to override existing output files, or handle another way
             stream = ffmpeg.output(stream, dest_file_name, acodec='libmp3lame', audio_bitrate='320k', ar=44100, ac=2)
-            ffmpeg.run(stream)
+            ffmpeg.run(stream, overwrite_output=True)
 
             audio_metadata = self.populate_content_file_data(dest_file_name)
 

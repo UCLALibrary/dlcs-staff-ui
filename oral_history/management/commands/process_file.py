@@ -247,7 +247,7 @@ def process_tiff(file_name, item_ark):
         logger.info(f'{dest_file_name = }')
 
         file_group = get_related_file_group("image", "Master")
-        file_processor = FileProcessor(file_name, file_sequence, file_group, "master", "image")
+        file_processor = FileProcessor(file_name, file_sequence, file_group, "Master", "Image")
         img_metadata.append(file_processor.copy_file(dest_file_name))
 
         return img_metadata
@@ -268,7 +268,7 @@ def process_wav(file_name, item_ark, file_group):
         logger.info(f'{dest_file_name = }')
 
         file_group = get_related_file_group("audio", "Submaster")
-        audio_processor = AudioProcessor(file_name, file_sequence, file_group, "submaster")
+        audio_processor = AudioProcessor(file_name, file_sequence, file_group, "Submaster")
         audio_metadata.append(audio_processor.create_audio_mp3(dest_file_name))
 
         file_ext = Path(file_name).suffix
@@ -279,7 +279,7 @@ def process_wav(file_name, item_ark, file_group):
         logger.info(f'{dest_file_name = }')
 
         file_group = get_related_file_group("audio", "Master")
-        file_processor = FileProcessor(file_name, file_sequence, file_group, "master", "audio")
+        file_processor = FileProcessor(file_name, file_sequence, file_group, "Master", "Audio")
         audio_metadata.append(file_processor.copy_file(dest_file_name))
 
         return audio_metadata
@@ -299,14 +299,14 @@ def process_file(file_name, item_ark, media_type, file_group):
     dest_dir = calculate_destination_dir(media_type, item_ark, "submaster")
     cf_name, file_sequence = get_new_content_file_name(item_ark, "submaster", file_ext)
     dest_file_name = f"{dest_dir}{cf_name}"
-    file_processor = FileProcessor(file_name, file_sequence, file_group, "submaster", media_type)
+    file_processor = FileProcessor(file_name, file_sequence, file_group, "Submaster", media_type)
     file_metadata.append(file_processor.copy_file(dest_file_name))
 
 
     dest_dir = calculate_destination_dir(media_type, item_ark, "master")
     cf_name, file_sequence = get_new_content_file_name(item_ark, "master", file_ext, file_sequence)
     dest_file_name = f"{dest_dir}{cf_name}"
-    file_processor.file_use = "master"
+    file_processor.file_use = "Master"
     file_processor.file_sequence = file_sequence
     file_metadata.append(file_processor.copy_file(dest_file_name))
 
