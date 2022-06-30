@@ -48,7 +48,7 @@ class ImageProcessor():
         img_metadata.file_sequence = self.file_sequence
         img_metadata.file_size = os.path.getsize(file_path)
         img_metadata.file_use = image_category
-        img_metadata.file_location = file_path
+        img_metadata.file_location = self.get_url(file_path, image_category)
         img_metadata.mime_type = mime_type
         img_metadata.location_type = "URL"
 
@@ -79,3 +79,21 @@ class ImageProcessor():
         p = Path(dest_file_name)
         parent_path = p.parent
         parent_path.mkdir(parents=True, exist_ok=True)
+
+
+    def get_url(self, file_path, image_category):
+        # May be fragile: assumes file_path starts with two elements we don't want
+        # Example: media/oh_lz/oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
+        # becomes oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
+        # TODO: Refactor to make this generic via an included library.
+
+        # Currently supported only for Submaster and Thumbnail
+        if image_category in [ImageProcessor.SUBMASTER_CATEGORY, ImageProcessor.THUMBNAIL_CATEGORY]:
+            # Strip off first two elements of / delimited path, join the rest with /
+            url_path = '/'.join(file_path.split('/')[2:])
+            domain = 'https://static.library.ucla.edu'
+            url = f'{domain}/{url_path}'
+            logger.info(f'{file_path = }, {url = }')
+            return url
+        else:
+            return file_path

@@ -31,7 +31,7 @@ class FileProcessor():
         content_metadata.content_type = self.content_type
         content_metadata.create_date = datetime.date.today()
         content_metadata.file_groupid_fk_id = self.file_group
-        content_metadata.file_location = file_path
+        content_metadata.file_location = self.get_url(file_path)
         content_metadata.file_name = os.path.basename(file_path)
         content_metadata.file_sequence = self.file_sequence
         content_metadata.file_size = os.path.getsize(file_path)
@@ -65,5 +65,20 @@ class FileProcessor():
         parent_path = p.parent
         parent_path.mkdir(parents=True, exist_ok=True)
 
+
+    def get_url(self, file_path):
+        # May be fragile: assumes file_path starts with two elements we don't want
+        # Example: media/oh_lz/oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
+        # becomes oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
+        # TODO: Refactor to make this generic via an included library.
         
-        
+        # Currently supported only for Submaster and Thumbnail
+        if self.file_use in ['Submaster', 'Thumbnail']:
+            # Strip off first two elements of / delimited path, join the rest with /
+            url_path = '/'.join(file_path.split('/')[2:])
+            domain = 'https://static.library.ucla.edu'
+            url = f'{domain}/{url_path}'
+            logger.info(f'{file_path = }, {url = }')
+            return url
+        else:
+            return file_path
