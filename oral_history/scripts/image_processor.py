@@ -83,15 +83,17 @@ class ImageProcessor():
 
     def get_url(self, file_path, image_category):
         # May be fragile: assumes file_path starts with two elements we don't want
-        # Example: /media/oh_lz/oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
+        # Example: media/oh_lz/oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
         # becomes oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
         # TODO: Refactor to make this generic via an included library.
 
         # Currently supported only for Submaster and Thumbnail
         if image_category in [ImageProcessor.SUBMASTER_CATEGORY, ImageProcessor.THUMBNAIL_CATEGORY]:
             # Strip off first two elements of / delimited path, join the rest with /
-            url_path = '/'.join(file_path.split('/')[3:])
+            url_path = '/'.join(file_path.split('/')[2:])
             domain = 'https://static.library.ucla.edu'
-            return f'{domain}/{url_path}'
+            url = f'{domain}/{url_path}'
+            logger.info(f'{file_path = }, {url = }')
+            return url
         else:
             return file_path

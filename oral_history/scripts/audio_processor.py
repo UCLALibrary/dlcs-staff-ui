@@ -78,18 +78,20 @@ class AudioProcessor():
 
     def get_url(self, file_path):
         # May be fragile: assumes file_path starts with two elements we don't want
-        # Example: /media/oh_lz/oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
+        # Example: media/oh_lz/oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
         # becomes oralhistory-test/masters/21198-zz002kp5wz-1-master.tif
         # TODO: Refactor to make this generic via an included library.
         
         # Currently supported only for Submaster
         if self.file_use in ['Submaster']:
             # Strip off first two elements of / delimited path, join the rest with /
-            url_path = '/'.join(file_path.split('/')[3:])
+            url_path = '/'.join(file_path.split('/')[2:])
             # Audio uses wowza, not static
             domain = 'https://wowza.library.ucla.edu'
             path_prefix = 'dlp/definst/mp3:oralhistory'
             path_suffix = 'playlist.m3u8'
-            return f'{domain}/{path_prefix}/{url_path}/{path_suffix}'
+            url = f'{domain}/{path_prefix}/{url_path}/{path_suffix}'
+            logger.info(f'{file_path = }, {url = }')
+            return url
         else:
             return file_path
