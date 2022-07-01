@@ -1,6 +1,7 @@
 import logging
 import mimetypes
 import os
+from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
 from django.db.models import F, Max
@@ -171,7 +172,7 @@ def get_related_file_group(media_type, target_file_use):
     return related_file_group
 
 
-def process_media_file(file_name, item_ark, file_group):
+def process_media_file(file_name, item_ark, file_group, request):
 
     try:
         media_type = calculate_media_type(file_name)
@@ -193,6 +194,8 @@ def process_media_file(file_name, item_ark, file_group):
 
         for content_file in content_file_data:
             update_db(content_file, item_ark)
+        # Add URL info for processed files to the request for later rendering.
+        messages.info(request, get_url_message(content_file_data))
 
     except AttributeError as ex:
         if media_type is None:
@@ -400,6 +403,19 @@ def update_db(content_file_data, item_ark):
     content_file_data.divid_fk_id = project_item.pk
     content_file_data.save()
 
+
+def get_url_message(content_file_data):
+    # Builds HTML containing URL(s) for generated content files
+    html = '<ul>'
+    for content_file in content_file_data:
+        if content_file.file_location.startswith('http'):
+            html += f'<li><a href="{content_file.file_location}"">{content_file.file_use}</a></li>'
+        else:
+            html += f'<li>{content_file.file_use} = {content_file.file_location}</li>'
+    html += '</ul>'
+    return html
+
+
 class Command(BaseCommand):
     help = 'Django management command to process files'
 
@@ -410,11 +426,14 @@ class Command(BaseCommand):
                             required=True, help='The full path of file to process')
         parser.add_argument('-g', '--file_group', type=str, required=True,
                             help='The file group of the file to process')
+        parser.add_argument('-r', '--request', required=False,
+                            help='The request from the view - do not use via command line')
 
     def handle(self, *args, **options):
         file_group = options['file_group']
         file_name = options['file_name']
         item_ark = options['item_ark']
+        request = options['request']
 
         # Log arguments, for now
         logger.info(f'\n\n===== Starting new run =====')
@@ -422,4 +441,4 @@ class Command(BaseCommand):
         logger.info(f'{file_name = }')
         logger.info(f'{item_ark = }')
 
-        process_media_file(file_name, item_ark, file_group)
+        process_media_file(file_name, item_ark, file_group, request)
