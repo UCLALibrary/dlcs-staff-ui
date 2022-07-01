@@ -4,7 +4,7 @@ import os
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.management.base import BaseCommand, CommandError
-from django.db.models import F, Max
+from django.db.models import F, Func, Max
 from oral_history.models import AdminValues, ContentFiles, FileGroups, Projects, ProjectItems
 from oral_history.scripts.audio_processor import AudioProcessor
 from oral_history.scripts.file_processor import FileProcessor
@@ -336,11 +336,15 @@ def get_next_seq_from_content_files(divid):
     cf = get_content_files_for_project_item(divid)
     
     if cf.exists():
-        seq_string = cf.aggregate(seq=Max('file_sequence'))['seq']
-        return int(seq_string) + 1 if len(seq_string) > 0 else 1
-    
+        seq = cf.annotate(
+            int_sequence=Func(F('file_sequence'), function='to_number')
+            ).aggregate(seq=Max('int_sequence'))['seq']
+        # seq will always be a positive integer, if cf.exists() is True
+        return seq + 1
     else:
+        # cf.exists() is False, no content_files exist, so start with 1
         return 1
+
 
 def get_new_content_file_name(item_ark, file_use, file_extension, file_seq_override = None):
     # Returned file name should be all lowercase and ark slash replaced with dash
