@@ -2,12 +2,14 @@
 
 {% block content %}
 Upload main media file for this item:<br>
-<br>
+<div class="box">
 {% for item in query_results %}
 {{ item.node_title }}<br>
 created_by: {{ item.created_by }}<br>
 item_ark: {{ item.item_ark }}<br>
 {% endfor %}
+</div>
+
 {% if messages %}
     {% for message in messages %}
     <div class="container-fluid p-0">
@@ -23,7 +25,9 @@ item_ark: {{ item.item_ark }}<br>
 <br>
 <form name="upload_file_form" method="POST" enctype="multipart/form-data" onsubmit="disable_upload_button(this);">
     {% csrf_token %}
-    {{ form.as_p }}
+    <table>
+    {{ form.as_table }}
+    </table>
     <button type="submit" id="upload_button">Upload</button>
 </form>
 {% endblock %}
