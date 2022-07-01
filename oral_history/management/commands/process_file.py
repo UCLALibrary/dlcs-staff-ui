@@ -76,11 +76,12 @@ def get_app_folder_name():
     proj_app_name = getattr(Projects.objects.get(
         pk=PROJECT_ID), "webapp_name")
 
-    # Override for TEST environment only
+    # Override for TEST environment only;
+    # converts '/oralhistory' to '/oralhistory/oralhistory-test'
     if os.getenv('DJANGO_RUN_ENV') == 'test':
-        proj_app_name += '-test'
-    app_folder_name = f"/{proj_app_name}"
-    
+        proj_app_name += f'/{proj_app_name}-test'
+    app_folder_name = f'/{proj_app_name}'
+
     return app_folder_name
 
 def get_folder_by_use(file_use):

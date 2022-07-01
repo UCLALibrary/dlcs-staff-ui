@@ -84,8 +84,12 @@ class AudioProcessor():
         
         # Currently supported only for Submaster
         if self.file_use in ['Submaster']:
-            # Strip off first two elements of / delimited path, join the rest with /
-            url_path = '/'.join(file_path.split('/')[2:])
+            # Strip off mount-related elements of / delimited path, join the rest with /
+            # Local dev paths are relative (no initial /), test/prod paths are absolute (initial /)
+            if file_path.startswith('/'):
+                url_path = '/'.join(file_path.split('/')[3:])
+            else:
+                url_path = '/'.join(file_path.split('/')[2:])
             # Audio uses wowza, not static
             domain = 'https://wowza.library.ucla.edu'
             path_prefix = 'dlp/definst/mp3:oralhistory'
