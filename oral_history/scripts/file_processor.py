@@ -74,8 +74,12 @@ class FileProcessor():
         
         # Currently supported only for Submaster and Thumbnail
         if self.file_use in ['Submaster', 'Thumbnail']:
-            # Strip off first two elements of / delimited path, join the rest with /
-            url_path = '/'.join(file_path.split('/')[2:])
+            # Strip off mount-related elements of / delimited path, join the rest with /
+            # Local dev paths are relative (no initial /), test/prod paths are absolute (initial /)
+            if file_path.startswith('/'):
+                url_path = '/'.join(file_path.split('/')[3:])
+            else:
+                url_path = '/'.join(file_path.split('/')[2:])
             domain = 'https://static.library.ucla.edu'
             url = f'{domain}/{url_path}'
             logger.info(f'{file_path = }, {url = }')
