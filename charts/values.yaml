@@ -48,6 +48,7 @@ django:
     oh_masterslz: ""
     oh_static: ""
     oh_wowza: ""
+    use_test_dirs: ""
 
   externalSecrets:
     enabled: "false"

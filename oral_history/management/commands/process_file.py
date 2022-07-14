@@ -76,9 +76,10 @@ def get_app_folder_name():
     proj_app_name = getattr(Projects.objects.get(
         pk=PROJECT_ID), "webapp_name")
 
-    # Override for TEST environment only;
+    # Override used in real TEST environment only;
     # converts '/oralhistory' to '/oralhistory/oralhistory-test'
-    if os.getenv('DJANGO_RUN_ENV') == 'test':
+    # Can't use DJANGO_RUN_ENV when in production on test k8s environment.
+    if os.getenv('DJANGO_USE_TEST_DIRS') == 'Yes':
         proj_app_name += f'/{proj_app_name}-test'
     app_folder_name = f'/{proj_app_name}'
 
