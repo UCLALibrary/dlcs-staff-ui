@@ -37,7 +37,10 @@ def calculate_destination_dir(media_type, item_ark, file_use):
 
         logger.info(f"{local_root = }, {app_folder = }, {media_folder =}")
     
-        full_dest_dir = f"{local_root}{app_folder}{media_folder}"
+        if os.getenv('DJANGO_USE_TEST_DIRS') == 'Yes':
+            full_dest_dir = f"{local_root}{app_folder}{media_folder}"
+        else:
+            full_dest_dir = f"{local_root}{media_folder}"
 
         return full_dest_dir 
     
