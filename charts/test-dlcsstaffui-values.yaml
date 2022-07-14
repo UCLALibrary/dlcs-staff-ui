@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: uclalibrary/dlcs-staff-ui
-  tag: v0.9.0
+  tag: v1.0.0
   pullPolicy: Always
 
 nameOverride: ""
@@ -42,7 +42,8 @@ django:
     log_level: "INFO"
     allowed_hosts:
       - dlcs-staff.library.ucla.edu
-    db_dsn: "dba-lib-odb-q01.it.ucla.edu:1521/DLCS"
+    # Now pointing to production db, from test k8s environment
+    db_dsn: "dba-lib-odb-p01.it.ucla.edu:1521/DLCS"
     db_user: "dlcs"
     # Specific directory used for source files
     dlcs_file_source: "/media/oh_source/upload"
@@ -50,6 +51,8 @@ django:
     oh_masterslz: "/media/oh_lz"
     oh_static: "/media/oh_static"
     oh_wowza: "/media/oh_wowza"
+    # "Yes" or "No"
+    use_test_dirs: "No"
 
   externalSecrets:
     enabled: "true"
