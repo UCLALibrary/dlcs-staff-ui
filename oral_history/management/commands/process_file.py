@@ -83,7 +83,7 @@ def get_app_folder_name():
     # converts '/oralhistory' to '/oralhistory/oralhistory-test'
     # Can't use DJANGO_RUN_ENV when in production on test k8s environment.
     if os.getenv('DJANGO_USE_TEST_DIRS') == 'Yes':
-        proj_app_name += f'/{proj_app_name}-test'
+        proj_app_name = f'/{proj_app_name}-test'
     app_folder_name = f'/{proj_app_name}'
 
     return app_folder_name
