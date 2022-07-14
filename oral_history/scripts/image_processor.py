@@ -95,7 +95,7 @@ class ImageProcessor():
                 url_path = '/'.join(file_path.split('/')[3:])
             else:
                 url_path = '/'.join(file_path.split('/')[2:])
-            domain = 'https://static.library.ucla.edu'
+            domain = 'https://static.library.ucla.edu/oralhistory'
             url = f'{domain}/{url_path}'
             logger.info(f'{file_path = }, {url = }')
             return url
